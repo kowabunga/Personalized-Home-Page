@@ -1,0 +1,182 @@
+* {
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0.5em;
+  grid-gap: 0px;
+}
+
+body {
+  background-color: #d6d2d2;
+}
+
+.head {
+  display: -ms-grid;
+  display: grid;
+  background-color: #fff;
+  width: 100%;
+  height: 15em;
+  -ms-grid-columns: 2fr 1fr;
+      grid-template-columns: 2fr 1fr;
+      grid-template-areas: 'weather clock';
+  -webkit-box-shadow: 0px 2px 5px #777676;
+          box-shadow: 0px 2px 5px #777676;
+  background-image: -webkit-gradient(linear, right top, left bottom, from(#12f1f1), to(#1abae2));
+  background-image: linear-gradient(to bottom left, #12f1f1, #1abae2);
+  color: white;
+}
+
+.head .weather {
+  font-size: 1.5em;
+  grid-area: 'weather';
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 0.5fr 2.5fr;
+      grid-template-columns: 0.5fr 2.5fr;
+      grid-template-areas: 'icon info';
+}
+
+.head .weather #weather-icon {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: icon;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+.head .weather #weather-info {
+  line-height: 1.5;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: info;
+  text-align: center;
+}
+
+.head .time {
+  display: -ms-grid;
+  display: grid;
+  grid-area: 'clock';
+  -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  font-size: 1.5em;
+}
+
+.container {
+  background-color: #fff;
+  width: 100%;
+}
+
+.container .row1 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-auto-rows: -webkit-max-content;
+  grid-auto-rows: max-content;
+      grid-template-areas: 'news quotes';
+}
+
+.container .row1 .news {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: news;
+  -webkit-box-shadow: 0px 1px 1px #c5c4c4;
+          box-shadow: 0px 1px 1px #c5c4c4;
+  border-radius: 3px;
+}
+
+.container .row1 .cnquotes {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: quotes;
+  -webkit-box-shadow: 0px 1px 1px #c5c4c4;
+          box-shadow: 0px 1px 1px #c5c4c4;
+  border-radius: 3px;
+}
+
+.container .row2 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-auto-rows: -webkit-max-content;
+  grid-auto-rows: max-content;
+      grid-template-areas: 'something search';
+}
+
+.container .row2 .ddgsearch {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: search;
+  -webkit-box-shadow: 0px 1px 1px #c5c4c4;
+          box-shadow: 0px 1px 1px #c5c4c4;
+  border-radius: 3px;
+}
+
+.container .row2 .something {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: something;
+  -webkit-box-shadow: 0px 1px 1px #c5c4c4;
+          box-shadow: 0px 1px 1px #c5c4c4;
+  border-radius: 3px;
+}
+
+@media (max-width: 500px) {
+  .head .weather {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas: 'info';
+    -ms-flex-item-align: start;
+        -ms-grid-row-align: start;
+        align-self: start;
+  }
+  .head .weather #weather-icon {
+    display: none;
+  }
+  .head .time {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    -ms-grid-column-align: center;
+        justify-self: center;
+  }
+  .container .row1 {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas: 'news' 'quotes';
+  }
+  .container .row2 {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas: "search" "something";
+  }
+  .time {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 410px) {
+  .head .weather {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas: 'info';
+    font-size: 1.1em;
+    -ms-flex-item-align: start;
+        -ms-grid-row-align: start;
+        align-self: start;
+  }
+  .head .weather #weather-icon {
+    display: none;
+  }
+}
