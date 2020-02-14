@@ -1,7 +1,8 @@
 const weather = new Weather('Astoria', 'NY', 'US');
+const news = new News();
 const ui = new UI();
 
-// Weather
+// Get Weather
 function fetchWeather() {
   weather
     .getWeather()
@@ -9,6 +10,15 @@ function fetchWeather() {
     .catch(err => console.log(err));
 }
 fetchWeather();
+
+// Get News
+function fetchNews() {
+  news
+    .getNews()
+    .then(results => ui.populateNews(results))
+    .catch(err => console.log(err));
+}
+fetchNews();
 
 // Clock
 function getTimeDate() {
