@@ -1,12 +1,16 @@
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
 * {
   margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 0.5em;
   grid-gap: 5px;
+  font-family: 'Lato', sans-serif;
 }
 
+html,
 body {
+  padding: 0 !important;
   background-color: #d6d2d2;
 }
 
@@ -27,7 +31,7 @@ body {
 }
 
 .head .weather {
-  font-size: 2em;
+  font-size: 1.5em;
   grid-area: 'weather';
   display: -ms-grid;
   display: grid;
@@ -45,30 +49,32 @@ body {
       align-self: center;
   -ms-grid-column-align: center;
       justify-self: center;
+  max-height: 200px;
 }
 
 .head .weather #weather-info {
   line-height: 1.5;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  -ms-flex-item-align: start;
+      -ms-grid-row-align: start;
+      align-self: start;
   -ms-grid-column-align: center;
       justify-self: center;
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: info;
   text-align: center;
+  max-height: 200px;
 }
 
 .head .time {
   display: -ms-grid;
   display: grid;
   grid-area: 'clock';
-  -ms-grid-row-align: center;
-      align-self: center;
+  -ms-grid-row-align: start;
+      align-self: start;
   -ms-grid-column-align: center;
       justify-self: center;
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 .container {
@@ -83,12 +89,13 @@ body {
   display: grid;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
-      grid-template-areas: 'news quotes';
+      grid-template-areas: 'news dailyQuotes' 'news chuckQuotes';
 }
 
 .container .row1 .news {
   position: relative;
   -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
   -ms-grid-column: 1;
   grid-area: news;
   -webkit-box-shadow: 0px 0px 1px #c5c4c4;
@@ -112,13 +119,66 @@ body {
   line-height: 1.7;
 }
 
-.container .row1 .cnquotes {
+.container .row1 .quote-of-the-day {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
-  grid-area: quotes;
+  grid-area: dailyQuotes;
   -webkit-box-shadow: 0px 0px 1px #c5c4c4;
           box-shadow: 0px 0px 1px #c5c4c4;
   border-radius: 3px;
+}
+
+.container .row1 .chuck-norris-quotes {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: chuckQuotes;
+  -webkit-box-shadow: 0px 0px 1px #c5c4c4;
+          box-shadow: 0px 0px 1px #c5c4c4;
+  border-radius: 3px;
+  max-width: 100%;
+  max-height: 500px;
+  overflow: scroll;
+}
+
+.container .row1 .chuck-norris-quotes #cnInput {
+  width: 70%;
+  border: 1px solid #bdbbbb;
+  border-radius: 3px;
+  height: 3.5em;
+  background-color: #f5f4f4;
+  margin-right: .5em;
+}
+
+.container .row1 .chuck-norris-quotes #cnInput:focus {
+  -webkit-box-shadow: 0px 0px 4px #19bbe0;
+          box-shadow: 0px 0px 4px #19bbe0;
+}
+
+.container .row1 .chuck-norris-quotes #chuck-norris-quotes-btn {
+  border-radius: 3px;
+  border: none;
+  color: white;
+  background-color: #19bbe0;
+  height: 3.5em;
+  cursor: pointer;
+}
+
+.container .row1 .chuck-norris-quotes #chuck-norris-quotes-btn:hover {
+  background-color: #06b0d6;
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+}
+
+.container .row1 .chuck-norris-quotes #cnQuotes-list li:nth-child(odd) {
+  margin-bottom: 5px;
+  border-radius: 3px;
+  background-color: #f0f0f0;
+}
+
+.container .row1 .chuck-norris-quotes #cnQuotes-list li:nth-child(even) {
+  margin-bottom: 5px;
+  border-radius: 3px;
+  background-color: #dbdddd;
 }
 
 .container .row2 {
@@ -152,6 +212,7 @@ body {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
         grid-template-areas: 'info';
+    font-size: 1.3em;
     -ms-flex-item-align: start;
         -ms-grid-row-align: start;
         align-self: start;
@@ -169,7 +230,10 @@ body {
   .container .row1 {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
-        grid-template-areas: 'news' 'quotes';
+        grid-template-areas: 'news' 'dailyQuotes' 'chuckQuotes';
+  }
+  .container .row1 .news {
+    min-width: 100%;
   }
   .container .row2 {
     -ms-grid-columns: 1fr;

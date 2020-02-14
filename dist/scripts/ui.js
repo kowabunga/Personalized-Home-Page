@@ -8,6 +8,8 @@ class UI {
     this.clockTime = document.getElementById('clock-time');
     this.date = document.getElementById('date');
     this.news = document.getElementById('news');
+    this.cnQuotes = document.getElementById('quotes-section');
+    this.qotd = document.getElementById('qotd');
   }
   //   Populate Weather section
   populateWeather(weather) {
@@ -79,9 +81,6 @@ class UI {
     let author;
     let output = '';
     items.forEach(item => {
-      // developer api version returns a truncated content ending with "[+x chars]"
-      // Split by space and remove the last two array items - i.e. the [+x and chars]
-      // join array and replace ,'s with space's globally
       let content = '';
       // Sometimes, content can be returned as null, ergo only make content something when it is
       if (item.content !== null) {
@@ -89,6 +88,7 @@ class UI {
       } else {
         content = 'No story here.';
       }
+      // Developer plan for API returns truncated content ending with [+x chars] at end, remove this nuisance
       //Escape (\) and match everything (.*?) between [ and ]
       content = content.replace(/\[(.*?)\]/, ' ');
       // api may return null or empty string if author is not known, handle this by making author either "unknown" or known author name
@@ -99,7 +99,7 @@ class UI {
       }
       output += `
       <li style="list-style-type:none;">
-        <div class='card'><em>${item.title}</em> <br><br> <em>Author: ${author}</em> <br> ${content}
+        <div class='card'><b>${item.title}</b> <br><br> <em>Author: ${author}</em> <br> ${content}
           <a href=${item.url} target="_blank" class="link">Read More<a>
         </div>
       </li>`;
@@ -112,6 +112,26 @@ class UI {
       <ul>
         ${output}
       </ul>
+    `;
+  }
+
+  populateDailyQuote(quote) {
+    console.log(quote);
+    quote = quote.contents.quotes[0];
+    let output = `<p><strong>${quote.title}</strong> <br> Author:<em>${quote.author}</em> <br>"${quote.quote}"</p>`;
+    this.qotd.innerHTML = output;
+  }
+
+  populateChuckNorrisQuotes(quotes) {
+    quotes = quotes.value;
+    let output = '';
+    quotes.forEach(quote => {
+      output += `<li>${quote.joke}</li>`;
+    });
+    this.cnQuotes.innerHTML = `
+      <ol id='cnQuotes-list'>
+        ${output}
+      </ol>
     `;
   }
 }

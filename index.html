@@ -11,7 +11,6 @@
     <header class="head">
       <!-- weather setion -->
       <section class="weather">
-        <img id="weather-icon" />
         <div id="weather-info">
           <div id="bar1">
             <span id="info"></span>
@@ -22,6 +21,7 @@
             <span id="humidity"></span>
           </div>
         </div>
+        <img id="weather-icon" />
       </section>
       <!-- time section -->
       <section class="time">
@@ -33,14 +33,32 @@
     <div class="container">
       <div class="row1">
         <section class="news" id="news"></section>
-        <section class="cnquotes" id="quotes">quotes test</section>
+        <section class="quote-of-the-day" id="quotes">
+        <div class="attribution">
+          Daily Quote provided by:
+          <span style="z-index:50;font-size:0.9em;">
+            <img src="https://theysaidso.com/branding/theysaidso.png" height="40" width="40" alt="theysaidso.com"/><a href="https://theysaidso.com" title="Powered by quotes from theysaidso.com" style="color: #9fcc25; margin-left: 4px; vertical-align: middle;">theysaidso.com</a>
+          </span>
+        </div>
+        <div id=qotd></div>
+        </section>
+
+        <section class ="chuck-norris-quotes" id="cnquotes">
+          <h3>Laughable Quotes From Who Else but Chuck Norris</h3>
+          <form >
+            <input id='cnInput' type="number" placeholder="Number of Chuck Norris Quotes...">
+            <button id='chuck-norris-quotes-btn'>Request Quotes</button>
+          </form>
+          <div id=quotes-section></div>
+        </section>
       </div>
       <div class="row2">
         <section class="ddgsearch" id="search">search test</section>
         <section class="something" id="something">something test</section>
       </div>
     </div>
-    <script src="/dist/scripts/news.js"></script>
+    <script src="dist/scripts/quotes.js"></script>
+    <script src="dist/scripts/news.js"></script>
     <script src="dist/scripts/weather.js"></script>
     <script src="dist/scripts/ui.js"></script>
     <script src="dist/scripts/app.js"></script>
