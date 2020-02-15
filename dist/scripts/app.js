@@ -10,29 +10,21 @@ const cnInputNumber = document.getElementById('cnInput');
 const cnInputBtn = document.getElementById('chuck-norris-quotes-btn');
 
 // For link toggle on small screens, toggle dropdown on icon click
+// change toggle icon from bars to x on open state, revert on close
 const toggleBtn = document.getElementById('toggler-icon');
 toggleBtn.addEventListener('click', e => {
   e.preventDefault();
   document.querySelector('.navbar').classList.toggle('responsive');
   if (document.querySelector('.navbar').classList.contains('responsive')) {
     toggleBtn.style.color = 'black';
+    toggleBtn.className = 'fa fa-remove fa-2x';
   } else {
     toggleBtn.style.color = 'white';
+    toggleBtn.className = 'fa fa-bars fa-2x';
   }
 });
 
 // change background dynamically, once per hour (for simplicity)
-
-const link = `https://source.unsplash.com/random/1920x1080`;
-const body = document.body;
-function changeBackground() {
-  body.style.backgroundImage = `url(https://source.unsplash.com/random/1920x1080)`;
-  body.style.backgroundSize = 'cover';
-  body.style.backgroundAttachment = 'fixed';
-  body.style.backgroundPosition = 'top';
-}
-changeBackground();
-setInterval(changeBackground, 3600000);
 
 // Get Weather
 function fetchWeather() {
@@ -128,3 +120,14 @@ function getDefinition(e) {
     }, 1000);
   }
 }
+
+// if add task button is clicked
+const taskAddBtn = document.getElementById('add-task');
+taskAddBtn.addEventListener('click', ui.addItemToToDoList);
+
+// if remove task button (x) is clicked
+const taskRemoveBtn = document.querySelector('.list-items');
+taskRemoveBtn.addEventListener('click', ui.removeItemFromToDoList);
+
+// on load, bring items from local storage into to do list
+document.addEventListener('DOMContentLoaded', ui.getFromLocalStorage);

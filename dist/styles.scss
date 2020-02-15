@@ -1,51 +1,44 @@
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 
-
 * {
   margin: 0;
   box-sizing: border-box;
   padding: 0.5em;
-  grid-gap: 10px;
+  grid-gap: 20px;
   font-family: 'Lato', sans-serif;
+  color: white;
 }
 
-
-
+html,
 body {
   padding: 0 !important;
-  background: url();
+  background-image: linear-gradient(to bottom left, rgb(110, 127, 204), rgb(18, 241, 241))
 }
-
 
 .head {
   display: grid;
-  position: relative;
   width: 100%;
   height: 15em;
   grid-template-columns: 2fr 1fr;
   grid-template-areas: 'weather clock';
   box-shadow: 0px 2px 5px rgb(119, 118, 118);
   background-image: linear-gradient(to bottom left, rgb(110, 127, 204), rgb(18, 241, 241));
-  color: white;
 
   .weather {
     font-size: 1.3em;
     grid-area: 'weather';
     display: grid;
-    grid-template-columns: 0.5fr 2.5fr;
+    grid-template-columns: 0.5fr 4fr;
     grid-template-areas: 'icon info';
 
     #weather-icon {
       grid-area: icon;
       align-self: center;
       justify-self: center;
-      max-height: 200px;
     }
 
     #weather-info {
       line-height: 1.5;
-      align-self: start;
-      justify-self: center;
       grid-area: info;
       text-align: center;
       max-height: 200px;
@@ -55,19 +48,21 @@ body {
   .time {
     display: grid;
     grid-area: 'clock';
-    align-self: start;
+    align-self: center;
     justify-self: center;
     font-size: 1.5em;
   }
 }
 
 
+// for mobile dropdown 
 .navbar.responsive li {
   display: block;
+
 }
 
-nav {
 
+nav {
   width: 100%;
 
   a {
@@ -75,22 +70,22 @@ nav {
   }
 
   #toggler-icon {
-    color: white;
     display: none;
   }
 
   ul {
     // display: flex;
     display: grid;
+    // set to auto arrange positions in grid when resizing window
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
     background-image: linear-gradient(to bottom left, rgb(18, 241, 241), rgb(110, 127, 204));
+    box-shadow: 0px 2px 5px rgb(119, 118, 118);
 
     li {
       list-style-type: none;
 
       a {
         text-decoration: none;
-        color: white;
       }
 
       a:hover {
@@ -101,9 +96,6 @@ nav {
     }
   }
 }
-
-
-
 
 .container {
   width: 100%;
@@ -117,8 +109,6 @@ nav {
 
     .news {
       background-color: rgb(52, 58, 64);
-      color: white;
-      position: relative;
       grid-area: news;
       box-shadow: 0px 0px 1px rgb(197, 196, 196);
       border-radius: 3px;
@@ -143,7 +133,6 @@ nav {
 
     .quote-of-the-day {
       background-color: rgb(52, 58, 64);
-      color: white;
       grid-area: dailyQuotes;
       box-shadow: 0px 0px 1px rgb(197, 196, 196);
       border-radius: 3px;
@@ -155,11 +144,9 @@ nav {
 
     .chuck-norris-quotes {
       background-color: rgb(52, 58, 64);
-      color: white;
       grid-area: chuckQuotes;
       box-shadow: 0px 0px 1px rgb(197, 196, 196);
       border-radius: 3px;
-      max-width: 100%;
       max-height: 500px;
       overflow: scroll;
 
@@ -169,6 +156,7 @@ nav {
         border-radius: 3px;
         height: 4.2em;
         background-color: rgb(245, 244, 244);
+        color: black;
         margin-right: .5em;
       }
 
@@ -181,7 +169,6 @@ nav {
         font-size: 13px;
         border-radius: 3px;
         border: none;
-        color: white;
         background-color: rgb(25, 187, 224);
         height: 3.5em;
         cursor: pointer;
@@ -212,15 +199,12 @@ nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
-      'dictionary'
-      'something';
+      'dictionary toDoList';
 
 
     .dictionary {
-      display: grid;
       text-align: center;
       background-color: rgb(52, 58, 64);
-      color: white;
       grid-area: dictionary;
       box-shadow: 0px 0px 1px rgb(197, 196, 196);
       border-radius: 3px;
@@ -231,6 +215,7 @@ nav {
       #wordInput {
         width: 70%;
         border: 1px solid rgb(189, 187, 187);
+        color: black;
         border-radius: 3px;
         height: 4.2em;
         background-color: rgb(245, 244, 244);
@@ -248,7 +233,6 @@ nav {
         width: 40%;
         border-radius: 3px;
         border: none;
-        color: white;
         background-color: rgb(25, 187, 224);
         height: 3.5em;
         cursor: pointer;
@@ -257,6 +241,76 @@ nav {
       #wordSubmit:hover {
         background-color: rgb(6, 176, 214);
         transition: ease .3s;
+      }
+    }
+
+    .to-doList {
+      text-align: center;
+      background-color: rgb(52, 58, 64);
+      grid-area: toDoList;
+      box-shadow: 0px 0px 1px rgb(197, 196, 196);
+      border-radius: 3px;
+      max-width: 100%;
+      max-height: 500px;
+      overflow: scroll;
+
+      #task-input {
+        width: 50%;
+        border: 1px solid rgb(189, 187, 187);
+        color: black;
+        border-radius: 3px;
+        height: 4.2em;
+        background-color: rgb(245, 244, 244);
+        margin-right: .5em;
+      }
+
+      #task-input:focus {
+        transition: ease .2s;
+        border-color: rgb(25, 187, 224);
+      }
+
+      #add-task {
+        font-size: 13px;
+        margin-top: 5px;
+        width: 40%;
+        border-radius: 3px;
+        border: none;
+        background-color: rgb(25, 187, 224);
+        height: 3.5em;
+        cursor: pointer;
+      }
+
+      #add-task:hover {
+        background-color: rgb(6, 176, 214);
+        transition: ease .3s;
+      }
+
+
+      .list-items {
+        list-style-type: none;
+
+        .list-item {
+          position: relative;
+          background-color: rgb(219, 221, 221);
+          color: black;
+          height: 2.8em;
+          border-radius: 3px;
+          text-align: left;
+          line-height: 1.7;
+          margin-bottom: 5px;
+
+          .delete-item {
+            position: absolute;
+            top: 0px;
+            right: 5px;
+            cursor: pointer;
+
+            .fas.fa-times {
+              color: rgb(226, 67, 67);
+              ;
+            }
+          }
+        }
       }
     }
   }
@@ -321,13 +375,17 @@ nav {
       .chuck-norris-quotes {
         text-align: center;
       }
+
+      #chuck-norris-quotes-btn {
+        margin-top: 5px;
+      }
     }
 
     .row2 {
       grid-template-columns: 1fr;
       grid-template-areas:
         'dictionary'
-        'something';
+        'toDoList';
     }
   }
 }

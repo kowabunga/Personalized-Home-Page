@@ -177,4 +177,108 @@ class UI {
     `;
     }
   }
+
+  // add item to to do list
+  addItemToToDoList(e) {
+    e.preventDefault();
+    const taskList = document.getElementById('task-input');
+    if (taskList.value === '') {
+      taskList.style.border = '1px solid red';
+      taskList.setAttribute('placeholder', 'PLEASE ENTER A TASK FIRST');
+    } else {
+      taskList.style.border = 'none';
+      taskList.setAttribute('placeholder', 'Enter task...');
+      // create new li
+      const li = document.createElement('li');
+      // add li class
+      li.className = 'list-item';
+      // append text node containing user input to li item
+      li.appendChild(document.createTextNode(taskList.value));
+      // create 'a' element to list and add classes/html
+      const link = document.createElement('a');
+      link.className = 'delete-item';
+      link.innerHTML = '<i class="fas fa-times"></i>';
+
+      // append 'a' element to li
+      li.appendChild(link);
+      document.querySelector('.list-items').append(li);
+
+      // add to local storage
+      ui.addToLocalStorage(taskList.value);
+      // clear input
+      taskList.value = '';
+    }
+  }
+  // remove item from to do list
+  removeItemFromToDoList(e) {
+    e.preventDefault();
+    // if i->a->contains 'delete item'
+    if (e.target.parentElement.classList.contains('delete-item')) {
+      // remove i->a->li
+      e.target.parentElement.parentElement.remove();
+    }
+    ui.removeFromLocalStorage(e.target.parentElement.parentElement);
+  }
+
+  // add item to local storage
+  addToLocalStorage(task) {
+    let tasks;
+    // if local storage is empty, make tasks an empty array
+    if (localStorage.getItem('tasks') === null) {
+      tasks = [];
+    } else {
+      // if local storage not empty, load tasks from local storage into tasks
+      tasks = JSON.parse(localStorage.getItem('tasks'));
+    }
+    // append new task to tasks and add to local storage
+    tasks.push(task);
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }
+
+  // remove item from local storage
+  removeFromLocalStorage(taskItem) {
+    let tasks;
+    // if local storage is empty, make tasks an empty array
+    if (localStorage.getItem('tasks') === null) {
+      tasks = [];
+    } else {
+      // if local storage not empty, load tasks from local storage into tasks
+      tasks = JSON.parse(localStorage.getItem('tasks'));
+    }
+    // loop through tasks. If the current task item has the same content as the task item to be removed, remove it from local storage
+    tasks.forEach((task, index) => {
+      console.log(taskItem.textContent, task);
+      if (taskItem.textContent === task) {
+        tasks.splice(index, 1);
+      }
+    });
+    // store updated tasks in local storage
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }
+
+  getFromLocalStorage() {
+    let tasks;
+    if (localStorage.getItem('tasks') === null) {
+      tasks = [];
+    } else {
+      tasks = JSON.parse(localStorage.getItem('tasks'));
+      tasks.forEach(task => {
+        // create new li
+        const li = document.createElement('li');
+        // add li class
+        li.className = 'list-item';
+        // append text node containing user input to li item
+        li.appendChild(document.createTextNode(task));
+        // create 'a' element to list and add classes/html
+        const link = document.createElement('a');
+        link.className = 'delete-item';
+        link.innerHTML = '<i class="fas fa-times"></i>';
+
+        // append 'a' element to li
+        li.appendChild(link);
+        document.querySelector('.list-items').append(li);
+        // clear input
+      });
+    }
+  }
 }
