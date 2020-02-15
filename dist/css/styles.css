@@ -238,7 +238,7 @@ nav ul li a:hover {
   display: grid;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
-      grid-template-areas: "dictionary" "something";
+      grid-template-areas: 'dictionary' 'something';
 }
 
 .container .row2 .dictionary {
@@ -335,6 +335,14 @@ nav ul li a:hover {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
         grid-template-areas: 'news' 'dailyQuotes' 'chuckQuotes';
+  }
+  .container .row1 .chuck-norris-quotes {
+    text-align: center;
+  }
+  .container .row2 {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas: 'dictionary' 'something';
   }
 }
 

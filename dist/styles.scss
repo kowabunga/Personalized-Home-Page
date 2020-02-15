@@ -211,7 +211,9 @@ nav {
   .row2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: 'dictionary''something';
+    grid-template-areas:
+      'dictionary'
+      'something';
 
 
     .dictionary {
@@ -315,6 +317,17 @@ nav {
         'news'
         'dailyQuotes'
         'chuckQuotes';
+
+      .chuck-norris-quotes {
+        text-align: center;
+      }
+    }
+
+    .row2 {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'dictionary'
+        'something';
     }
   }
 }
