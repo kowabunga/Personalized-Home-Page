@@ -130,7 +130,8 @@ nav ul li a:hover {
 }
 
 .container .row1 .news {
-  background-color: #fff;
+  background-color: #343a40;
+  color: white;
   position: relative;
   -ms-grid-row: 1;
   -ms-grid-row-span: 2;
@@ -140,7 +141,7 @@ nav ul li a:hover {
           box-shadow: 0px 0px 1px #c5c4c4;
   border-radius: 3px;
   max-width: 100%;
-  max-height: 500px;
+  max-height: 625px;
   overflow: scroll;
 }
 
@@ -150,6 +151,7 @@ nav ul li a:hover {
 }
 
 .container .row1 .news .card {
+  background-color: #929292;
   border: 1px solid #bdbbbb;
   -webkit-box-shadow: 0px 0px 2px #777676;
           box-shadow: 0px 0px 2px #777676;
@@ -158,7 +160,8 @@ nav ul li a:hover {
 }
 
 .container .row1 .quote-of-the-day {
-  background-color: #fff;
+  background-color: #343a40;
+  color: white;
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: dailyQuotes;
@@ -167,8 +170,13 @@ nav ul li a:hover {
   border-radius: 3px;
 }
 
+.container .row1 ul {
+  list-style-type: none;
+}
+
 .container .row1 .chuck-norris-quotes {
-  background-color: #fff;
+  background-color: #343a40;
+  color: white;
   -ms-grid-row: 2;
   -ms-grid-column: 2;
   grid-area: chuckQuotes;
@@ -184,17 +192,19 @@ nav ul li a:hover {
   width: 70%;
   border: 1px solid #bdbbbb;
   border-radius: 3px;
-  height: 3.5em;
+  height: 4.2em;
   background-color: #f5f4f4;
   margin-right: .5em;
 }
 
 .container .row1 .chuck-norris-quotes #cnInput:focus {
-  -webkit-box-shadow: 0px 0px 4px #19bbe0;
-          box-shadow: 0px 0px 4px #19bbe0;
+  -webkit-transition: ease .2s;
+  transition: ease .2s;
+  border-color: #19bbe0;
 }
 
 .container .row1 .chuck-norris-quotes #chuck-norris-quotes-btn {
+  font-size: 13px;
   border-radius: 3px;
   border: none;
   color: white;
@@ -210,6 +220,7 @@ nav ul li a:hover {
 }
 
 .container .row1 .chuck-norris-quotes #cnQuotes-list li:nth-child(odd) {
+  color: black;
   margin-bottom: 5px;
   border-radius: 3px;
   background-color: #f0f0f0;
@@ -218,7 +229,66 @@ nav ul li a:hover {
 .container .row1 .chuck-norris-quotes #cnQuotes-list li:nth-child(even) {
   margin-bottom: 5px;
   border-radius: 3px;
+  color: black;
   background-color: #dbdddd;
+}
+
+.container .row2 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: "dictionary" "something";
+}
+
+.container .row2 .dictionary {
+  display: -ms-grid;
+  display: grid;
+  text-align: center;
+  background-color: #343a40;
+  color: white;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: dictionary;
+  -webkit-box-shadow: 0px 0px 1px #c5c4c4;
+          box-shadow: 0px 0px 1px #c5c4c4;
+  border-radius: 3px;
+  max-width: 100%;
+  max-height: 500px;
+  overflow: scroll;
+}
+
+.container .row2 .dictionary #wordInput {
+  width: 70%;
+  border: 1px solid #bdbbbb;
+  border-radius: 3px;
+  height: 4.2em;
+  background-color: #f5f4f4;
+  margin-right: .5em;
+}
+
+.container .row2 .dictionary #wordInput:focus {
+  -webkit-transition: ease .2s;
+  transition: ease .2s;
+  border-color: #19bbe0;
+}
+
+.container .row2 .dictionary #wordSubmit {
+  font-size: 13px;
+  margin-top: 5px;
+  width: 40%;
+  border-radius: 3px;
+  border: none;
+  color: white;
+  background-color: #19bbe0;
+  height: 3.5em;
+  cursor: pointer;
+}
+
+.container .row2 .dictionary #wordSubmit:hover {
+  background-color: #06b0d6;
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
 }
 
 @media (max-width: 500px) {

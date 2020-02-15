@@ -2,6 +2,7 @@ const weather = new Weather('New York', 'NY', 'US');
 const news = new News();
 const dayQuotes = new dailyQuotes();
 const cNorrisQuotes = new chuckNorrisQuotes();
+const dictionary = new Dictionary();
 const ui = new UI();
 
 // Get input value for selection of chuck norris quotes
@@ -95,3 +96,35 @@ function getTimeDate() {
   setTimeout(getTimeDate, 1000);
 }
 getTimeDate();
+
+// cache dom
+const wordInputBox = document.getElementById('wordInput'),
+  wordSubmitBtn = document.getElementById('wordSubmit');
+
+// on submit click,
+wordSubmitBtn.addEventListener('click', getDefinition);
+
+function getDefinition(e) {
+  e.preventDefault();
+  // get word input
+  const word = wordInputBox.value;
+
+  //   if input is not empty, select the first object that contains shortdef
+  if (wordInputBox.value !== '') {
+    dictionary
+      .getData(word)
+      .then(results => ui.addToList(word, results[0]))
+      .catch(err => console.log(err));
+  } else {
+    // if input is empty, add p element saying to enter word and temporarily disable get word button
+    const para = document.createElement('p');
+    para.innerText = 'Please enter a word';
+    // insert para after button
+    wordSubmitBtn.parentNode.insertBefore(para, wordSubmitBtn.nextSibling);
+    wordSubmitBtn.setAttribute('disabled', true);
+    setTimeout(() => {
+      para.remove();
+      wordSubmitBtn.removeAttribute('disabled');
+    }, 1000);
+  }
+}

@@ -7,4 +7,5 @@ A homepage designed to display not only some useful information such as time/dat
 - Continued practice with CSS Grid and Flexbox
 - Using a CSS preprocessor to format CSS - Sass in this case (.scss)
 - API usage and dynamically loading content from API
-- Finding the limitations of free-to-use API's
+  - Finding the limitations of free-to-use API's
+  - Maneuvering the nuances of APIs (e.g. when API's return null, undefined, empty string etc)

@@ -10,6 +10,7 @@ class UI {
     this.news = document.getElementById('news');
     this.cnQuotes = document.getElementById('quotes-section');
     this.qotd = document.getElementById('qotd');
+    this.wordSpot = document.getElementById('word');
   }
   //   Populate Weather section
   populateWeather(weather) {
@@ -134,9 +135,46 @@ class UI {
       output += `<li>${quote.joke}</li>`;
     });
     this.cnQuotes.innerHTML = `
-      <ol id='cnQuotes-list'>
+      <ul id='cnQuotes-list'>
         ${output}
-      </ol>
+      </ul>
     `;
+  }
+
+  addToList(word, definitions) {
+    //   defintions can be undefined if the api returns an empty array (can't find any matches whatsoever)
+    // when it does that, defintions comes in as undefined. If it is undefined (see else at end)
+    if (definitions !== undefined) {
+      //   function that creates the series of lists based on size of shortdef from API
+      function makeList(definitions) {
+        console.log(definitions);
+
+        if (definitions.shortdef !== undefined) {
+          let shortDefs = definitions.shortdef;
+          let listItems = '';
+          shortDefs.forEach(def => {
+            listItems += `<li>${def}</li>`;
+          });
+          return listItems;
+        } else {
+          return 'The word you entered is not a word. Please enter a proper word and try again.';
+        }
+      }
+
+      // insert h3 element with chosen word and ol (we want numbers) with returned li items from helper function above
+      this.wordSpot.innerHTML = `
+        <h3 >Chosen Word: <em>${word}<em></h3>
+        <ol id="word-definition">
+            ${makeList(definitions)}
+        </ol>
+    `;
+      document.getElementById('wordInput').value = '';
+    } else {
+      // Insert a p element saying it isn't a word if the defintions came in as undefined
+      this.wordSpot.innerHTML = `
+        <h3 >Chosen Word: <em>${word}<em></h3>
+        <p>This is not a word. Enter a different word.</p>
+    `;
+    }
   }
 }

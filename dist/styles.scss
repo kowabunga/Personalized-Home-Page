@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 
+
 * {
   margin: 0;
   box-sizing: border-box;
@@ -115,14 +116,14 @@ nav {
       'news chuckQuotes';
 
     .news {
-
-      background-color: #fff;
+      background-color: rgb(52, 58, 64);
+      color: white;
       position: relative;
       grid-area: news;
       box-shadow: 0px 0px 1px rgb(197, 196, 196);
       border-radius: 3px;
       max-width: 100%;
-      max-height: 500px;
+      max-height: 625px;
       overflow: scroll;
 
       .link {
@@ -131,6 +132,7 @@ nav {
       }
 
       .card {
+        background-color: rgb(146, 146, 146);
         border: 1px solid rgb(189, 187, 187);
         box-shadow: 0px 0px 2px rgb(119, 118, 118);
         border-radius: 3px;
@@ -140,15 +142,20 @@ nav {
     }
 
     .quote-of-the-day {
-
-      background-color: #fff;
+      background-color: rgb(52, 58, 64);
+      color: white;
       grid-area: dailyQuotes;
       box-shadow: 0px 0px 1px rgb(197, 196, 196);
       border-radius: 3px;
     }
 
+    ul {
+      list-style-type: none;
+    }
+
     .chuck-norris-quotes {
-      background-color: #fff;
+      background-color: rgb(52, 58, 64);
+      color: white;
       grid-area: chuckQuotes;
       box-shadow: 0px 0px 1px rgb(197, 196, 196);
       border-radius: 3px;
@@ -160,16 +167,18 @@ nav {
         width: 70%;
         border: 1px solid rgb(189, 187, 187);
         border-radius: 3px;
-        height: 3.5em;
+        height: 4.2em;
         background-color: rgb(245, 244, 244);
         margin-right: .5em;
       }
 
       #cnInput:focus {
-        box-shadow: 0px 0px 4px rgb(25, 187, 224);
+        transition: ease .2s;
+        border-color: rgb(25, 187, 224);
       }
 
       #chuck-norris-quotes-btn {
+        font-size: 13px;
         border-radius: 3px;
         border: none;
         color: white;
@@ -184,6 +193,7 @@ nav {
       }
 
       #cnQuotes-list li:nth-child(odd) {
+        color: black;
         margin-bottom: 5px;
         border-radius: 3px;
         background-color: rgb(240, 240, 240);
@@ -192,7 +202,59 @@ nav {
       #cnQuotes-list li:nth-child(even) {
         margin-bottom: 5px;
         border-radius: 3px;
+        color: black;
         background-color: rgb(219, 221, 221);
+      }
+    }
+  }
+
+  .row2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 'dictionary''something';
+
+
+    .dictionary {
+      display: grid;
+      text-align: center;
+      background-color: rgb(52, 58, 64);
+      color: white;
+      grid-area: dictionary;
+      box-shadow: 0px 0px 1px rgb(197, 196, 196);
+      border-radius: 3px;
+      max-width: 100%;
+      max-height: 500px;
+      overflow: scroll;
+
+      #wordInput {
+        width: 70%;
+        border: 1px solid rgb(189, 187, 187);
+        border-radius: 3px;
+        height: 4.2em;
+        background-color: rgb(245, 244, 244);
+        margin-right: .5em;
+      }
+
+      #wordInput:focus {
+        transition: ease .2s;
+        border-color: rgb(25, 187, 224);
+      }
+
+      #wordSubmit {
+        font-size: 13px;
+        margin-top: 5px;
+        width: 40%;
+        border-radius: 3px;
+        border: none;
+        color: white;
+        background-color: rgb(25, 187, 224);
+        height: 3.5em;
+        cursor: pointer;
+      }
+
+      #wordSubmit:hover {
+        background-color: rgb(6, 176, 214);
+        transition: ease .3s;
       }
     }
   }

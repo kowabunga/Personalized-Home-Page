@@ -62,6 +62,7 @@
         <section class="quote-of-the-day" id="quotes">
           <div class="attribution">
             Daily Quote provided by:
+            <!-- Following span provided by theysaidso API creators for attribution -->
             <span style="z-index:50;font-size:0.9em;">
               <img src="https://theysaidso.com/branding/theysaidso.png" height="40" width="40" alt="theysaidso.com" /><a
                 href="https://theysaidso.com"
@@ -83,7 +84,22 @@
           <div id="quotes-section"></div>
         </section>
       </div>
+      <div class="row2">
+        <section class="dictionary" id="dict">
+          <h1>Dictionary Searcher</h1>
+          <h3>Search the Merriam Webster Dictionary for a Word!</h3>
+          <form>
+            <input type="text" id="wordInput" placeholder="Enter Word to Get Defintion" />
+            <button id="wordSubmit">Get Definition</button>
+          </form>
+          <br />
+          <br />
+          <div id="word" class="mt-3"></div>
+        </section>
+        <section class="something" id="something">something test</section>
+      </div>
     </div>
+    <script src="dist/scripts/dictionary.js"></script>
     <script src="dist/scripts/quotes.js"></script>
     <script src="dist/scripts/news.js"></script>
     <script src="dist/scripts/weather.js"></script>
