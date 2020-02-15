@@ -17,7 +17,7 @@
             <br />
             <span id="temperature"></span>
             <br />
-            <span id="feels-like">/span>
+            <span id="feels-like"></span>
             <span id="humidity"></span>
           </div>
         </div>
@@ -29,32 +29,59 @@
         <div id="date"></div>
       </section>
     </header>
+    <nav class="navbar">
+      <ul>
+        <li>
+          <a href="https://www.amazon.com" target="_blank">Amazon</a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com" target="_blank">Youtube</a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com" target="_blank">Facebook</a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com" target="_blank">Instagram</a>
+        </li>
+        <li>
+          <a href="https://www.twitter.com" target="_blank">Twitter</a>
+        </li>
+        <li>
+          <a href="https://www.pinterest.com" target="_blank">Pinterest</a>
+        </li>
+        <li>
+          <a href="https://www.espn.com">ESPN</a>
+        </li>
+        <a href="#"><i class="fa fa-bars fa-2x" id="toggler-icon"></i></a>
+      </ul>
+    </nav>
     <!-- rest of page -->
     <div class="container">
       <div class="row1">
         <section class="news" id="news"></section>
         <section class="quote-of-the-day" id="quotes">
-        <div class="attribution">
-          Daily Quote provided by:
-          <span style="z-index:50;font-size:0.9em;">
-            <img src="https://theysaidso.com/branding/theysaidso.png" height="40" width="40" alt="theysaidso.com"/><a href="https://theysaidso.com" title="Powered by quotes from theysaidso.com" style="color: #9fcc25; margin-left: 4px; vertical-align: middle;">theysaidso.com</a>
-          </span>
-        </div>
-        <div id=qotd></div>
+          <div class="attribution">
+            Daily Quote provided by:
+            <span style="z-index:50;font-size:0.9em;">
+              <img src="https://theysaidso.com/branding/theysaidso.png" height="40" width="40" alt="theysaidso.com" /><a
+                href="https://theysaidso.com"
+                title="Powered by quotes from theysaidso.com"
+                style="color: #9fcc25; margin-left: 4px; vertical-align: middle;"
+                >theysaidso.com</a
+              >
+            </span>
+          </div>
+          <div id="qotd"></div>
         </section>
 
-        <section class ="chuck-norris-quotes" id="cnquotes">
+        <section class="chuck-norris-quotes" id="cnquotes">
           <h3>Laughable Quotes From Who Else but Chuck Norris</h3>
-          <form >
-            <input id='cnInput' type="number" placeholder="Number of Chuck Norris Quotes...">
-            <button id='chuck-norris-quotes-btn'>Request Quotes</button>
+          <form>
+            <input id="cnInput" type="number" placeholder="Number of Chuck Norris Quotes..." />
+            <button id="chuck-norris-quotes-btn">Request Quotes</button>
           </form>
-          <div id=quotes-section></div>
+          <div id="quotes-section"></div>
         </section>
-      </div>
-      <div class="row2">
-        <section class="ddgsearch" id="search">search test</section>
-        <section class="something" id="something">something test</section>
       </div>
     </div>
     <script src="dist/scripts/quotes.js"></script>

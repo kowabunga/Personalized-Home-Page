@@ -1,4 +1,4 @@
-const weather = new Weather('Astoria', 'NY', 'US');
+const weather = new Weather('New York', 'NY', 'US');
 const news = new News();
 const dayQuotes = new dailyQuotes();
 const cNorrisQuotes = new chuckNorrisQuotes();
@@ -7,6 +7,31 @@ const ui = new UI();
 // Get input value for selection of chuck norris quotes
 const cnInputNumber = document.getElementById('cnInput');
 const cnInputBtn = document.getElementById('chuck-norris-quotes-btn');
+
+// For link toggle on small screens, toggle dropdown on icon click
+const toggleBtn = document.getElementById('toggler-icon');
+toggleBtn.addEventListener('click', e => {
+  e.preventDefault();
+  document.querySelector('.navbar').classList.toggle('responsive');
+  if (document.querySelector('.navbar').classList.contains('responsive')) {
+    toggleBtn.style.color = 'black';
+  } else {
+    toggleBtn.style.color = 'white';
+  }
+});
+
+// change background dynamically, once per hour (for simplicity)
+
+const link = `https://source.unsplash.com/random/1920x1080`;
+const body = document.body;
+function changeBackground() {
+  body.style.backgroundImage = `url(https://source.unsplash.com/random/1920x1080)`;
+  body.style.backgroundSize = 'cover';
+  body.style.backgroundAttachment = 'fixed';
+  body.style.backgroundPosition = 'top';
+}
+changeBackground();
+setInterval(changeBackground, 3600000);
 
 // Get Weather
 function fetchWeather() {

@@ -15,7 +15,7 @@ class UI {
   populateWeather(weather) {
     this.weatherIcon.setAttribute('src', `http://openweathermap.org/img/w/${weather.weather[0].icon}.png`);
     this.info.innerText = `${weather.name}, ${weather.sys.country}`;
-    this.temp.innerText = `Actual temp: ${weather.main.temp}°F`;
+    this.temp.innerText = `Temp: ${weather.main.temp}°F`;
     this.feelsLike.innerText = `Feels like: ${weather.main.feels_like}°F`;
     this.humidity.innerText = `Humidity: ${weather.main.humidity}%`;
   }
@@ -117,8 +117,13 @@ class UI {
 
   populateDailyQuote(quote) {
     console.log(quote);
-    quote = quote.contents.quotes[0];
-    let output = `<p><strong>${quote.title}</strong> <br> Author:<em>${quote.author}</em> <br>"${quote.quote}"</p>`;
+    let output = '';
+    if (quote.contents !== undefined) {
+      quote = quote.contents.quotes[0];
+      output += `<p><strong>${quote.title}</strong> <br> Author:<em>${quote.author}</em> <br>"${quote.quote}"</p>`;
+    } else {
+      output = 'Awaiting new awesome quotes!';
+    }
     this.qotd.innerHTML = output;
   }
 

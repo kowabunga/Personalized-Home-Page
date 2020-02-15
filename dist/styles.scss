@@ -4,29 +4,31 @@
   margin: 0;
   box-sizing: border-box;
   padding: 0.5em;
-  grid-gap: 5px;
+  grid-gap: 10px;
   font-family: 'Lato', sans-serif;
 }
 
-html,
+
+
 body {
   padding: 0 !important;
-  background-color: rgb(214, 210, 210);
+  background: url();
 }
+
 
 .head {
   display: grid;
-  background-color: #fff;
+  position: relative;
   width: 100%;
   height: 15em;
   grid-template-columns: 2fr 1fr;
   grid-template-areas: 'weather clock';
   box-shadow: 0px 2px 5px rgb(119, 118, 118);
-  background-image: linear-gradient(to bottom left, rgb(18, 241, 241), rgb(26, 186, 226));
+  background-image: linear-gradient(to bottom left, rgb(110, 127, 204), rgb(18, 241, 241));
   color: white;
 
   .weather {
-    font-size: 1.5em;
+    font-size: 1.3em;
     grid-area: 'weather';
     display: grid;
     grid-template-columns: 0.5fr 2.5fr;
@@ -58,10 +60,52 @@ body {
   }
 }
 
-.container {
-  background-color: #fff;
+
+.navbar.responsive li {
+  display: block;
+}
+
+nav {
+
   width: 100%;
-  box-shadow: 0px 2px 5px rgb(119, 118, 118);
+
+  a {
+    text-decoration: none;
+  }
+
+  #toggler-icon {
+    color: white;
+    display: none;
+  }
+
+  ul {
+    // display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    background-image: linear-gradient(to bottom left, rgb(18, 241, 241), rgb(110, 127, 204));
+
+    li {
+      list-style-type: none;
+
+      a {
+        text-decoration: none;
+        color: white;
+      }
+
+      a:hover {
+        color: black;
+        transition: ease-in-out .3s;
+      }
+
+    }
+  }
+}
+
+
+
+
+.container {
+  width: 100%;
 
   .row1 {
     display: grid;
@@ -71,6 +115,8 @@ body {
       'news chuckQuotes';
 
     .news {
+
+      background-color: #fff;
       position: relative;
       grid-area: news;
       box-shadow: 0px 0px 1px rgb(197, 196, 196);
@@ -94,12 +140,15 @@ body {
     }
 
     .quote-of-the-day {
+
+      background-color: #fff;
       grid-area: dailyQuotes;
       box-shadow: 0px 0px 1px rgb(197, 196, 196);
       border-radius: 3px;
     }
 
     .chuck-norris-quotes {
+      background-color: #fff;
       grid-area: chuckQuotes;
       box-shadow: 0px 0px 1px rgb(197, 196, 196);
       border-radius: 3px;
@@ -148,23 +197,6 @@ body {
     }
   }
 
-  .row2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: 'something search';
-
-    .ddgsearch {
-      grid-area: search;
-      box-shadow: 0px 0px 1px rgb(197, 196, 196);
-      border-radius: 3px;
-    }
-
-    .something {
-      grid-area: something;
-      box-shadow: 0px 0px 1px rgb(197, 196, 196);
-      border-radius: 3px;
-    }
-  }
 }
 
 
@@ -189,26 +221,39 @@ body {
     }
   }
 
-  .container {
-    .row1 {
-      grid-template-columns: 1fr;
-      grid-template-areas: 'news'
-        'dailyQuotes'
-        'chuckQuotes';
+  nav {
+    position: relative;
 
-      .news {
-        min-width: 100%;
-      }
+    #toggler-icon {
+      position: absolute;
+      display: block;
+      top: 2px;
+      right: 10px;
     }
 
-    .row2 {
-      grid-template-columns: 1fr;
-      grid-template-areas: 'search''something';
+    #toggler-icon:hover {
+      color: black;
+      transition: ease-in-out .3s;
+    }
+
+    ul {
+      min-height: 3.25em;
+      ;
+
+      li {
+        display: none;
+      }
     }
   }
 
-  .time {
-    font-size: 1.5em;
+  .container {
+    .row1 {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'news'
+        'dailyQuotes'
+        'chuckQuotes';
+    }
   }
 }
 
@@ -218,7 +263,7 @@ body {
     .weather {
       grid-template-columns: 1fr;
       grid-template-areas: 'info';
-      font-size: 1.1em;
+      font-size: 1em;
       align-self: start;
 
 
