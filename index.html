@@ -8,8 +8,31 @@
     <title>Home</title>
   </head>
   <body>
+    <!-- div for adding overlay when modal pops  -->
+    <div id="overlay"></div>
+    <!-- head contains all weather and time information, including weather changing modal -->
     <header class="head">
-      <!-- weather setion -->
+      <!-- change weather button -->
+      <button class="change-weather-btn">Change Weather</button>
+      <!-- weather change modal -->
+      <div class="change-weather-box">
+        <h3>Change Weather Location</h3>
+        <form class="weather-form">
+          <label for="city">City</label>
+          <br />
+          <input type="text" placeholder="City - e.g. Riverhead" class="weather-input" id="weather-city" />
+          <br />
+          <label for="state">State</label>
+          <br />
+          <input type="text" placeholder="State - e.g. NY" class="weather-input" id="weather-state" />
+          <br />
+          <label for="country">Country</label>
+          <br />
+          <input type="text" placeholder="Country - e.g. US" class="weather-input" id="weather-country" />
+        </form>
+        <button id="weather-submit">Submit</button>
+      </div>
+      <!-- weather section -->
       <section class="weather">
         <div id="weather-info">
           <div id="bar1">
@@ -29,6 +52,7 @@
         <div id="date"></div>
       </section>
     </header>
+    <!-- Convenient links section -->
     <nav class="navbar">
       <ul>
         <li>
@@ -56,9 +80,12 @@
       </ul>
     </nav>
     <!-- rest of page -->
+    <!-- first row containing news and quotes -->
     <div class="container">
       <div class="row1">
+        <!-- news -->
         <section class="news" id="news"></section>
+        <!-- quotes -->
         <section class="quote-of-the-day" id="quotes">
           <div class="attribution">
             Daily Quote provided by:
@@ -74,7 +101,7 @@
           </div>
           <div id="qotd"></div>
         </section>
-
+        <!-- chuck norris quotes -->
         <section class="chuck-norris-quotes" id="cnquotes">
           <h3>Laughable Quotes From Who Else but Chuck Norris</h3>
           <form>
@@ -84,6 +111,7 @@
           <div id="quotes-section"></div>
         </section>
       </div>
+      <!-- row two contains dictionary and to do list -->
       <div class="row2">
         <section class="dictionary" id="dict">
           <h1>Dictionary Searcher</h1>

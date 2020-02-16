@@ -62,6 +62,7 @@ function fetchChuckNorrisQuotes(number) {
 
 // automatically load this function ONCE, on load. If more quotes requested, user can use get quotes button
 document.addEventListener('DOMContentLoaded', () => {
+  // load 5 quotes by default
   fetchChuckNorrisQuotes(5);
 });
 
@@ -131,3 +132,40 @@ taskRemoveBtn.addEventListener('click', ui.removeItemFromToDoList);
 
 // on load, bring items from local storage into to do list
 document.addEventListener('DOMContentLoaded', ui.getFromLocalStorage);
+
+// Change weather button
+const changeWeather = document.querySelector('.change-weather-btn'),
+  submitChangeWeather = document.querySelector('#weather-submit');
+
+// change weather inputs
+const wCity = document.getElementById('weather-city'),
+  wState = document.getElementById('weather-state'),
+  wCountry = document.getElementById('weather-country');
+
+// Open up change weather modal on click and add overlay to whole screen to whole screen
+changeWeather.addEventListener('click', e => {
+  e.preventDefault();
+  document.querySelector('.change-weather-box').style.visibility = 'visible';
+  document.getElementById('overlay').style.display = 'block';
+});
+
+// submit change weather modal event listener
+submitChangeWeather.addEventListener('click', sendChangeWeatherInfo);
+
+// gets new info from user and updates weather information on page
+function sendChangeWeatherInfo(e) {
+  e.preventDefault();
+  // show overlay
+  document.querySelector('.change-weather-box').style.visibility = 'hidden';
+
+  // update weather location information
+  if (wCountry.value !== '' && wState.value !== '' && wCity.value !== '') {
+    weather.changeLocation((city = wCity.value), (state = wState.value), (country = wCountry.value));
+    fetchWeather();
+  } else {
+  }
+  wCity.value = '';
+  wState.value = '';
+  wCountry.value = '';
+  document.getElementById('overlay').style.display = 'none';
+}

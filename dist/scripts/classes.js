@@ -12,6 +12,11 @@ class Weather {
 
     return responseData;
   }
+  changeLocation(newCity, newState, newCountry) {
+    this.city = newCity;
+    this.state = newState;
+    this.country = newCountry;
+  }
 }
 
 class dailyQuotes {
