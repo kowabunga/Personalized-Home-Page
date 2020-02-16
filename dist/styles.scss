@@ -30,7 +30,6 @@ body {
   bottom: 0;
 }
 
-
 // change weather modal
 .change-weather-box {
   h3 {
@@ -97,14 +96,18 @@ body {
     border: none;
     border-radius: 3px;
     color: black;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 5px white;
     cursor: pointer;
   }
 
   .change-weather-btn:hover {
-    background-color: rgb(207, 204, 204);
+    background-color: rgb(112, 236, 245);
     transition: ease-in-out .3s
   }
+
+
+
 }
 
 // classes and animations for show/hide weather change modal AND show/hide overlay
@@ -247,6 +250,7 @@ nav {
 
     a {
       text-decoration: none;
+      cursor: default;
     }
 
     a:hover {
@@ -339,6 +343,10 @@ nav {
       #chuck-norris-quotes-btn:hover {
         background-color: rgb(6, 176, 214);
         transition: ease .3s;
+      }
+
+      #cnQuotes-list li {
+        box-shadow: 0px 0px 1px rgb(197, 196, 196);
       }
 
       #cnQuotes-list li:nth-child(odd) {
@@ -461,6 +469,7 @@ nav {
           text-align: left;
           line-height: 1.7;
           margin-bottom: 5px;
+          box-shadow: 0px 0px 1px rgb(197, 196, 196);
 
           .delete-item {
             position: absolute;
@@ -527,6 +536,10 @@ nav {
 
       li {
         display: none;
+      }
+
+      a {
+        cursor: pointer;
       }
     }
   }

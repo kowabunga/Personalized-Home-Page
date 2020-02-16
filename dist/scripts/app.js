@@ -183,14 +183,6 @@ function sendChangeWeatherInfo(e) {
     changeWeatherBox.classList.add('hideOverlayWeatherBox');
   }, 300);
 
-  weatherBoxOverlay.addEventListener('click', () => {
-    weatherBoxOverlay.classList.add('hideOverlayBox');
-    changeWeatherBox.classList.add('makeWeatherBoxInvisible');
-    setTimeout(() => {
-      weatherBoxOverlay.classList.add('hideOverlayWeatherBox');
-      changeWeatherBox.classList.add('hideOverlayWeatherBox');
-    }, 300);
-  });
   // update weather location information
   // may or may not contain a state value, check
   // if state field is empty (location NOT in United States)
@@ -207,3 +199,17 @@ function sendChangeWeatherInfo(e) {
   wState.value = '';
   wCountry.value = '';
 }
+
+// Check for click on overlay box (darkened area). If clicked, simply remove overlay and check weather box section
+weatherBoxOverlay.addEventListener('click', () => {
+  if (changeWeatherBox.classList.contains('makeWeatherBoxVisible') && weatherBoxOverlay.classList.contains('showOverlayBox')) {
+    // add hide classes
+    weatherBoxOverlay.classList.add('hideOverlayBox');
+    changeWeatherBox.classList.add('makeWeatherBoxInvisible');
+    // add z-index classes after animation occurs
+    setTimeout(() => {
+      weatherBoxOverlay.classList.add('hideOverlayWeatherBox');
+      changeWeatherBox.classList.add('hideOverlayWeatherBox');
+    }, 300);
+  }
+});
