@@ -516,11 +516,15 @@ nav {
   nav {
     position: relative;
 
-    #toggler-icon {
-      position: absolute;
-      display: block;
-      top: -6px;
-      right: 10px;
+    #toggler-a {
+
+      #toggler-icon {
+        position: absolute;
+        display: block;
+        top: -6px;
+        right: 10px;
+        cursor: pointer;
+      }
     }
 
     #toggler-icon:hover {
