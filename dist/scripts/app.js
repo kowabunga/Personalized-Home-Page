@@ -183,6 +183,14 @@ function sendChangeWeatherInfo(e) {
     changeWeatherBox.classList.add('hideOverlayWeatherBox');
   }, 300);
 
+  weatherBoxOverlay.addEventListener('click', () => {
+    weatherBoxOverlay.classList.add('hideOverlayBox');
+    changeWeatherBox.classList.add('makeWeatherBoxInvisible');
+    setTimeout(() => {
+      weatherBoxOverlay.classList.add('hideOverlayWeatherBox');
+      changeWeatherBox.classList.add('hideOverlayWeatherBox');
+    }, 300);
+  });
   // update weather location information
   // may or may not contain a state value, check
   // if state field is empty (location NOT in United States)
