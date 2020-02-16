@@ -14,10 +14,12 @@ body {
   padding: 0 !important;
   position: relative;
   background-image: linear-gradient(to bottom left, rgb(110, 127, 204), rgb(18, 241, 241));
+  z-index: 1;
 }
 
-#overlay {
-  display: none;
+// overlay section
+.overlay {
+  opacity: 0;
   background-color: rgba(0, 0, 0, .7);
   position: fixed;
   width: 100%;
@@ -26,11 +28,56 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 3;
-  animation-name: showOverlay;
-  animation-duration: .3s;
 }
 
+
+// change weather modal
+.change-weather-box {
+  h3 {
+    margin-top: 10px;
+  }
+
+  opacity: 0;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background-color: rgb(52, 58, 64);
+  width: 20em;
+  height: 25em;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -25%);
+
+  .weather-input {
+    width: 100%;
+    border: 1px solid rgb(189, 187, 187);
+    border-radius: 3px;
+    height: 4.2em;
+    background-color: rgb(245, 244, 244);
+    color: black;
+  }
+
+  #weather-submit {
+    font-size: 13px;
+    margin-bottom: 30px;
+    width: 50%;
+    border-radius: 3px;
+    border: none;
+    background-color: rgb(25, 187, 224);
+    height: 3.5em;
+    cursor: pointer;
+  }
+
+  #weather-submit:hover {
+    background-color: rgb(6, 176, 214);
+    transition: ease .3s;
+  }
+}
+
+// head section 
 .head {
   display: grid;
   position: relative;
@@ -41,6 +88,8 @@ body {
   box-shadow: 0px 2px 5px rgb(119, 118, 118);
   background-image: linear-gradient(to bottom left, rgb(110, 127, 204), rgb(18, 241, 241));
 
+
+  // change weather button 
   .change-weather-btn {
     position: absolute;
     top: 5px;
@@ -50,71 +99,45 @@ body {
     color: black;
     background-color: white;
     cursor: pointer;
-    z-index: 1;
   }
 
   .change-weather-btn:hover {
     background-color: rgb(207, 204, 204);
     transition: ease-in-out .3s
   }
-
-  .change-weather-box {
-    h3 {
-      margin-top: 10px;
-      // text-align: center;
-    }
-
-
-    opacity: 0;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    background-color: rgb(52, 58, 64);
-    width: 20em;
-    height: 25em;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 50%);
-    z-index: 5;
-
-    .weather-input {
-      width: 100%;
-      border: 1px solid rgb(189, 187, 187);
-      border-radius: 3px;
-      height: 4.2em;
-      background-color: rgb(245, 244, 244);
-      color: black;
-    }
-
-    #weather-submit {
-
-      font-size: 13px;
-      margin-bottom: 30px;
-      width: 50%;
-      border-radius: 3px;
-      border: none;
-      background-color: rgb(25, 187, 224);
-      height: 3.5em;
-      cursor: pointer;
-    }
-
-    #weather-submit:hover {
-      background-color: rgb(6, 176, 214);
-      transition: ease .3s;
-    }
-  }
-
-
-
 }
 
-.changeWeatherBoxVisibility {
+// classes and animations for show/hide weather change modal AND show/hide overlay
+.makeWeatherBoxVisible {
   animation: showWeatherBox;
   animation-duration: .3s;
   animation-fill-mode: forwards;
+  z-index: 3;
+}
+
+.makeWeatherBoxInvisible {
+  animation: hideWeatherBox;
+  animation-duration: .3s;
+  animation-fill-mode: forwards;
+  z-index: 2;
+}
+
+.showOverlayBox {
+  animation-name: showOverlay;
+  animation-duration: .3s;
+  animation-fill-mode: forwards;
+  z-index: 2;
+}
+
+.hideOverlayBox {
+  animation-name: hideOverlay;
+  animation-duration: .3s;
+  animation-fill-mode: forwards;
+  z-index: 2;
+}
+
+.hideOverlayWeatherBox {
+  z-index: 0 !important;
 }
 
 @keyframes showOverlay {
@@ -124,6 +147,16 @@ body {
 
   to {
     opacity: 1;
+  }
+}
+
+@keyframes hideOverlay {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
   }
 }
 
@@ -139,7 +172,17 @@ body {
   }
 }
 
+@keyframes hideWeatherBox {
+  from {
+    opacity: 1;
+  }
 
+  to {
+    opacity: 0;
+  }
+}
+
+// weather section
 .weather {
   font-size: 1.3em;
   grid-area: 'weather';
@@ -161,6 +204,7 @@ body {
   }
 }
 
+// time section
 .time {
   display: grid;
   grid-area: 'clock';
@@ -169,16 +213,15 @@ body {
   font-size: 1.5em;
 }
 
-
-
 // for mobile dropdown 
 .navbar.responsive li {
   display: block;
 
 }
 
-
+// nav bar
 nav {
+  position: relative;
   margin-top: 5px;
   padding: 0 !important;
   width: 100%;
@@ -213,9 +256,12 @@ nav {
   }
 }
 
+// main page container
 .container {
+  position: relative;
   width: 100%;
 
+  // first row with news and quotes
   .row1 {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -311,6 +357,7 @@ nav {
     }
   }
 
+  // second row with dictionary and to do list
   .row2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -434,15 +481,20 @@ nav {
 }
 
 
-
+// media queries
 @media (max-width: 700px) {
+  .change-weather-box {
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -15%);
+  }
+
   .head {
     .weather {
       grid-template-columns: 1fr;
       grid-template-areas: 'info';
       font-size: 1.3em;
       align-self: start;
-
 
       #weather-icon {
         display: none;
@@ -474,38 +526,36 @@ nav {
       min-height: 3.25em;
 
       li {
-        opacity: 0;
         display: none;
       }
     }
   }
-}
 
-.container {
-  .row1 {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      'news'
-      'dailyQuotes'
-      'chuckQuotes';
+  .container {
+    .row1 {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'news'
+        'dailyQuotes'
+        'chuckQuotes';
 
-    .chuck-norris-quotes {
-      text-align: center;
+      .chuck-norris-quotes {
+        text-align: center;
+      }
+
+      #chuck-norris-quotes-btn {
+        margin-top: 5px;
+      }
     }
 
-    #chuck-norris-quotes-btn {
-      margin-top: 5px;
+    .row2 {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'dictionary'
+        'toDoList';
     }
   }
-
-  .row2 {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      'dictionary'
-      'toDoList';
-  }
 }
-
 
 // Deal with text weirdness at really, REALLY, small screens
 @media(max-width:410px) {

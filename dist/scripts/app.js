@@ -1,4 +1,4 @@
-const weather = new Weather('New York', 'NY', 'US');
+const weather = new Weather('New York', 'NY', 'US'); //default weather location is NYC, NY, US
 const news = new News();
 const dayQuotes = new DailyQuotes();
 const cNorrisQuotes = new ChuckNorrisQuotes();
@@ -82,14 +82,13 @@ function getTimeDate() {
     month = time.getMonth(),
     day = time.getDate(),
     year = time.getFullYear();
-  console.log(day);
   setTimeout(ui.populateClockDate(hour, minutes, seconds, month, day, year), 1000);
 
   setTimeout(getTimeDate, 1000);
 }
 getTimeDate();
 
-// cache dom
+// dictionary inputs
 const wordInputBox = document.getElementById('wordInput'),
   wordSubmitBtn = document.getElementById('wordSubmit');
 
@@ -142,10 +141,24 @@ const wCity = document.getElementById('weather-city'),
   wCountry = document.getElementById('weather-country');
 
 // Open up change weather modal on click and add overlay to whole screen to whole screen
+const changeWeatherBox = document.querySelector('.change-weather-box'),
+  weatherBoxOverlay = document.querySelector('.overlay');
+
 changeWeather.addEventListener('click', e => {
   e.preventDefault();
-  document.querySelector('.change-weather-box').classList.add('changeWeatherBoxVisibility');
-  document.getElementById('overlay').style.display = 'block';
+
+  if (changeWeatherBox.classList.contains('makeWeatherBoxInvisible') && weatherBoxOverlay.classList.contains('hideOverlayBox')) {
+    // remove class that hides weather/overlay box behind all other content
+    changeWeatherBox.classList.remove('hideOverlayWeatherBox');
+    weatherBoxOverlay.classList.remove('hideOverlayWeatherBox');
+
+    // remove makeWeatherBoxInvisible i
+    changeWeatherBox.classList.remove('makeWeatherBoxInvisible');
+    weatherBoxOverlay.classList.remove('hideOverlayBox');
+  }
+  // add makeWeatherBoxVisible and show overlay
+  weatherBoxOverlay.classList.add('showOverlayBox');
+  changeWeatherBox.classList.add('makeWeatherBoxVisible');
 });
 
 // submit change weather modal event listener
@@ -154,17 +167,35 @@ submitChangeWeather.addEventListener('click', sendChangeWeatherInfo);
 // gets new info from user and updates weather information on page
 function sendChangeWeatherInfo(e) {
   e.preventDefault();
-  // show overlay
-  document.querySelector('.change-weather-box').style.visibility = 'hidden';
+  // hide weather change box and hide overlay
+  if (changeWeatherBox.classList.contains('makeWeatherBoxVisible') && weatherBoxOverlay.classList.contains('showOverlayBox')) {
+    changeWeatherBox.classList.remove('makeWeatherBoxVisible');
+    weatherBoxOverlay.classList.remove('showOverlayBox');
+  }
+  // hide weatherbox and overlay
+  weatherBoxOverlay.classList.add('hideOverlayBox');
+  changeWeatherBox.classList.add('makeWeatherBoxInvisible');
+
+  // After boxes are hidden, z-index has to be set to 0 so that both the overlay and box are under the main content of the site. Otherwise, we can't click anything.
+  // Hide weather/overlay box under ALL content
+  setTimeout(() => {
+    weatherBoxOverlay.classList.add('hideOverlayWeatherBox');
+    changeWeatherBox.classList.add('hideOverlayWeatherBox');
+  }, 300);
 
   // update weather location information
-  if (wCountry.value !== '' && wState.value !== '' && wCity.value !== '') {
+  // may or may not contain a state value, check
+  // if state field is empty (location NOT in United States)
+  if (wState.value === '' && wCountry.value !== '' && wCity.value !== '') {
+    weather.changeLocation((city = wCity.value), (country = wCountry.value));
+    fetchWeather();
+    // If location is in United States
+  } else if (wCountry.value !== '' && wState.value !== '' && wCity.value !== '') {
     weather.changeLocation((city = wCity.value), (state = wState.value), (country = wCountry.value));
     fetchWeather();
-  } else {
   }
+  // clear input values
   wCity.value = '';
   wState.value = '';
   wCountry.value = '';
-  document.getElementById('overlay').style.display = 'none';
 }

@@ -6,8 +6,15 @@ class Weather {
     this.api_key = '0201fcbae5964792406388efd3a6e7f8';
   }
   async getWeather() {
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.city},${this.state},${this.country}&appid=${this.api_key}&units=imperial`);
-
+    let response;
+    // If state is not empty (meaning a United States location for temperature), include state value in request (city,state,country)
+    if (this.state != '' || this.state != null || this.state === undefined) {
+      response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.city},${this.state},${this.country}&appid=${this.api_key}&units=imperial`);
+      // otherwise, state will be empty.
+      // Otherwise, send request with city and country value
+    } else {
+      response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.city},${this.country}&appid=${this.api_key}&units=imperial`);
+    }
     const responseData = await response.json();
 
     return responseData;

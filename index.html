@@ -9,29 +9,29 @@
   </head>
   <body>
     <!-- div for adding overlay when modal pops  -->
-    <div id="overlay"></div>
+    <div class="overlay"></div>
     <!-- head contains all weather and time information, including weather changing modal -->
+    <!-- weather change modal -->
+    <div class="change-weather-box">
+      <h3>Change Weather Location</h3>
+      <form class="weather-form">
+        <label for="city">City</label>
+        <br />
+        <input type="text" placeholder="City - e.g. Riverhead" class="weather-input" id="weather-city" />
+        <br />
+        <label for="state">State</label>
+        <br />
+        <input type="text" placeholder="State - e.g. NY" class="weather-input" id="weather-state" />
+        <br />
+        <label for="country">Country</label>
+        <br />
+        <input type="text" placeholder="Country - e.g. US" class="weather-input" id="weather-country" />
+      </form>
+      <button id="weather-submit">Submit</button>
+    </div>
     <header class="head">
       <!-- change weather button -->
       <button class="change-weather-btn">Change Weather</button>
-      <!-- weather change modal -->
-      <div class="change-weather-box">
-        <h3>Change Weather Location</h3>
-        <form class="weather-form">
-          <label for="city">City</label>
-          <br />
-          <input type="text" placeholder="City - e.g. Riverhead" class="weather-input" id="weather-city" />
-          <br />
-          <label for="state">State</label>
-          <br />
-          <input type="text" placeholder="State - e.g. NY" class="weather-input" id="weather-state" />
-          <br />
-          <label for="country">Country</label>
-          <br />
-          <input type="text" placeholder="Country - e.g. US" class="weather-input" id="weather-country" />
-        </form>
-        <button id="weather-submit">Submit</button>
-      </div>
       <!-- weather section -->
       <section class="weather">
         <div id="weather-info">
