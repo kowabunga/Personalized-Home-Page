@@ -28,6 +28,10 @@ body {
   right: 0;
   bottom: 0;
   z-index: 3;
+  -webkit-animation-name: showOverlay;
+          animation-name: showOverlay;
+  -webkit-animation-duration: .3s;
+          animation-duration: .3s;
 }
 
 .head {
@@ -57,8 +61,14 @@ body {
   z-index: 1;
 }
 
+.head .change-weather-btn:hover {
+  background-color: #cfcccc;
+  -webkit-transition: ease-in-out .3s;
+  transition: ease-in-out .3s;
+}
+
 .head .change-weather-box {
-  visibility: hidden;
+  opacity: 0;
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -114,7 +124,52 @@ body {
   transition: ease .3s;
 }
 
-.head .weather {
+.changeWeatherBoxVisibility {
+  -webkit-animation: showWeatherBox;
+          animation: showWeatherBox;
+  -webkit-animation-duration: .3s;
+          animation-duration: .3s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes showOverlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes showOverlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes showWeatherBox {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes showWeatherBox {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.weather {
   font-size: 1.3em;
   grid-area: 'weather';
   display: -ms-grid;
@@ -124,7 +179,7 @@ body {
       grid-template-areas: 'icon info';
 }
 
-.head .weather #weather-icon {
+.weather #weather-icon {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: icon;
@@ -135,7 +190,7 @@ body {
       justify-self: center;
 }
 
-.head .weather #weather-info {
+.weather #weather-info {
   line-height: 1.5;
   -ms-grid-row: 1;
   -ms-grid-column: 2;
@@ -144,7 +199,7 @@ body {
   max-height: 200px;
 }
 
-.head .time {
+.time {
   display: -ms-grid;
   display: grid;
   grid-area: 'clock';
@@ -188,11 +243,11 @@ nav ul li {
   list-style-type: none;
 }
 
-nav ul li a {
+nav ul a {
   text-decoration: none;
 }
 
-nav ul li a:hover {
+nav ul a:hover {
   color: black;
   -webkit-transition: ease-in-out .3s;
   transition: ease-in-out .3s;
@@ -213,7 +268,6 @@ nav ul li a:hover {
 .container .row1 .news {
   background-color: #343a40;
   -ms-grid-row: 1;
-  -ms-grid-row-span: 2;
   -ms-grid-column: 1;
   grid-area: news;
   -webkit-box-shadow: 0px 0px 1px #c5c4c4;
@@ -240,8 +294,8 @@ nav ul li a:hover {
 
 .container .row1 .quote-of-the-day {
   background-color: #343a40;
-  -ms-grid-row: 1;
-  -ms-grid-column: 2;
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
   grid-area: dailyQuotes;
   -webkit-box-shadow: 0px 0px 1px #c5c4c4;
           box-shadow: 0px 0px 1px #c5c4c4;
@@ -254,8 +308,8 @@ nav ul li a:hover {
 
 .container .row1 .chuck-norris-quotes {
   background-color: #343a40;
-  -ms-grid-row: 2;
-  -ms-grid-column: 2;
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
   grid-area: chuckQuotes;
   -webkit-box-shadow: 0px 0px 1px #c5c4c4;
           box-shadow: 0px 0px 1px #c5c4c4;
@@ -367,8 +421,8 @@ nav ul li a:hover {
 .container .row2 .to-doList {
   text-align: center;
   background-color: #343a40;
-  -ms-grid-row: 1;
-  -ms-grid-column: 2;
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
   grid-area: toDoList;
   -webkit-box-shadow: 0px 0px 1px #c5c4c4;
           box-shadow: 0px 0px 1px #c5c4c4;
@@ -475,24 +529,29 @@ nav ul li a:hover {
     min-height: 3.25em;
   }
   nav ul li {
+    opacity: 0;
     display: none;
   }
-  .container .row1 {
-    -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
-        grid-template-areas: 'news' 'dailyQuotes' 'chuckQuotes';
-  }
-  .container .row1 .chuck-norris-quotes {
-    text-align: center;
-  }
-  .container .row1 #chuck-norris-quotes-btn {
-    margin-top: 5px;
-  }
-  .container .row2 {
-    -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
-        grid-template-areas: 'dictionary' 'toDoList';
-  }
+}
+
+.container .row1 {
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+      grid-template-areas: 'news' 'dailyQuotes' 'chuckQuotes';
+}
+
+.container .row1 .chuck-norris-quotes {
+  text-align: center;
+}
+
+.container .row1 #chuck-norris-quotes-btn {
+  margin-top: 5px;
+}
+
+.container .row2 {
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+      grid-template-areas: 'dictionary' 'toDoList';
 }
 
 @media (max-width: 410px) {

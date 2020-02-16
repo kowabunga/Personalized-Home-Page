@@ -1,7 +1,7 @@
 const weather = new Weather('New York', 'NY', 'US');
 const news = new News();
-const dayQuotes = new dailyQuotes();
-const cNorrisQuotes = new chuckNorrisQuotes();
+const dayQuotes = new DailyQuotes();
+const cNorrisQuotes = new ChuckNorrisQuotes();
 const dictionary = new Dictionary();
 const ui = new UI();
 
@@ -23,8 +23,6 @@ toggleBtn.addEventListener('click', e => {
     toggleBtn.className = 'fa fa-bars fa-2x';
   }
 });
-
-// change background dynamically, once per hour (for simplicity)
 
 // Get Weather
 function fetchWeather() {
@@ -82,8 +80,9 @@ function getTimeDate() {
     minutes = time.getMinutes(),
     seconds = time.getSeconds(),
     month = time.getMonth(),
-    day = time.getDay(),
+    day = time.getDate(),
     year = time.getFullYear();
+  console.log(day);
   setTimeout(ui.populateClockDate(hour, minutes, seconds, month, day, year), 1000);
 
   setTimeout(getTimeDate, 1000);
@@ -145,7 +144,7 @@ const wCity = document.getElementById('weather-city'),
 // Open up change weather modal on click and add overlay to whole screen to whole screen
 changeWeather.addEventListener('click', e => {
   e.preventDefault();
-  document.querySelector('.change-weather-box').style.visibility = 'visible';
+  document.querySelector('.change-weather-box').classList.add('changeWeatherBoxVisibility');
   document.getElementById('overlay').style.display = 'block';
 });
 
