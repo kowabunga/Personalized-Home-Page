@@ -288,11 +288,11 @@ nav {
   width: 100%;
 }
 
-nav a {
-  text-decoration: none;
+nav #toggler-a {
+  cursor: default;
 }
 
-nav #toggler-icon {
+nav #toggler-a #toggler-icon {
   display: none;
 }
 
@@ -313,7 +313,6 @@ nav ul li {
 
 nav ul a {
   text-decoration: none;
-  cursor: default;
 }
 
 nav ul a:hover {
