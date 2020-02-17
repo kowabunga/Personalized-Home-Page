@@ -18,16 +18,17 @@ body {
   z-index: 1;
 }
 
+input:focus,
+button:focus {
+  outline: none;
+}
+
 .overlay {
   opacity: 0;
   background-color: rgba(0, 0, 0, 0.7);
   position: fixed;
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
 }
 
 .change-weather-box {
@@ -67,6 +68,12 @@ body {
   height: 4.2em;
   background-color: #f5f4f4;
   color: black;
+}
+
+.change-weather-box .weather-input:focus {
+  -webkit-transition: ease-in .2s;
+  transition: ease-in .2s;
+  border-color: #19bbe0;
 }
 
 .change-weather-box #weather-submit {
@@ -127,7 +134,7 @@ body {
           animation-duration: .3s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  z-index: 3;
+  z-index: 4;
 }
 
 .makeWeatherBoxInvisible {
@@ -137,7 +144,7 @@ body {
           animation-duration: .3s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  z-index: 2;
+  z-index: 3;
 }
 
 .showOverlayBox {
@@ -147,7 +154,7 @@ body {
           animation-duration: .3s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  z-index: 2;
+  z-index: 3;
 }
 
 .hideOverlayBox {
@@ -157,7 +164,7 @@ body {
           animation-duration: .3s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  z-index: 2;
+  z-index: 3;
 }
 
 .hideOverlayWeatherBox {
@@ -278,7 +285,10 @@ body {
 }
 
 nav {
-  position: relative;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 2;
   margin-top: 5px;
   padding: 0 !important;
   width: 100%;
@@ -320,8 +330,8 @@ nav ul a:hover {
 .navbar.responsive {
   -webkit-animation: navULIn;
           animation: navULIn;
-  -webkit-animation-duration: .5s;
-          animation-duration: .5s;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
   z-index: 3;
@@ -331,8 +341,8 @@ nav ul a:hover {
   display: block;
   -webkit-animation: navULIn;
           animation: navULIn;
-  -webkit-animation-duration: .5s;
-          animation-duration: .5s;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
@@ -456,6 +466,7 @@ nav ul a:hover {
 .container .row1 .chuck-norris-quotes #cnQuotes-list li {
   -webkit-box-shadow: 0px 0px 1px #c5c4c4;
           box-shadow: 0px 0px 1px #c5c4c4;
+  line-height: 1.7;
 }
 
 .container .row1 .chuck-norris-quotes #cnQuotes-list li:nth-child(odd) {
@@ -525,6 +536,10 @@ nav ul a:hover {
   background-color: #06b0d6;
   -webkit-transition: ease .3s;
   transition: ease .3s;
+}
+
+.container .row2 .dictionary ol li {
+  line-height: 1.7;
 }
 
 .container .row2 .to-doList {
@@ -627,7 +642,6 @@ nav ul a:hover {
         justify-self: center;
   }
   nav {
-    position: relative;
     opacity: .8;
   }
   nav #toggler-a #toggler-icon {

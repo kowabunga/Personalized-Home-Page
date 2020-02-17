@@ -210,7 +210,6 @@ class UI {
     }
     // loop through tasks. If the current task item has the same content as the task item to be removed, remove it from local storage
     tasks.forEach((task, index) => {
-      console.log(taskItem.textContent, task);
       if (taskItem.textContent === task) {
         tasks.splice(index, 1);
       }
@@ -240,7 +239,6 @@ class UI {
         // append 'a' element to li
         li.appendChild(link);
         document.querySelector('.list-items').append(li);
-        // clear input
       });
     }
   }

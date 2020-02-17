@@ -17,6 +17,12 @@ body {
   z-index: 1;
 }
 
+// Remove weird outlines
+input:focus,
+button:focus {
+  outline: none;
+}
+
 // overlay section
 .overlay {
   opacity: 0;
@@ -24,10 +30,6 @@ body {
   position: fixed;
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
 }
 
 // change weather modal
@@ -59,6 +61,11 @@ body {
     color: black;
   }
 
+  .weather-input:focus {
+    transition: ease-in .2s;
+    border-color: rgb(25, 187, 224);
+  }
+
   #weather-submit {
     font-size: 13px;
     margin-bottom: 30px;
@@ -87,7 +94,6 @@ body {
   box-shadow: 0px 2px 5px rgb(119, 118, 118);
   background-image: linear-gradient(to bottom left, rgb(110, 127, 204), rgb(18, 241, 241));
 
-
   // change weather button 
   .change-weather-btn {
     position: absolute;
@@ -112,28 +118,30 @@ body {
   animation: showWeatherBox;
   animation-duration: .3s;
   animation-fill-mode: forwards;
-  z-index: 3;
+  z-index: 4;
 }
 
 .makeWeatherBoxInvisible {
   animation: hideWeatherBox;
   animation-duration: .3s;
   animation-fill-mode: forwards;
-  z-index: 2;
+  // keep box above body items for animation purposes
+  z-index: 3;
 }
 
 .showOverlayBox {
   animation-name: showOverlay;
   animation-duration: .3s;
   animation-fill-mode: forwards;
-  z-index: 2;
+  z-index: 3;
 }
 
 .hideOverlayBox {
   animation-name: hideOverlay;
   animation-duration: .3s;
   animation-fill-mode: forwards;
-  z-index: 2;
+  // keep overlay above body items for animation purposes
+  z-index: 3;
 }
 
 .hideOverlayWeatherBox {
@@ -213,11 +221,11 @@ body {
   font-size: 1.5em;
 }
 
-
-
 // nav bar
 nav {
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 2;
   margin-top: 5px;
   padding: 0 !important;
   width: 100%;
@@ -256,16 +264,15 @@ nav {
 // for mobile dropdown animation
 .navbar.responsive {
   animation: navULIn;
-  animation-duration: .5s;
+  animation-duration: 1s;
   animation-fill-mode: forwards;
   z-index: 3;
 }
 
 .navbar.responsive li {
-  // display: block;
   display: block;
   animation: navULIn;
-  animation-duration: .5s;
+  animation-duration: 1s;
   animation-fill-mode: forwards;
 }
 
@@ -316,6 +323,7 @@ nav {
       }
     }
 
+    // quote of the day
     .quote-of-the-day {
       background-color: rgb(52, 58, 64);
       grid-area: dailyQuotes;
@@ -327,6 +335,7 @@ nav {
       list-style-type: none;
     }
 
+    // chuck norris quotes
     .chuck-norris-quotes {
       background-color: rgb(52, 58, 64);
       grid-area: chuckQuotes;
@@ -366,6 +375,7 @@ nav {
 
       #cnQuotes-list li {
         box-shadow: 0px 0px 1px rgb(197, 196, 196);
+        line-height: 1.7;
       }
 
       #cnQuotes-list li:nth-child(odd) {
@@ -431,6 +441,10 @@ nav {
       #wordSubmit:hover {
         background-color: rgb(6, 176, 214);
         transition: ease .3s;
+      }
+
+      ol li {
+        line-height: 1.7;
       }
     }
 
@@ -535,7 +549,6 @@ nav {
   }
 
   nav {
-    position: relative;
     opacity: .8;
 
     #toggler-a {
@@ -602,7 +615,6 @@ nav {
       grid-template-areas: 'info';
       font-size: 1em;
       align-self: start;
-
 
       #weather-icon {
         display: none;

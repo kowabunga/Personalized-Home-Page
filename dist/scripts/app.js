@@ -25,15 +25,6 @@ toggleBtn.addEventListener('click', e => {
   }
 });
 
-// Get Weather
-function fetchWeather() {
-  weather
-    .getWeather()
-    .then(results => ui.populateWeather(results))
-    .catch(err => console.log(err));
-}
-fetchWeather();
-
 // Get News
 function fetchNews() {
   news
@@ -65,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
   fetchChuckNorrisQuotes(5);
 });
 
-// Call above function when new quotes are requested by user
+// Call function when new chuck norris quotes are requested by user
 cnInputBtn.addEventListener('click', e => {
   e.preventDefault();
   if (cnInputNumber.value !== '') {
@@ -88,6 +79,97 @@ function getTimeDate() {
   setTimeout(getTimeDate, 1000);
 }
 getTimeDate();
+
+// weather section
+// Get Weather
+function fetchWeather() {
+  weather
+    .getWeather()
+    .then(results => ui.populateWeather(results))
+    .catch(err => console.log(err));
+}
+fetchWeather();
+
+// change weather inputs
+const wCity = document.getElementById('weather-city'),
+  wState = document.getElementById('weather-state'),
+  wCountry = document.getElementById('weather-country');
+
+// change weather buttons and open up change weather modal on click and add overlay to whole screen to whole screen
+const changeWeather = document.querySelector('.change-weather-btn'),
+  submitChangeWeather = document.querySelector('#weather-submit'),
+  changeWeatherBox = document.querySelector('.change-weather-box'),
+  weatherBoxOverlay = document.querySelector('.overlay');
+
+changeWeather.addEventListener('click', e => {
+  e.preventDefault();
+
+  if (changeWeatherBox.classList.contains('makeWeatherBoxInvisible') && weatherBoxOverlay.classList.contains('hideOverlayBox')) {
+    // remove class that hides weather/overlay box behind all other content
+    changeWeatherBox.classList.remove('hideOverlayWeatherBox');
+    weatherBoxOverlay.classList.remove('hideOverlayWeatherBox');
+
+    // remove makeWeatherBoxInvisible
+    changeWeatherBox.classList.remove('makeWeatherBoxInvisible');
+    weatherBoxOverlay.classList.remove('hideOverlayBox');
+  }
+  // add makeWeatherBoxVisible and show overlay
+  weatherBoxOverlay.classList.add('showOverlayBox');
+  changeWeatherBox.classList.add('makeWeatherBoxVisible');
+});
+
+// submit change weather modal event listener
+submitChangeWeather.addEventListener('click', sendChangeWeatherInfo);
+
+// gets new info from user and updates weather information on page
+function sendChangeWeatherInfo(e) {
+  e.preventDefault();
+  // hide weather change box and hide overlay
+  if (changeWeatherBox.classList.contains('makeWeatherBoxVisible') && weatherBoxOverlay.classList.contains('showOverlayBox')) {
+    changeWeatherBox.classList.remove('makeWeatherBoxVisible');
+    weatherBoxOverlay.classList.remove('showOverlayBox');
+  }
+  // hide weatherbox and overlay
+  weatherBoxOverlay.classList.add('hideOverlayBox');
+  changeWeatherBox.classList.add('makeWeatherBoxInvisible');
+
+  // After boxes are hidden, z-index has to be set to 0 so that both the overlay and box are under the main content of the site. Otherwise, we can't click anything. Wait 300 ms to invoke - same time animation takes to execute
+  // Hide weather/overlay box under ALL content
+  setTimeout(() => {
+    weatherBoxOverlay.classList.add('hideOverlayWeatherBox');
+    changeWeatherBox.classList.add('hideOverlayWeatherBox');
+  }, 300);
+
+  // update weather location information
+  // may or may not contain a 'state' value, check
+  // if state field is empty (location NOT in United States)
+  if (wState.value === '' && wCountry.value !== '' && wCity.value !== '') {
+    weather.changeLocation((city = wCity.value), (country = wCountry.value));
+    fetchWeather();
+    // If location is in United States
+  } else if (wCountry.value !== '' && wState.value !== '' && wCity.value !== '') {
+    weather.changeLocation((city = wCity.value), (state = wState.value), (country = wCountry.value));
+    fetchWeather();
+  }
+  // clear input values
+  wCity.value = '';
+  wState.value = '';
+  wCountry.value = '';
+}
+
+// Check for click on overlay box (darkened area). If clicked, simply remove overlay and check weather box section just as before when clicking submit
+weatherBoxOverlay.addEventListener('click', () => {
+  if (changeWeatherBox.classList.contains('makeWeatherBoxVisible') && weatherBoxOverlay.classList.contains('showOverlayBox')) {
+    // add hide classes
+    weatherBoxOverlay.classList.add('hideOverlayBox');
+    changeWeatherBox.classList.add('makeWeatherBoxInvisible');
+    // add z-index classes after animation occurs
+    setTimeout(() => {
+      weatherBoxOverlay.classList.add('hideOverlayWeatherBox');
+      changeWeatherBox.classList.add('hideOverlayWeatherBox');
+    }, 300);
+  }
+});
 
 // dictionary inputs
 const wordInputBox = document.getElementById('wordInput'),
@@ -131,86 +213,3 @@ taskRemoveBtn.addEventListener('click', ui.removeItemFromToDoList);
 
 // on load, bring items from local storage into to do list
 document.addEventListener('DOMContentLoaded', ui.getFromLocalStorage);
-
-// Change weather button
-const changeWeather = document.querySelector('.change-weather-btn'),
-  submitChangeWeather = document.querySelector('#weather-submit');
-
-// change weather inputs
-const wCity = document.getElementById('weather-city'),
-  wState = document.getElementById('weather-state'),
-  wCountry = document.getElementById('weather-country');
-
-// Open up change weather modal on click and add overlay to whole screen to whole screen
-const changeWeatherBox = document.querySelector('.change-weather-box'),
-  weatherBoxOverlay = document.querySelector('.overlay');
-
-changeWeather.addEventListener('click', e => {
-  e.preventDefault();
-
-  if (changeWeatherBox.classList.contains('makeWeatherBoxInvisible') && weatherBoxOverlay.classList.contains('hideOverlayBox')) {
-    // remove class that hides weather/overlay box behind all other content
-    changeWeatherBox.classList.remove('hideOverlayWeatherBox');
-    weatherBoxOverlay.classList.remove('hideOverlayWeatherBox');
-
-    // remove makeWeatherBoxInvisible i
-    changeWeatherBox.classList.remove('makeWeatherBoxInvisible');
-    weatherBoxOverlay.classList.remove('hideOverlayBox');
-  }
-  // add makeWeatherBoxVisible and show overlay
-  weatherBoxOverlay.classList.add('showOverlayBox');
-  changeWeatherBox.classList.add('makeWeatherBoxVisible');
-});
-
-// submit change weather modal event listener
-submitChangeWeather.addEventListener('click', sendChangeWeatherInfo);
-
-// gets new info from user and updates weather information on page
-function sendChangeWeatherInfo(e) {
-  e.preventDefault();
-  // hide weather change box and hide overlay
-  if (changeWeatherBox.classList.contains('makeWeatherBoxVisible') && weatherBoxOverlay.classList.contains('showOverlayBox')) {
-    changeWeatherBox.classList.remove('makeWeatherBoxVisible');
-    weatherBoxOverlay.classList.remove('showOverlayBox');
-  }
-  // hide weatherbox and overlay
-  weatherBoxOverlay.classList.add('hideOverlayBox');
-  changeWeatherBox.classList.add('makeWeatherBoxInvisible');
-
-  // After boxes are hidden, z-index has to be set to 0 so that both the overlay and box are under the main content of the site. Otherwise, we can't click anything.
-  // Hide weather/overlay box under ALL content
-  setTimeout(() => {
-    weatherBoxOverlay.classList.add('hideOverlayWeatherBox');
-    changeWeatherBox.classList.add('hideOverlayWeatherBox');
-  }, 300);
-
-  // update weather location information
-  // may or may not contain a state value, check
-  // if state field is empty (location NOT in United States)
-  if (wState.value === '' && wCountry.value !== '' && wCity.value !== '') {
-    weather.changeLocation((city = wCity.value), (country = wCountry.value));
-    fetchWeather();
-    // If location is in United States
-  } else if (wCountry.value !== '' && wState.value !== '' && wCity.value !== '') {
-    weather.changeLocation((city = wCity.value), (state = wState.value), (country = wCountry.value));
-    fetchWeather();
-  }
-  // clear input values
-  wCity.value = '';
-  wState.value = '';
-  wCountry.value = '';
-}
-
-// Check for click on overlay box (darkened area). If clicked, simply remove overlay and check weather box section
-weatherBoxOverlay.addEventListener('click', () => {
-  if (changeWeatherBox.classList.contains('makeWeatherBoxVisible') && weatherBoxOverlay.classList.contains('showOverlayBox')) {
-    // add hide classes
-    weatherBoxOverlay.classList.add('hideOverlayBox');
-    changeWeatherBox.classList.add('makeWeatherBoxInvisible');
-    // add z-index classes after animation occurs
-    setTimeout(() => {
-      weatherBoxOverlay.classList.add('hideOverlayWeatherBox');
-      changeWeatherBox.classList.add('hideOverlayWeatherBox');
-    }, 300);
-  }
-});
