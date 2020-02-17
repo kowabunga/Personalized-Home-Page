@@ -261,11 +261,7 @@ nav {
   }
 }
 
-.navbar {
-  animation: navUlOut;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-}
+
 
 // for mobile dropdown animation
 .navbar.responsive {
@@ -292,15 +288,6 @@ nav {
   }
 }
 
-@keyframes navUlOut {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: .8;
-  }
-}
 
 // main page container
 .container {

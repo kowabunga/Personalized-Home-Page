@@ -327,15 +327,6 @@ nav ul a:hover {
   transition: ease-in-out .3s;
 }
 
-.navbar {
-  -webkit-animation: navUlOut;
-          animation: navUlOut;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-
 .navbar.responsive {
   -webkit-animation: navULIn;
           animation: navULIn;
@@ -371,24 +362,6 @@ nav ul a:hover {
   }
   to {
     opacity: 1;
-  }
-}
-
-@-webkit-keyframes navUlOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: .8;
-  }
-}
-
-@keyframes navUlOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: .8;
   }
 }
 
