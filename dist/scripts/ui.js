@@ -14,7 +14,7 @@ class UI {
   }
   //   Populate Weather section
   populateWeather(weather) {
-    this.weatherIcon.setAttribute('src', `http://openweathermap.org/img/w/${weather.weather[0].icon}.png`);
+    this.weatherIcon.setAttribute('src', `https://openweathermap.org/img/w/${weather.weather[0].icon}.png`);
     this.info.innerText = `${weather.name}, ${weather.sys.country}`;
     this.temp.innerText = `Temp: ${weather.main.temp}°F`;
     this.feelsLike.innerText = `Feels like: ${weather.main.feels_like}°F`;

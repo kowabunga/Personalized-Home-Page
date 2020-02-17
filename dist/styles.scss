@@ -265,7 +265,7 @@ nav {
   // display: block;
   display: block;
   animation: navULIn;
-  animation-duration: 1s;
+  animation-duration: .5s;
   animation-fill-mode: forwards;
 }
 
@@ -514,7 +514,6 @@ nav {
   .change-weather-box {
     top: 15%;
     left: 50%;
-    transform: translate(-50%, -15%);
   }
 
   .head {

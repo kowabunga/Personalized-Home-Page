@@ -331,8 +331,8 @@ nav ul a:hover {
   display: block;
   -webkit-animation: navULIn;
           animation: navULIn;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
@@ -606,8 +606,6 @@ nav ul a:hover {
   .change-weather-box {
     top: 15%;
     left: 50%;
-    -webkit-transform: translate(-50%, -15%);
-            transform: translate(-50%, -15%);
   }
   .head .weather {
     -ms-grid-columns: 1fr;
