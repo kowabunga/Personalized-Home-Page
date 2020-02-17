@@ -261,6 +261,12 @@ nav {
   }
 }
 
+.navbar {
+  animation: navUlOut;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
 // for mobile dropdown animation
 .navbar.responsive {
   animation: navULIn;
@@ -283,6 +289,16 @@ nav {
 
   to {
     opacity: 1;
+  }
+}
+
+@keyframes navUlOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: .8;
   }
 }
 
