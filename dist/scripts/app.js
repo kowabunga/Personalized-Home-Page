@@ -12,10 +12,11 @@ const cnInputBtn = document.getElementById('chuck-norris-quotes-btn');
 // For link toggle on small screens, toggle dropdown on icon click
 // change toggle icon from bars to x on open state, revert on close
 const toggleBtn = document.getElementById('toggler-icon');
+const nav = document.querySelector('.navbar');
 toggleBtn.addEventListener('click', e => {
   e.preventDefault();
-  document.querySelector('.navbar').classList.toggle('responsive');
-  if (document.querySelector('.navbar').classList.contains('responsive')) {
+  nav.classList.toggle('responsive');
+  if (nav.classList.contains('responsive')) {
     toggleBtn.style.color = 'black';
     toggleBtn.className = 'fa fa-remove fa-2x';
   } else {

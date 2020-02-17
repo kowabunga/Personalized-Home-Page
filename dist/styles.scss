@@ -213,11 +213,7 @@ body {
   font-size: 1.5em;
 }
 
-// for mobile dropdown 
-.navbar.responsive li {
-  display: block;
 
-}
 
 // nav bar
 nav {
@@ -254,6 +250,32 @@ nav {
       color: black;
       transition: ease-in-out .3s;
     }
+  }
+}
+
+// for mobile dropdown animation
+.navbar.responsive {
+  animation: navULIn;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+  z-index: 3;
+}
+
+.navbar.responsive li {
+  // display: block;
+  display: block;
+  animation: navULIn;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes navULIn {
+  from {
+    opacity: .8;
+  }
+
+  to {
+    opacity: 1;
   }
 }
 
@@ -515,6 +537,7 @@ nav {
 
   nav {
     position: relative;
+    opacity: .8;
 
     #toggler-a {
 
@@ -546,6 +569,7 @@ nav {
   }
 
   .container {
+
     .row1 {
       grid-template-columns: 1fr;
       grid-template-areas:
@@ -572,7 +596,7 @@ nav {
 }
 
 // Deal with text weirdness at really, REALLY, small screens
-@media(max-width:410px) {
+@media(max-width:400px) {
   .head {
     .weather {
       grid-template-columns: 1fr;

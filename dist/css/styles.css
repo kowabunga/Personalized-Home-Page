@@ -277,10 +277,6 @@ body {
   font-size: 1.5em;
 }
 
-.navbar.responsive li {
-  display: block;
-}
-
 nav {
   position: relative;
   margin-top: 5px;
@@ -319,6 +315,44 @@ nav ul a:hover {
   color: black;
   -webkit-transition: ease-in-out .3s;
   transition: ease-in-out .3s;
+}
+
+.navbar.responsive {
+  -webkit-animation: navULIn;
+          animation: navULIn;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  z-index: 3;
+}
+
+.navbar.responsive li {
+  display: block;
+  -webkit-animation: navULIn;
+          animation: navULIn;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes navULIn {
+  from {
+    opacity: .8;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes navULIn {
+  from {
+    opacity: .8;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .container {
@@ -596,6 +630,7 @@ nav ul a:hover {
   }
   nav {
     position: relative;
+    opacity: .8;
   }
   nav #toggler-a #toggler-icon {
     position: absolute;
@@ -636,7 +671,7 @@ nav ul a:hover {
   }
 }
 
-@media (max-width: 410px) {
+@media (max-width: 400px) {
   .head .weather {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
