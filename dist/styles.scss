@@ -434,8 +434,9 @@ nav {
 // media queries
 @media (max-width: 700px) {
   .change-weather-box {
-    top: 15%;
+    top: 5%;
     left: 50%;
+    transform: translate(-50%, -5%);
   }
 
   .head {

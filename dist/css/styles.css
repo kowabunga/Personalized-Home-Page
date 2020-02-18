@@ -485,8 +485,10 @@ nav ul a {
 
 @media (max-width: 700px) {
   .change-weather-box {
-    top: 15%;
+    top: 5%;
     left: 50%;
+    -webkit-transform: translate(-50%, -5%);
+            transform: translate(-50%, -5%);
   }
   .head .weather {
     -ms-grid-columns: 1fr;
