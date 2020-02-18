@@ -24,6 +24,8 @@ const navLi = document.getElementById('navUL'),
   taskAddBtn = document.getElementById('add-task'),
   taskRemoveBtn = document.querySelector('.list-items');
 
+/*------------------------------------------------------------------------*/
+
 // For link toggle on small screens, toggle dropdown on icon click
 // change toggle icon from bars to x on open state, revert on close
 toggleBtn.addEventListener('click', e => {
@@ -38,6 +40,8 @@ toggleBtn.addEventListener('click', e => {
   }
 });
 
+/*------------------------------------------------------------------------*/
+
 // Get News
 function fetchNews() {
   news
@@ -47,6 +51,8 @@ function fetchNews() {
 }
 fetchNews();
 
+/*------------------------------------------------------------------------*/
+
 // Get Daily Quote
 function fetchDailyQuote() {
   dayQuotes
@@ -55,6 +61,8 @@ function fetchDailyQuote() {
     .catch(err => console.log(err));
 }
 fetchDailyQuote();
+
+/*------------------------------------------------------------------------*/
 
 // Get chuck norris quotes
 function fetchChuckNorrisQuotes(number) {
@@ -79,6 +87,8 @@ cnInputBtn.addEventListener('click', e => {
   cnInputNumber.value = '';
 });
 
+/*------------------------------------------------------------------------*/
+
 // Clock
 function getTimeDate() {
   const time = new Date();
@@ -93,6 +103,37 @@ function getTimeDate() {
   setTimeout(getTimeDate, 1000);
 }
 getTimeDate();
+
+/*------------------------------------------------------------------------*/
+
+// dictionary section
+// on submit click get word defintion,
+wordSubmitBtn.addEventListener('click', e => {
+  e.preventDefault();
+  // get word input
+  const word = wordInputBox.value;
+
+  //   if input is not empty, select the first object that contains shortdef
+  if (wordInputBox.value !== '') {
+    dictionary
+      .getData(word)
+      .then(results => ui.getDefinition(word, results[0]))
+      .catch(err => console.log(err));
+  } else {
+    // if input is empty, add p element saying to enter word and temporarily disable get word button
+    const para = document.createElement('p');
+    para.innerText = 'Please enter a word';
+    // insert para after button
+    wordSubmitBtn.parentNode.insertBefore(para, wordSubmitBtn.nextSibling);
+    wordSubmitBtn.setAttribute('disabled', true);
+    setTimeout(() => {
+      para.remove();
+      wordSubmitBtn.removeAttribute('disabled');
+    }, 1000);
+  }
+});
+
+/*------------------------------------------------------------------------*/
 
 // weather section
 // Get Weather
@@ -122,10 +163,8 @@ changeWeatherBtn.addEventListener('click', e => {
 });
 
 // submit change weather modal event listener
-submitChangeWeather.addEventListener('click', sendChangeWeatherInfo);
-
-// gets new info from user and updates weather information on page
-function sendChangeWeatherInfo(e) {
+submitChangeWeather.addEventListener('click', e => {
+  // gets new info from user and updates weather information on page
   e.preventDefault();
   // hide weather change box and hide overlay
   if (changeWeatherBox.classList.contains('makeWeatherBoxVisible') && weatherBoxOverlay.classList.contains('showOverlayBox')) {
@@ -158,7 +197,7 @@ function sendChangeWeatherInfo(e) {
   wCity.value = '';
   wState.value = '';
   wCountry.value = '';
-}
+});
 
 // Check for click on overlay box (darkened area). If clicked, simply remove overlay and check weather box section just as before when clicking submit
 weatherBoxOverlay.addEventListener('click', () => {
@@ -173,34 +212,6 @@ weatherBoxOverlay.addEventListener('click', () => {
     }, 300);
   }
 });
-
-// on submit click,
-wordSubmitBtn.addEventListener('click', getDefinition);
-
-function getDefinition(e) {
-  e.preventDefault();
-  // get word input
-  const word = wordInputBox.value;
-
-  //   if input is not empty, select the first object that contains shortdef
-  if (wordInputBox.value !== '') {
-    dictionary
-      .getData(word)
-      .then(results => ui.getDefinition(word, results[0]))
-      .catch(err => console.log(err));
-  } else {
-    // if input is empty, add p element saying to enter word and temporarily disable get word button
-    const para = document.createElement('p');
-    para.innerText = 'Please enter a word';
-    // insert para after button
-    wordSubmitBtn.parentNode.insertBefore(para, wordSubmitBtn.nextSibling);
-    wordSubmitBtn.setAttribute('disabled', true);
-    setTimeout(() => {
-      para.remove();
-      wordSubmitBtn.removeAttribute('disabled');
-    }, 1000);
-  }
-}
 
 // if add task button is clicked
 taskAddBtn.addEventListener('click', ui.addItemToToDoList);
@@ -232,6 +243,8 @@ navLi.addEventListener('mouseout', e => {
   e.target.classList.remove('convenient-links-Add');
   e.target.classList.add('convenient-links-Remove');
 });
+
+/*------------------------------------------------------------------------*/
 
 // All submit buttons for weather, quotes, dictionary, and task list
 // change color from rgb(25, 187, 224) to rgb(6, 204, 248) and back, .4s
