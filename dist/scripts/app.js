@@ -5,14 +5,26 @@ const cNorrisQuotes = new ChuckNorrisQuotes();
 const dictionary = new Dictionary();
 const ui = new UI();
 
-// Get input value for selection of chuck norris quotes
-const cnInputNumber = document.getElementById('cnInput');
-const cnInputBtn = document.getElementById('chuck-norris-quotes-btn');
+// caching dom
+const navLi = document.getElementById('navUL'),
+  toggleBtn = document.getElementById('toggler-icon'),
+  nav = document.querySelector('.navbar'),
+  cnInputNumber = document.getElementById('cnInput'),
+  cnInputBtn = document.getElementById('chuck-norris-quotes-btn'),
+  wCity = document.getElementById('weather-city'),
+  wState = document.getElementById('weather-state'),
+  wCountry = document.getElementById('weather-country'),
+  changeWeatherBtn = document.querySelector('.change-weather-btn'),
+  submitChangeWeather = document.querySelector('#weather-submit'),
+  changeWeatherBox = document.querySelector('.change-weather-box'),
+  weatherBoxOverlay = document.querySelector('.overlay'),
+  wordInputBox = document.getElementById('wordInput'),
+  wordSubmitBtn = document.getElementById('wordSubmit'),
+  taskAddBtn = document.getElementById('add-task'),
+  taskRemoveBtn = document.querySelector('.list-items');
 
 // For link toggle on small screens, toggle dropdown on icon click
 // change toggle icon from bars to x on open state, revert on close
-const toggleBtn = document.getElementById('toggler-icon');
-const nav = document.querySelector('.navbar');
 toggleBtn.addEventListener('click', e => {
   e.preventDefault();
   nav.classList.toggle('responsive');
@@ -42,7 +54,7 @@ function fetchDailyQuote() {
     .catch(err => console.log(err));
 }
 fetchDailyQuote();
-
+// Get chuck norris quotes
 function fetchChuckNorrisQuotes(number) {
   cNorrisQuotes
     .getChuckNorrisQuotes(number)
@@ -90,20 +102,9 @@ function fetchWeather() {
 }
 fetchWeather();
 
-// change weather inputs
-const wCity = document.getElementById('weather-city'),
-  wState = document.getElementById('weather-state'),
-  wCountry = document.getElementById('weather-country');
-
-// change weather buttons and open up change weather modal on click and add overlay to whole screen to whole screen
-const changeWeather = document.querySelector('.change-weather-btn'),
-  submitChangeWeather = document.querySelector('#weather-submit'),
-  changeWeatherBox = document.querySelector('.change-weather-box'),
-  weatherBoxOverlay = document.querySelector('.overlay');
-
-changeWeather.addEventListener('click', e => {
+changeWeatherBtn.addEventListener('click', e => {
   e.preventDefault();
-
+  // change weather button color fade animation
   if (changeWeatherBox.classList.contains('makeWeatherBoxInvisible') && weatherBoxOverlay.classList.contains('hideOverlayBox')) {
     // remove class that hides weather/overlay box behind all other content
     changeWeatherBox.classList.remove('hideOverlayWeatherBox');
@@ -113,7 +114,6 @@ changeWeather.addEventListener('click', e => {
     changeWeatherBox.classList.remove('makeWeatherBoxInvisible');
     weatherBoxOverlay.classList.remove('hideOverlayBox');
   }
-  // add makeWeatherBoxVisible and show overlay
   weatherBoxOverlay.classList.add('showOverlayBox');
   changeWeatherBox.classList.add('makeWeatherBoxVisible');
 });
@@ -171,10 +171,6 @@ weatherBoxOverlay.addEventListener('click', () => {
   }
 });
 
-// dictionary inputs
-const wordInputBox = document.getElementById('wordInput'),
-  wordSubmitBtn = document.getElementById('wordSubmit');
-
 // on submit click,
 wordSubmitBtn.addEventListener('click', getDefinition);
 
@@ -204,12 +200,67 @@ function getDefinition(e) {
 }
 
 // if add task button is clicked
-const taskAddBtn = document.getElementById('add-task');
 taskAddBtn.addEventListener('click', ui.addItemToToDoList);
 
 // if remove task button (x) is clicked
-const taskRemoveBtn = document.querySelector('.list-items');
 taskRemoveBtn.addEventListener('click', ui.removeItemFromToDoList);
 
 // on load, bring items from local storage into to do list
 document.addEventListener('DOMContentLoaded', ui.getFromLocalStorage);
+
+// On hover animations scripts for Change Weather button
+// button fades colors white -> blueish -> white, .3s
+changeWeatherBtn.addEventListener('mouseover', () => {
+  changeWeatherBtn.classList.remove('change-weather-btn-Remove');
+  changeWeatherBtn.classList.add('change-weather-btn-Add');
+});
+changeWeatherBtn.addEventListener('mouseout', () => {
+  changeWeatherBtn.classList.remove('change-weather-btn-Add');
+  changeWeatherBtn.classList.add('change-weather-btn-Remove');
+});
+
+// On hover animations for convenient links
+// link fades from white->black->white, .3s
+navLi.addEventListener('mouseover', e => {
+  e.target.classList.remove('convenient-links-Remove');
+  e.target.classList.add('convenient-links-Add');
+});
+navLi.addEventListener('mouseout', e => {
+  e.target.classList.remove('convenient-links-Add');
+  e.target.classList.add('convenient-links-Remove');
+});
+
+// All submit buttons for weather, quotes, dictionary, and task list
+// change color from rgb(25, 187, 224) to rgb(6, 204, 248) and back
+cnInputBtn.addEventListener('mouseover', () => {
+  cnInputBtn.classList.remove('btn-remove-effect');
+  cnInputBtn.classList.add('btn-add-effect');
+});
+cnInputBtn.addEventListener('mouseout', () => {
+  cnInputBtn.classList.remove('btn-add-effect');
+  cnInputBtn.classList.add('btn-remove-effect');
+});
+submitChangeWeather.addEventListener('mouseover', () => {
+  submitChangeWeather.classList.remove('btn-remove-effect');
+  submitChangeWeather.classList.add('btn-add-effect');
+});
+submitChangeWeather.addEventListener('mouseout', () => {
+  submitChangeWeather.classList.remove('btn-add-effect');
+  submitChangeWeather.classList.add('btn-remove-effect');
+});
+wordSubmitBtn.addEventListener('mouseover', () => {
+  wordSubmitBtn.classList.remove('btn-remove-effect');
+  wordSubmitBtn.classList.add('btn-add-effect');
+});
+wordSubmitBtn.addEventListener('mouseout', () => {
+  wordSubmitBtn.classList.remove('btn-add-effect');
+  wordSubmitBtn.classList.add('btn-remove-effect');
+});
+taskAddBtn.addEventListener('mouseover', () => {
+  taskAddBtn.classList.remove('btn-remove-effect');
+  taskAddBtn.classList.add('btn-add-effect');
+});
+taskAddBtn.addEventListener('mouseout', () => {
+  taskAddBtn.classList.remove('btn-add-effect');
+  taskAddBtn.classList.add('btn-remove-effect');
+});

@@ -106,89 +106,8 @@ button:focus {
     box-shadow: 0px 0px 5px white;
     cursor: pointer;
   }
-
-  .change-weather-btn:hover {
-    background-color: rgb(112, 236, 245);
-    transition: ease-in-out .3s
-  }
 }
 
-// classes and animations for show/hide weather change modal AND show/hide overlay
-.makeWeatherBoxVisible {
-  animation: showWeatherBox;
-  animation-duration: .3s;
-  animation-fill-mode: forwards;
-  z-index: 4;
-}
-
-.makeWeatherBoxInvisible {
-  animation: hideWeatherBox;
-  animation-duration: .3s;
-  animation-fill-mode: forwards;
-  // keep box above body items for animation purposes
-  z-index: 3;
-}
-
-.showOverlayBox {
-  animation-name: showOverlay;
-  animation-duration: .3s;
-  animation-fill-mode: forwards;
-  z-index: 3;
-}
-
-.hideOverlayBox {
-  animation-name: hideOverlay;
-  animation-duration: .3s;
-  animation-fill-mode: forwards;
-  // keep overlay above body items for animation purposes
-  z-index: 3;
-}
-
-.hideOverlayWeatherBox {
-  z-index: 0 !important;
-}
-
-@keyframes showOverlay {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes hideOverlay {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes showWeatherBox {
-  from {
-    opacity: 0;
-
-  }
-
-  to {
-    opacity: 1;
-
-  }
-}
-
-@keyframes hideWeatherBox {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-  }
-}
 
 // weather section
 .weather {
@@ -253,15 +172,8 @@ nav {
     a {
       text-decoration: none;
     }
-
-    a:hover {
-      color: black;
-      transition: ease-in-out .3s;
-    }
   }
 }
-
-
 
 // for mobile dropdown animation
 .navbar.responsive {
@@ -287,7 +199,6 @@ nav {
     opacity: 1;
   }
 }
-
 
 // main page container
 .container {
@@ -369,11 +280,6 @@ nav {
         background-color: rgb(25, 187, 224);
         height: 3.5em;
         cursor: pointer;
-      }
-
-      #chuck-norris-quotes-btn:hover {
-        background-color: rgb(6, 176, 214);
-        transition: ease .3s;
       }
 
       #cnQuotes-list li {
@@ -525,7 +431,6 @@ nav {
 
 }
 
-
 // media queries
 @media (max-width: 700px) {
   .change-weather-box {
@@ -623,5 +528,184 @@ nav {
         display: none;
       }
     }
+  }
+}
+
+
+// Keyframes and associated classes
+
+// weather button classes/keyframes
+.change-weather-btn-Add {
+  animation-name: changeWeatherBtnAdd;
+  animation-duration: .4s;
+  animation-fill-mode: forwards;
+}
+
+.change-weather-btn-Remove {
+  animation-name: changeWeatherBtnRemove;
+  animation-duration: .4s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes changeWeatherBtnAdd {
+  from {
+    background-color: rgb(255, 255, 255);
+  }
+
+  to {
+    background-color: rgb(112, 236, 245);
+  }
+}
+
+@keyframes changeWeatherBtnRemove {
+  from {
+    background-color: rgb(112, 236, 245);
+  }
+
+  to {
+    background-color: rgb(255, 255, 255);
+  }
+}
+
+// classes and animations for show/hide weather change modal AND show/hide overlay
+.makeWeatherBoxVisible {
+  animation-name: showWeatherBox;
+  animation-duration: .3s;
+  animation-fill-mode: forwards;
+  z-index: 4;
+}
+
+.makeWeatherBoxInvisible {
+  animation-name: hideWeatherBox;
+  animation-duration: .3s;
+  animation-fill-mode: forwards;
+  // keep box above body items for animation purposes
+  z-index: 3;
+}
+
+.showOverlayBox {
+  animation-name: showOverlay;
+  animation-duration: .3s;
+  animation-fill-mode: forwards;
+  z-index: 3;
+}
+
+.hideOverlayBox {
+  animation-name: hideOverlay;
+  animation-duration: .3s;
+  animation-fill-mode: forwards;
+  // keep overlay above body items for animation purposes
+  z-index: 3;
+}
+
+.hideOverlayWeatherBox {
+  z-index: 0 !important;
+}
+
+@keyframes showOverlay {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hideOverlay {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes showWeatherBox {
+  from {
+    opacity: 0;
+
+  }
+
+  to {
+    opacity: 1;
+
+  }
+}
+
+@keyframes hideWeatherBox {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+// convenient links keyframes classes
+.convenient-links-Add {
+  animation-name: cvAdd;
+  animation-duration: .4s;
+  animation-fill-mode: forwards;
+}
+
+.convenient-links-Remove {
+  animation-name: cvRemove;
+  animation-duration: .4s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes cvAdd {
+  from {
+    color: rgb(255, 255, 255);
+  }
+
+  to {
+    color: rgb(0, 0, 0);
+  }
+}
+
+@keyframes cvRemove {
+  from {
+    color: rgb(0, 0, 0);
+  }
+
+  to {
+    color: rgb(255, 255, 255);
+  }
+}
+
+// other buttons keyframes and classes
+.btn-add-effect {
+  animation-name: btnAdd;
+  animation-duration: .4s;
+  animation-fill-mode: forwards;
+}
+
+.btn-remove-effect {
+  animation-name: btnRemove;
+  animation-duration: .4s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes btnAdd {
+  from {
+    background-color: rgb(25, 187, 224);
+  }
+
+  to {
+    background-color: rgb(6, 204, 248);
+  }
+}
+
+@keyframes btnRemove {
+  from {
+    background-color: rgb(6, 204, 248);
+  }
+
+  to {
+    background-color: rgb(25, 187, 224);
   }
 }

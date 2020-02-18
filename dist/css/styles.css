@@ -121,128 +121,6 @@ button:focus {
   cursor: pointer;
 }
 
-.head .change-weather-btn:hover {
-  background-color: #70ecf5;
-  -webkit-transition: ease-in-out .3s;
-  transition: ease-in-out .3s;
-}
-
-.makeWeatherBoxVisible {
-  -webkit-animation: showWeatherBox;
-          animation: showWeatherBox;
-  -webkit-animation-duration: .3s;
-          animation-duration: .3s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  z-index: 4;
-}
-
-.makeWeatherBoxInvisible {
-  -webkit-animation: hideWeatherBox;
-          animation: hideWeatherBox;
-  -webkit-animation-duration: .3s;
-          animation-duration: .3s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  z-index: 3;
-}
-
-.showOverlayBox {
-  -webkit-animation-name: showOverlay;
-          animation-name: showOverlay;
-  -webkit-animation-duration: .3s;
-          animation-duration: .3s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  z-index: 3;
-}
-
-.hideOverlayBox {
-  -webkit-animation-name: hideOverlay;
-          animation-name: hideOverlay;
-  -webkit-animation-duration: .3s;
-          animation-duration: .3s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  z-index: 3;
-}
-
-.hideOverlayWeatherBox {
-  z-index: 0 !important;
-}
-
-@-webkit-keyframes showOverlay {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes showOverlay {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes hideOverlay {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes hideOverlay {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-@-webkit-keyframes showWeatherBox {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes showWeatherBox {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes hideWeatherBox {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes hideWeatherBox {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
 .weather {
   font-size: 1.3em;
   grid-area: 'weather';
@@ -319,12 +197,6 @@ nav ul li {
 
 nav ul a {
   text-decoration: none;
-}
-
-nav ul a:hover {
-  color: black;
-  -webkit-transition: ease-in-out .3s;
-  transition: ease-in-out .3s;
 }
 
 .navbar.responsive {
@@ -455,12 +327,6 @@ nav ul a:hover {
   background-color: #19bbe0;
   height: 3.5em;
   cursor: pointer;
-}
-
-.container .row1 .chuck-norris-quotes #chuck-norris-quotes-btn:hover {
-  background-color: #06b0d6;
-  -webkit-transition: ease .3s;
-  transition: ease .3s;
 }
 
 .container .row1 .chuck-norris-quotes #cnQuotes-list li {
@@ -695,5 +561,283 @@ nav ul a:hover {
   }
   .head .weather #weather-icon {
     display: none;
+  }
+}
+
+.change-weather-btn-Add {
+  -webkit-animation-name: changeWeatherBtnAdd;
+          animation-name: changeWeatherBtnAdd;
+  -webkit-animation-duration: .4s;
+          animation-duration: .4s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.change-weather-btn-Remove {
+  -webkit-animation-name: changeWeatherBtnRemove;
+          animation-name: changeWeatherBtnRemove;
+  -webkit-animation-duration: .4s;
+          animation-duration: .4s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes changeWeatherBtnAdd {
+  from {
+    background-color: white;
+  }
+  to {
+    background-color: #70ecf5;
+  }
+}
+
+@keyframes changeWeatherBtnAdd {
+  from {
+    background-color: white;
+  }
+  to {
+    background-color: #70ecf5;
+  }
+}
+
+@-webkit-keyframes changeWeatherBtnRemove {
+  from {
+    background-color: #70ecf5;
+  }
+  to {
+    background-color: white;
+  }
+}
+
+@keyframes changeWeatherBtnRemove {
+  from {
+    background-color: #70ecf5;
+  }
+  to {
+    background-color: white;
+  }
+}
+
+.makeWeatherBoxVisible {
+  -webkit-animation-name: showWeatherBox;
+          animation-name: showWeatherBox;
+  -webkit-animation-duration: .3s;
+          animation-duration: .3s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  z-index: 4;
+}
+
+.makeWeatherBoxInvisible {
+  -webkit-animation-name: hideWeatherBox;
+          animation-name: hideWeatherBox;
+  -webkit-animation-duration: .3s;
+          animation-duration: .3s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  z-index: 3;
+}
+
+.showOverlayBox {
+  -webkit-animation-name: showOverlay;
+          animation-name: showOverlay;
+  -webkit-animation-duration: .3s;
+          animation-duration: .3s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  z-index: 3;
+}
+
+.hideOverlayBox {
+  -webkit-animation-name: hideOverlay;
+          animation-name: hideOverlay;
+  -webkit-animation-duration: .3s;
+          animation-duration: .3s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  z-index: 3;
+}
+
+.hideOverlayWeatherBox {
+  z-index: 0 !important;
+}
+
+@-webkit-keyframes showOverlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes showOverlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes hideOverlay {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes hideOverlay {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes showWeatherBox {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes showWeatherBox {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes hideWeatherBox {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes hideWeatherBox {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.convenient-links-Add {
+  -webkit-animation-name: cvAdd;
+          animation-name: cvAdd;
+  -webkit-animation-duration: .4s;
+          animation-duration: .4s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.convenient-links-Remove {
+  -webkit-animation-name: cvRemove;
+          animation-name: cvRemove;
+  -webkit-animation-duration: .4s;
+          animation-duration: .4s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes cvAdd {
+  from {
+    color: white;
+  }
+  to {
+    color: black;
+  }
+}
+
+@keyframes cvAdd {
+  from {
+    color: white;
+  }
+  to {
+    color: black;
+  }
+}
+
+@-webkit-keyframes cvRemove {
+  from {
+    color: black;
+  }
+  to {
+    color: white;
+  }
+}
+
+@keyframes cvRemove {
+  from {
+    color: black;
+  }
+  to {
+    color: white;
+  }
+}
+
+.btn-add-effect {
+  -webkit-animation-name: btnAdd;
+          animation-name: btnAdd;
+  -webkit-animation-duration: .4s;
+          animation-duration: .4s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.btn-remove-effect {
+  -webkit-animation-name: btnRemove;
+          animation-name: btnRemove;
+  -webkit-animation-duration: .4s;
+          animation-duration: .4s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes btnAdd {
+  from {
+    background-color: #19bbe0;
+  }
+  to {
+    background-color: #06ccf8;
+  }
+}
+
+@keyframes btnAdd {
+  from {
+    background-color: #19bbe0;
+  }
+  to {
+    background-color: #06ccf8;
+  }
+}
+
+@-webkit-keyframes btnRemove {
+  from {
+    background-color: #06ccf8;
+  }
+  to {
+    background-color: #19bbe0;
+  }
+}
+
+@keyframes btnRemove {
+  from {
+    background-color: #06ccf8;
+  }
+  to {
+    background-color: #19bbe0;
   }
 }
