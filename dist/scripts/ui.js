@@ -20,6 +20,7 @@ class UI {
     this.feelsLike.innerText = `Feels like: ${weather.main.feels_like}°F`;
     this.humidity.innerText = `Humidity: ${weather.main.humidity}%`;
   }
+
   //   Populate Clock section
   populateClockDate(hour, minutes, seconds, month, day, year) {
     let amPM = hour >= 12 ? 'PM' : 'AM';
@@ -33,6 +34,7 @@ class UI {
     this.clockTime.innerText = `${hour}:${minutes}:${seconds} ${amPM}`;
     this.date.innerText = `${month}, ${day}, ${year}`;
   }
+
   //   Replace month number with month name
   textifyMonth(month) {
     let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -52,8 +54,8 @@ class UI {
       } else {
         content = 'No story here.';
       }
-      // Developer plan for API returns truncated content ending with [+x chars] at end, remove this nuisance
-      //Escape (\) and match everything (.*?) between [ and ]
+      // Developer plan for API returns truncated content ending with [+num chars] at end, remove this nuisance
+      //Escape (\) and match everything (.*?) between [ and ] including [ and ]
       content = content.replace(/\[(.*?)\]/, ' ');
       // api may return null or empty string if author is not known, handle this by making author either "unknown" or known author name
       if (item.author === null || item.author === '') {
@@ -79,6 +81,7 @@ class UI {
     `;
   }
 
+  // add daily quote to site
   populateDailyQuote(quote) {
     console.log(quote);
     let output = '';
@@ -91,6 +94,7 @@ class UI {
     this.qotd.innerHTML = output;
   }
 
+  // add chuck norris quotes to site
   populateChuckNorrisQuotes(quotes) {
     quotes = quotes.value;
     let output = '';
@@ -104,8 +108,9 @@ class UI {
     `;
   }
 
-  addToList(word, definitions) {
-    //   defintions can be undefined if the api returns an empty array (can't find any matches whatsoever)
+  // load defintion on site
+  getDefinition(word, definitions) {
+    //definitions can be undefined if the api returns an empty array (can't find any matches whatsoever)
     // when it does that, defintions comes in as undefined. If it is undefined (see else at end)
     if (definitions !== undefined) {
       //   function that creates the series of lists based on size of shortdef from API
@@ -141,6 +146,7 @@ class UI {
     }
   }
 
+  // functions for to do list
   // add item to to do list
   addItemToToDoList(e) {
     e.preventDefault();
@@ -172,6 +178,7 @@ class UI {
       taskList.value = '';
     }
   }
+
   // remove item from to do list
   removeItemFromToDoList(e) {
     e.preventDefault();
@@ -218,6 +225,7 @@ class UI {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }
 
+  // get items from local storage and load into to do app
   getFromLocalStorage() {
     let tasks;
     if (localStorage.getItem('tasks') === null) {

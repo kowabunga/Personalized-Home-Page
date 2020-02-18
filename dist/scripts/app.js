@@ -1,9 +1,10 @@
-const weather = new Weather('New York', 'NY', 'US'); //default weather location is NYC, NY, US
-const news = new News();
-const dayQuotes = new DailyQuotes();
-const cNorrisQuotes = new ChuckNorrisQuotes();
-const dictionary = new Dictionary();
-const ui = new UI();
+// classes
+const news = new News(),
+  dayQuotes = new DailyQuotes(),
+  cNorrisQuotes = new ChuckNorrisQuotes(),
+  dictionary = new Dictionary(),
+  ui = new UI(),
+  weather = new Weather('New York', 'NY', 'US'); //default weather location is NYC, NY, US
 
 // caching dom
 const navLi = document.getElementById('navUL'),
@@ -54,6 +55,7 @@ function fetchDailyQuote() {
     .catch(err => console.log(err));
 }
 fetchDailyQuote();
+
 // Get chuck norris quotes
 function fetchChuckNorrisQuotes(number) {
   cNorrisQuotes
@@ -102,6 +104,7 @@ function fetchWeather() {
 }
 fetchWeather();
 
+// wait for user to select change weather
 changeWeatherBtn.addEventListener('click', e => {
   e.preventDefault();
   // change weather button color fade animation
@@ -110,7 +113,7 @@ changeWeatherBtn.addEventListener('click', e => {
     changeWeatherBox.classList.remove('hideOverlayWeatherBox');
     weatherBoxOverlay.classList.remove('hideOverlayWeatherBox');
 
-    // remove makeWeatherBoxInvisible
+    // remove makeWeatherBoxInvisible and hideoverlaybox
     changeWeatherBox.classList.remove('makeWeatherBoxInvisible');
     weatherBoxOverlay.classList.remove('hideOverlayBox');
   }
@@ -183,7 +186,7 @@ function getDefinition(e) {
   if (wordInputBox.value !== '') {
     dictionary
       .getData(word)
-      .then(results => ui.addToList(word, results[0]))
+      .then(results => ui.getDefinition(word, results[0]))
       .catch(err => console.log(err));
   } else {
     // if input is empty, add p element saying to enter word and temporarily disable get word button
@@ -231,15 +234,7 @@ navLi.addEventListener('mouseout', e => {
 });
 
 // All submit buttons for weather, quotes, dictionary, and task list
-// change color from rgb(25, 187, 224) to rgb(6, 204, 248) and back
-cnInputBtn.addEventListener('mouseover', () => {
-  cnInputBtn.classList.remove('btn-remove-effect');
-  cnInputBtn.classList.add('btn-add-effect');
-});
-cnInputBtn.addEventListener('mouseout', () => {
-  cnInputBtn.classList.remove('btn-add-effect');
-  cnInputBtn.classList.add('btn-remove-effect');
-});
+// change color from rgb(25, 187, 224) to rgb(6, 204, 248) and back, .4s
 submitChangeWeather.addEventListener('mouseover', () => {
   submitChangeWeather.classList.remove('btn-remove-effect');
   submitChangeWeather.classList.add('btn-add-effect');
@@ -247,6 +242,14 @@ submitChangeWeather.addEventListener('mouseover', () => {
 submitChangeWeather.addEventListener('mouseout', () => {
   submitChangeWeather.classList.remove('btn-add-effect');
   submitChangeWeather.classList.add('btn-remove-effect');
+});
+cnInputBtn.addEventListener('mouseover', () => {
+  cnInputBtn.classList.remove('btn-remove-effect');
+  cnInputBtn.classList.add('btn-add-effect');
+});
+cnInputBtn.addEventListener('mouseout', () => {
+  cnInputBtn.classList.remove('btn-add-effect');
+  cnInputBtn.classList.add('btn-remove-effect');
 });
 wordSubmitBtn.addEventListener('mouseover', () => {
   wordSubmitBtn.classList.remove('btn-remove-effect');
