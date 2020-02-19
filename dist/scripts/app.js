@@ -225,23 +225,27 @@ document.addEventListener('DOMContentLoaded', ui.getFromLocalStorage);
 // On hover animations scripts for Change Weather button
 // button fades colors white -> blueish -> white, .3s
 changeWeatherBtn.addEventListener('mouseover', () => {
-  changeWeatherBtn.classList.remove('change-weather-btn-Remove');
   changeWeatherBtn.classList.add('change-weather-btn-Add');
 });
 changeWeatherBtn.addEventListener('mouseout', () => {
   changeWeatherBtn.classList.remove('change-weather-btn-Add');
   changeWeatherBtn.classList.add('change-weather-btn-Remove');
+  setTimeout(() => {
+    changeWeatherBtn.classList.remove('change-weather-btn-Remove');
+  }, 500);
 });
 
 // On hover animations for convenient links
 // link fades from white->black->white, .3s
 navLi.addEventListener('mouseover', e => {
-  e.target.classList.remove('convenient-links-Remove');
   e.target.classList.add('convenient-links-Add');
 });
 navLi.addEventListener('mouseout', e => {
   e.target.classList.remove('convenient-links-Add');
   e.target.classList.add('convenient-links-Remove');
+  setTimeout(() => {
+    e.target.classList.remove('convenient-links-Remove');
+  }, 500);
 });
 
 /*------------------------------------------------------------------------*/
@@ -249,34 +253,42 @@ navLi.addEventListener('mouseout', e => {
 // All submit buttons for weather, quotes, dictionary, and task list
 // change color from rgb(25, 187, 224) to rgb(6, 204, 248) and back, .4s
 submitChangeWeather.addEventListener('mouseover', () => {
-  submitChangeWeather.classList.remove('btn-remove-effect');
   submitChangeWeather.classList.add('btn-add-effect');
 });
 submitChangeWeather.addEventListener('mouseout', () => {
   submitChangeWeather.classList.remove('btn-add-effect');
   submitChangeWeather.classList.add('btn-remove-effect');
+  setTimeout(() => {
+    submitChangeWeather.classList.remove('btn-remove-effect');
+  }, 500);
 });
 cnInputBtn.addEventListener('mouseover', () => {
-  cnInputBtn.classList.remove('btn-remove-effect');
   cnInputBtn.classList.add('btn-add-effect');
 });
 cnInputBtn.addEventListener('mouseout', () => {
   cnInputBtn.classList.remove('btn-add-effect');
   cnInputBtn.classList.add('btn-remove-effect');
+  setTimeout(() => {
+    cnInputBtn.classList.remove('btn-remove-effect');
+  }, 500);
 });
 wordSubmitBtn.addEventListener('mouseover', () => {
-  wordSubmitBtn.classList.remove('btn-remove-effect');
   wordSubmitBtn.classList.add('btn-add-effect');
 });
 wordSubmitBtn.addEventListener('mouseout', () => {
   wordSubmitBtn.classList.remove('btn-add-effect');
   wordSubmitBtn.classList.add('btn-remove-effect');
+  setTimeout(() => {
+    wordSubmitBtn.classList.remove('btn-remove-effect');
+  }, 500);
 });
 taskAddBtn.addEventListener('mouseover', () => {
-  taskAddBtn.classList.remove('btn-remove-effect');
   taskAddBtn.classList.add('btn-add-effect');
 });
 taskAddBtn.addEventListener('mouseout', () => {
   taskAddBtn.classList.remove('btn-add-effect');
   taskAddBtn.classList.add('btn-remove-effect');
+  setTimeout(() => {
+    taskAddBtn.classList.remove('btn-remove-effect');
+  }, 500);
 });

@@ -199,44 +199,6 @@ nav ul a {
   text-decoration: none;
 }
 
-.navbar.responsive {
-  -webkit-animation: navULIn;
-          animation: navULIn;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  z-index: 3;
-}
-
-.navbar.responsive li {
-  display: block;
-  -webkit-animation: navULIn;
-          animation: navULIn;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-
-@-webkit-keyframes navULIn {
-  from {
-    opacity: .8;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes navULIn {
-  from {
-    opacity: .8;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 .container {
   position: relative;
   width: 100%;
@@ -563,6 +525,44 @@ nav ul a {
   }
   .head .weather #weather-icon {
     display: none;
+  }
+}
+
+.navbar.responsive {
+  -webkit-animation: navULIn;
+          animation: navULIn;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  z-index: 3;
+}
+
+.navbar.responsive li {
+  display: block;
+  -webkit-animation: navULIn;
+          animation: navULIn;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes navULIn {
+  from {
+    opacity: .8;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes navULIn {
+  from {
+    opacity: .8;
+  }
+  to {
+    opacity: 1;
   }
 }
 

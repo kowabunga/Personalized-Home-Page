@@ -175,31 +175,6 @@ nav {
   }
 }
 
-// for mobile dropdown animation
-.navbar.responsive {
-  animation: navULIn;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-  z-index: 3;
-}
-
-.navbar.responsive li {
-  display: block;
-  animation: navULIn;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-}
-
-@keyframes navULIn {
-  from {
-    opacity: .8;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
 // main page container
 .container {
   position: relative;
@@ -534,6 +509,31 @@ nav {
 
 
 // Keyframes and associated classes
+
+// for mobile dropdown animation
+.navbar.responsive {
+  animation: navULIn;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  z-index: 3;
+}
+
+.navbar.responsive li {
+  display: block;
+  animation: navULIn;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes navULIn {
+  from {
+    opacity: .8;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
 
 // weather button classes/keyframes
 .change-weather-btn-Add {
