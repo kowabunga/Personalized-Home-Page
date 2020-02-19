@@ -1,13 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap');
 
 * {
   margin: 0;
   box-sizing: border-box;
   padding: 0.5em;
   grid-gap: 20px;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   color: white;
-  text-rendering: optimizeLegibility;
 }
 
 html,
@@ -102,9 +101,9 @@ button:focus {
     left: 5px;
     border: none;
     border-radius: 3px;
-    color: black;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0px 0px 5px white;
+    color: white;
+    background-color: rgb(52, 58, 64);
+    box-shadow: 0px 0px 1px white;
     cursor: pointer;
   }
 }
@@ -493,13 +492,17 @@ nav {
 }
 
 // Deal with text weirdness at really, REALLY, small screens
-@media(max-width:400px) {
+@media(max-width:417px) {
   .head {
     .weather {
       grid-template-columns: 1fr;
       grid-template-areas: 'info';
-      font-size: 1em;
       align-self: start;
+
+      #weather-info {
+        font-size: .65em;
+        margin-top: 3px;
+      }
 
       #weather-icon {
         display: none;
@@ -551,21 +554,21 @@ nav {
 
 @keyframes changeWeatherBtnAdd {
   from {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(52, 58, 64);
   }
 
   to {
-    background-color: rgb(112, 236, 245);
+    background-color: rgb(95, 95, 95);
   }
 }
 
 @keyframes changeWeatherBtnRemove {
   from {
-    background-color: rgb(112, 236, 245);
+    background-color: rgb(95, 95, 95);
   }
 
   to {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(52, 58, 64);
   }
 }
 
@@ -665,13 +668,13 @@ nav {
   }
 
   to {
-    color: rgb(0, 0, 0);
+    color: rgb(41, 45, 49);
   }
 }
 
 @keyframes cvRemove {
   from {
-    color: rgb(0, 0, 0);
+    color: rgb(41, 45, 49);
   }
 
   to {
