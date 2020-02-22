@@ -14,8 +14,7 @@ html,
 body {
   padding: 0 !important;
   position: relative;
-  background-image: -webkit-gradient(linear, right top, left bottom, from(#6e7fcc), to(#12f1f1));
-  background-image: linear-gradient(to bottom left, #6e7fcc, #12f1f1);
+  background-color: #d3d0d0;
   z-index: 1;
 }
 
