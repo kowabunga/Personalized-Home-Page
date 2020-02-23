@@ -836,7 +836,7 @@ nav ul a {
     background-color: #19bbe0;
   }
   to {
-    background-color: #06ccf8;
+    background-color: #0899b9;
   }
 }
 
@@ -845,13 +845,13 @@ nav ul a {
     background-color: #19bbe0;
   }
   to {
-    background-color: #06ccf8;
+    background-color: #0899b9;
   }
 }
 
 @-webkit-keyframes btnRemove {
   from {
-    background-color: #06ccf8;
+    background-color: #0899b9;
   }
   to {
     background-color: #19bbe0;
@@ -860,7 +860,7 @@ nav ul a {
 
 @keyframes btnRemove {
   from {
-    background-color: #06ccf8;
+    background-color: #0899b9;
   }
   to {
     background-color: #19bbe0;
