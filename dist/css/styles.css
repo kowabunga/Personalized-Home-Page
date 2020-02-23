@@ -489,9 +489,6 @@ nav ul a {
     -ms-grid-column-align: center;
         justify-self: center;
   }
-  nav {
-    opacity: .8;
-  }
   nav #toggler-a #toggler-icon {
     position: absolute;
     display: block;
