@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap");
+/*------------------------------------------------------------------------*/
 * {
   margin: 0;
   -webkit-box-sizing: border-box;
@@ -10,6 +11,7 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+/*------------------------------------------------------------------------*/
 html,
 body {
   padding: 0 !important;
@@ -18,11 +20,13 @@ body {
   z-index: 1;
 }
 
+/*------------------------------------------------------------------------*/
 input:focus,
 button:focus {
   outline: none;
 }
 
+/*------------------------------------------------------------------------*/
 .overlay {
   opacity: 0;
   background-color: rgba(0, 0, 0, 0.7);
@@ -31,6 +35,7 @@ button:focus {
   height: 100%;
 }
 
+/*------------------------------------------------------------------------*/
 .change-weather-box {
   opacity: 0;
   position: absolute;
@@ -93,6 +98,7 @@ button:focus {
   transition: ease .3s;
 }
 
+/*------------------------------------------------------------------------*/
 .head {
   display: -ms-grid;
   display: grid;
@@ -121,6 +127,7 @@ button:focus {
   cursor: pointer;
 }
 
+/*------------------------------------------------------------------------*/
 .weather {
   font-size: 1.3em;
   grid-area: 'weather';
@@ -151,6 +158,7 @@ button:focus {
   max-height: 200px;
 }
 
+/*------------------------------------------------------------------------*/
 .time {
   display: -ms-grid;
   display: grid;
@@ -162,6 +170,7 @@ button:focus {
   font-size: 1.5em;
 }
 
+/*------------------------------------------------------------------------*/
 nav {
   position: -webkit-sticky;
   position: sticky;
@@ -199,9 +208,12 @@ nav ul a {
   text-decoration: none;
 }
 
+/*------------------------------------------------------------------------*/
 .container {
   position: relative;
   width: 100%;
+  /*------------------------------------------------------------------------*/
+  /*------------------------------------------------------------------------*/
 }
 
 .container .row1 {
@@ -210,6 +222,9 @@ nav ul a {
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
       grid-template-areas: 'news dailyQuotes' 'news chuckQuotes';
+  /*------------------------------------------------------------------------*/
+  /*------------------------------------------------------------------------*/
+  /*------------------------------------------------------------------------*/
 }
 
 .container .row1 .news {
@@ -228,7 +243,7 @@ nav ul a {
 
 .container .row1 .news .link {
   text-decoration: none;
-  color: #278ba1;
+  color: #00daf7;
 }
 
 .container .row1 .news .card {
@@ -317,6 +332,8 @@ nav ul a {
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
       grid-template-areas: 'dictionary toDoList';
+  /*------------------------------------------------------------------------*/
+  /*------------------------------------------------------------------------*/
 }
 
 .container .row2 .dictionary {
@@ -445,6 +462,7 @@ nav ul a {
   color: #e24343;
 }
 
+/*------------------------------------------------------------------------*/
 @media (max-width: 700px) {
   .change-weather-box {
     top: 5%;
@@ -531,6 +549,8 @@ nav ul a {
   }
 }
 
+/*------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------*/
 .navbar.responsive {
   -webkit-animation: navULIn;
           animation: navULIn;
@@ -569,6 +589,7 @@ nav ul a {
   }
 }
 
+/*------------------------------------------------------------------------*/
 .change-weather-btn-Add {
   -webkit-animation-name: changeWeatherBtnAdd;
           animation-name: changeWeatherBtnAdd;
@@ -623,6 +644,7 @@ nav ul a {
   }
 }
 
+/*------------------------------------------------------------------------*/
 .makeWeatherBoxVisible {
   -webkit-animation-name: showWeatherBox;
           animation-name: showWeatherBox;
@@ -739,6 +761,7 @@ nav ul a {
   }
 }
 
+/*------------------------------------------------------------------------*/
 .convenient-links-Add {
   -webkit-animation-name: cvAdd;
           animation-name: cvAdd;
