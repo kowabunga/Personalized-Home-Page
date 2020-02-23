@@ -130,7 +130,7 @@ wordSubmitBtn.addEventListener('click', e => {
     setTimeout(() => {
       para.remove();
       wordSubmitBtn.removeAttribute('disabled');
-    }, 1000);
+    }, 1500);
   }
 });
 
