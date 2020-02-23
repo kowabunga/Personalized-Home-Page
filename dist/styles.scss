@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap');
 
+/*------------------------------------------------------------------------*/
+// Root
 * {
   margin: 0;
   box-sizing: border-box;
@@ -10,6 +12,8 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+/*------------------------------------------------------------------------*/
+//html,body
 html,
 body {
   padding: 0 !important;
@@ -19,12 +23,14 @@ body {
   z-index: 1;
 }
 
+/*------------------------------------------------------------------------*/
 // Remove weird outlines
 input:focus,
 button:focus {
   outline: none;
 }
 
+/*------------------------------------------------------------------------*/
 // overlay section
 .overlay {
   opacity: 0;
@@ -34,6 +40,7 @@ button:focus {
   height: 100%;
 }
 
+/*------------------------------------------------------------------------*/
 // change weather modal
 .change-weather-box {
   h3 {
@@ -85,6 +92,7 @@ button:focus {
   }
 }
 
+/*------------------------------------------------------------------------*/
 // head section 
 .head {
   display: grid;
@@ -110,7 +118,7 @@ button:focus {
   }
 }
 
-
+/*------------------------------------------------------------------------*/
 // weather section
 .weather {
   font-size: 1.3em;
@@ -133,6 +141,7 @@ button:focus {
   }
 }
 
+/*------------------------------------------------------------------------*/
 // time section
 .time {
   display: grid;
@@ -142,6 +151,7 @@ button:focus {
   font-size: 1.5em;
 }
 
+/*------------------------------------------------------------------------*/
 // nav bar
 nav {
   position: sticky;
@@ -177,11 +187,13 @@ nav {
   }
 }
 
+/*------------------------------------------------------------------------*/
 // main page container
 .container {
   position: relative;
   width: 100%;
 
+  /*------------------------------------------------------------------------*/
   // first row with news and quotes
   .row1 {
     display: grid;
@@ -190,6 +202,7 @@ nav {
       'news dailyQuotes'
       'news chuckQuotes';
 
+    /*------------------------------------------------------------------------*/
     .news {
       background-color: rgb(52, 58, 64);
       grid-area: news;
@@ -214,6 +227,7 @@ nav {
       }
     }
 
+    /*------------------------------------------------------------------------*/
     // quote of the day
     .quote-of-the-day {
       background-color: rgb(52, 58, 64);
@@ -226,6 +240,7 @@ nav {
       list-style-type: none;
     }
 
+    /*------------------------------------------------------------------------*/
     // chuck norris quotes
     .chuck-norris-quotes {
       background-color: rgb(52, 58, 64);
@@ -280,6 +295,7 @@ nav {
     }
   }
 
+  /*------------------------------------------------------------------------*/
   // second row with dictionary and to do list
   .row2 {
     display: grid;
@@ -287,7 +303,8 @@ nav {
     grid-template-areas:
       'dictionary toDoList';
 
-
+    /*------------------------------------------------------------------------*/
+    // dictionary
     .dictionary {
       text-align: center;
       background-color: rgb(52, 58, 64);
@@ -334,6 +351,7 @@ nav {
       }
     }
 
+    /*------------------------------------------------------------------------*/
     .to-doList {
       text-align: center;
       background-color: rgb(52, 58, 64);
@@ -408,6 +426,7 @@ nav {
 
 }
 
+/*------------------------------------------------------------------------*/
 // media queries
 @media (max-width: 700px) {
   .change-weather-box {
@@ -513,9 +532,9 @@ nav {
   }
 }
 
-
+/*------------------------------------------------------------------------*/
 // Keyframes and associated classes
-
+/*------------------------------------------------------------------------*/
 // for mobile dropdown animation
 .navbar.responsive {
   animation: navULIn;
@@ -541,6 +560,7 @@ nav {
   }
 }
 
+/*------------------------------------------------------------------------*/
 // weather button classes/keyframes
 .change-weather-btn-Add {
   animation-name: changeWeatherBtnAdd;
@@ -574,6 +594,7 @@ nav {
   }
 }
 
+/*------------------------------------------------------------------------*/
 // classes and animations for show/hide weather change modal AND show/hide overlay
 .makeWeatherBoxVisible {
   animation-name: showWeatherBox;
@@ -651,6 +672,7 @@ nav {
   }
 }
 
+/*------------------------------------------------------------------------*/
 // convenient links keyframes classes
 .convenient-links-Add {
   animation-name: cvAdd;

@@ -6,6 +6,7 @@ const news = new News(),
   ui = new UI(),
   weather = new Weather('New York', 'NY', 'US'); //default weather location is NYC, NY, US
 
+/*------------------------------------------------------------------------*/
 // caching dom
 const navLi = document.getElementById('navUL'),
   toggleBtn = document.getElementById('toggler-icon'),
@@ -213,15 +214,19 @@ weatherBoxOverlay.addEventListener('click', () => {
   }
 });
 
+/*------------------------------------------------------------------------*/
 // if add task button is clicked
 taskAddBtn.addEventListener('click', ui.addItemToToDoList);
 
+/*------------------------------------------------------------------------*/
 // if remove task button (x) is clicked
 taskRemoveBtn.addEventListener('click', ui.removeItemFromToDoList);
 
+/*------------------------------------------------------------------------*/
 // on load, bring items from local storage into to do list
 document.addEventListener('DOMContentLoaded', ui.getFromLocalStorage);
 
+/*------------------------------------------------------------------------*/
 // On hover animations scripts for Change Weather button
 // button fades colors white -> blueish -> white, .3s
 changeWeatherBtn.addEventListener('mouseover', () => {
@@ -235,6 +240,7 @@ changeWeatherBtn.addEventListener('mouseout', () => {
   }, 500);
 });
 
+/*------------------------------------------------------------------------*/
 // On hover animations for convenient links
 // link fades from white->black->white, .3s
 navLi.addEventListener('mouseover', e => {
@@ -249,7 +255,6 @@ navLi.addEventListener('mouseout', e => {
 });
 
 /*------------------------------------------------------------------------*/
-
 // All submit buttons for weather, quotes, dictionary, and task list
 // change color from rgb(25, 187, 224) to rgb(6, 204, 248) and back, .4s
 submitChangeWeather.addEventListener('mouseover', () => {

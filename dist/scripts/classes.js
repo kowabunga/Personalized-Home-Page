@@ -1,3 +1,4 @@
+/*------------------------------------------------------------------------*/
 class Weather {
   constructor(city, state, country) {
     this.city = city;
@@ -26,6 +27,7 @@ class Weather {
   }
 }
 
+/*------------------------------------------------------------------------*/
 class DailyQuotes {
   async getDailyQuote() {
     const response = await fetch(`https://quotes.rest/qod.json`);
@@ -34,6 +36,7 @@ class DailyQuotes {
   }
 }
 
+/*------------------------------------------------------------------------*/
 class ChuckNorrisQuotes {
   async getChuckNorrisQuotes(number) {
     const response = await fetch(`https://api.icndb.com/jokes/random/${number}`);
@@ -42,6 +45,7 @@ class ChuckNorrisQuotes {
   }
 }
 
+/*------------------------------------------------------------------------*/
 class News {
   constructor() {
     this.api_key = '15740a87ca9749828da0c5071af09d20';
@@ -53,6 +57,7 @@ class News {
   }
 }
 
+/*------------------------------------------------------------------------*/
 class Dictionary {
   // add keys to class
   constructor() {

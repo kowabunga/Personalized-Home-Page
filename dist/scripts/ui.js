@@ -12,6 +12,8 @@ class UI {
     this.qotd = document.getElementById('qotd');
     this.wordSpot = document.getElementById('word');
   }
+
+  /*------------------------------------------------------------------------*/
   //   Populate Weather section
   populateWeather(weather) {
     this.weatherIcon.setAttribute('src', `https://openweathermap.org/img/w/${weather.weather[0].icon}.png`);
@@ -21,6 +23,7 @@ class UI {
     this.humidity.innerText = `Humidity: ${weather.main.humidity}%`;
   }
 
+  /*------------------------------------------------------------------------*/
   //   Populate Clock section
   populateClockDate(hour, minutes, seconds, month, day, year) {
     let amPM = hour >= 12 ? 'PM' : 'AM';
@@ -35,12 +38,14 @@ class UI {
     this.date.innerText = `${month}, ${day}, ${year}`;
   }
 
+  /*------------------------------------------------------------------------*/
   //   Replace month number with month name
   textifyMonth(month) {
     let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     return months[month];
   }
 
+  /*------------------------------------------------------------------------*/
   // Populate news
   populateNews(news) {
     let items = news.articles;
@@ -81,6 +86,7 @@ class UI {
     `;
   }
 
+  /*------------------------------------------------------------------------*/
   // add daily quote to site
   populateDailyQuote(quote) {
     console.log(quote);
@@ -94,6 +100,7 @@ class UI {
     this.qotd.innerHTML = output;
   }
 
+  /*------------------------------------------------------------------------*/
   // add chuck norris quotes to site
   populateChuckNorrisQuotes(quotes) {
     quotes = quotes.value;
@@ -108,6 +115,7 @@ class UI {
     `;
   }
 
+  /*------------------------------------------------------------------------*/
   // load defintion on site
   getDefinition(word, definitions) {
     //definitions can be undefined if the api returns an empty array (can't find any matches whatsoever)
@@ -146,6 +154,7 @@ class UI {
     }
   }
 
+  /*------------------------------------------------------------------------*/
   // functions for to do list
   // add item to to do list
   addItemToToDoList(e) {
@@ -179,6 +188,7 @@ class UI {
     }
   }
 
+  /*------------------------------------------------------------------------*/
   // remove item from to do list
   removeItemFromToDoList(e) {
     e.preventDefault();
@@ -190,6 +200,7 @@ class UI {
     ui.removeFromLocalStorage(e.target.parentElement.parentElement);
   }
 
+  /*------------------------------------------------------------------------*/
   // add item to local storage
   addToLocalStorage(task) {
     let tasks;
@@ -205,6 +216,7 @@ class UI {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }
 
+  /*------------------------------------------------------------------------*/
   // remove item from local storage
   removeFromLocalStorage(taskItem) {
     let tasks;
@@ -225,6 +237,7 @@ class UI {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }
 
+  /*------------------------------------------------------------------------*/
   // get items from local storage and load into to do app
   getFromLocalStorage() {
     let tasks;
