@@ -5,7 +5,7 @@ A homepage designed to display not only some useful information such as time/dat
 # What I learned
 
 - Continued use of CSS Grid and Flexbox
-- Good learning experience with CSS Animations
+- Perhaps over-extensive use of CSS Animations where not necessary, but made a good learning experience for using CSS Animations
 - An excellent learning experience for using a CSS preprocessor to format CSS - Sass in this case (.scss)
 - Incorporating JavaScript heavily into websites
 - API usage and dynamically loading content from API
