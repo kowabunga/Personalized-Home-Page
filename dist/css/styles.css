@@ -568,7 +568,7 @@ nav ul a {
           animation-duration: 1s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  z-index: 3;
+  z-index: 2;
 }
 
 .navbar.responsive li {
