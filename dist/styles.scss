@@ -6,7 +6,6 @@
   margin: 0;
   box-sizing: border-box;
   padding: 0.5em;
-  grid-gap: 20px;
   font-family: 'Nunito Sans', sans-serif;
   color: white;
   -webkit-tap-highlight-color: transparent;
@@ -195,6 +194,8 @@ nav {
 .container {
   position: relative;
   width: 100%;
+  grid-gap: 20px;
+
 
   /*------------------------------------------------------------------------*/
   // first row with news and quotes
