@@ -126,6 +126,7 @@ button:focus {
   display: grid;
   grid-template-columns: 0.5fr 4fr;
   grid-template-areas: 'icon info';
+  align-items: center;
 
   #weather-icon {
     grid-area: icon;
@@ -144,11 +145,13 @@ button:focus {
 /*------------------------------------------------------------------------*/
 // time section
 .time {
-  display: grid;
+  display: flex;
   grid-area: 'clock';
   align-self: center;
   justify-self: center;
+  text-align: center;
   font-size: 1.5em;
+
 }
 
 /*------------------------------------------------------------------------*/
@@ -440,7 +443,6 @@ nav {
       grid-template-columns: 1fr;
       grid-template-areas: 'info';
       font-size: 1.3em;
-      align-self: start;
 
       #weather-icon {
         display: none;
@@ -511,22 +513,33 @@ nav {
   }
 }
 
+
 // Deal with text weirdness at really, REALLY, small screens
-@media(max-width:417px) {
+@media(max-width:590px) {
   .head {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'weather'
+      'clock';
+
     .weather {
       grid-template-columns: 1fr;
       grid-template-areas: 'info';
       align-self: start;
+      font-size: 1.7em;
 
       #weather-info {
-        font-size: .65em;
+        font-size: .64em;
         margin-top: 3px;
       }
 
       #weather-icon {
         display: none;
       }
+    }
+
+    .time {
+      font-size: 1em;
     }
   }
 }

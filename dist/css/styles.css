@@ -136,6 +136,9 @@ button:focus {
   -ms-grid-columns: 0.5fr 4fr;
       grid-template-columns: 0.5fr 4fr;
       grid-template-areas: 'icon info';
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .weather #weather-icon {
@@ -160,13 +163,14 @@ button:focus {
 
 /*------------------------------------------------------------------------*/
 .time {
-  display: -ms-grid;
-  display: grid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   grid-area: 'clock';
-  -ms-grid-row-align: center;
+  -ms-flex-item-align: center;
       align-self: center;
-  -ms-grid-column-align: center;
-      justify-self: center;
+  justify-self: center;
+  text-align: center;
   font-size: 1.5em;
 }
 
@@ -475,9 +479,6 @@ nav ul a {
         grid-template-columns: 1fr;
         grid-template-areas: 'info';
     font-size: 1.3em;
-    -ms-flex-item-align: start;
-        -ms-grid-row-align: start;
-        align-self: start;
   }
   .head .weather #weather-icon {
     display: none;
@@ -528,7 +529,12 @@ nav ul a {
   }
 }
 
-@media (max-width: 417px) {
+@media (max-width: 590px) {
+  .head {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas: 'weather' 'clock';
+  }
   .head .weather {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
@@ -536,13 +542,17 @@ nav ul a {
     -ms-flex-item-align: start;
         -ms-grid-row-align: start;
         align-self: start;
+    font-size: 1.7em;
   }
   .head .weather #weather-info {
-    font-size: .65em;
+    font-size: .64em;
     margin-top: 3px;
   }
   .head .weather #weather-icon {
     display: none;
+  }
+  .head .time {
+    font-size: 1em;
   }
 }
 

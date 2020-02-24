@@ -89,7 +89,7 @@ class UI {
   /*------------------------------------------------------------------------*/
   // add daily quote to site
   populateDailyQuote(quote) {
-    console.log(quote);
+    // console.log(quote);
     let output = '';
     if (quote.contents !== undefined) {
       quote = quote.contents.quotes[0];
@@ -123,7 +123,7 @@ class UI {
     if (definitions !== undefined) {
       //   function that creates the series of lists based on size of shortdef from API
       function makeList(definitions) {
-        console.log(definitions);
+        // console.log(definitions);
 
         if (definitions.shortdef !== undefined) {
           let shortDefs = definitions.shortdef;
