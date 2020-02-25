@@ -41,6 +41,16 @@ button:focus {
 }
 
 /*------------------------------------------------------------------------*/
+// global button style
+button {
+  transition: .3s ease !important;
+}
+
+button:active {
+  transform: scale(0.95) !important
+}
+
+/*------------------------------------------------------------------------*/
 // change weather modal
 .change-weather-box {
   h3 {
@@ -71,7 +81,6 @@ button:focus {
   }
 
   .weather-input:focus {
-    transition: ease-in .2s;
     border-color: rgb(25, 187, 224);
   }
 
@@ -88,7 +97,6 @@ button:focus {
 
   #weather-submit:hover {
     background-color: rgb(6, 176, 214);
-    transition: ease .3s;
   }
 }
 
@@ -270,7 +278,6 @@ nav {
       }
 
       #cnInput:focus {
-        transition: ease .2s;
         border-color: rgb(25, 187, 224);
       }
 
@@ -335,7 +342,6 @@ nav {
       }
 
       #wordInput:focus {
-        transition: ease .2s;
         border-color: rgb(25, 187, 224);
       }
 
@@ -352,7 +358,6 @@ nav {
 
       #wordSubmit:hover {
         background-color: rgb(6, 176, 214);
-        transition: ease .3s;
       }
 
       ol li {
@@ -382,7 +387,6 @@ nav {
       }
 
       #task-input:focus {
-        transition: ease .2s;
         border-color: rgb(25, 187, 224);
       }
 
@@ -399,7 +403,6 @@ nav {
 
       #add-task:hover {
         background-color: rgb(6, 176, 214);
-        transition: ease .3s;
       }
 
 

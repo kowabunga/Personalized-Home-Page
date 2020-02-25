@@ -36,6 +36,17 @@ button:focus {
 }
 
 /*------------------------------------------------------------------------*/
+button {
+  -webkit-transition: .3s ease !important;
+  transition: .3s ease !important;
+}
+
+button:active {
+  -webkit-transform: scale(0.95) !important;
+          transform: scale(0.95) !important;
+}
+
+/*------------------------------------------------------------------------*/
 .change-weather-box {
   opacity: 0;
   position: absolute;
@@ -76,8 +87,6 @@ button:focus {
 }
 
 .change-weather-box .weather-input:focus {
-  -webkit-transition: ease-in .2s;
-  transition: ease-in .2s;
   border-color: #19bbe0;
 }
 
@@ -94,8 +103,6 @@ button:focus {
 
 .change-weather-box #weather-submit:hover {
   background-color: #06b0d6;
-  -webkit-transition: ease .3s;
-  transition: ease .3s;
 }
 
 /*------------------------------------------------------------------------*/
@@ -301,8 +308,6 @@ nav ul a {
 }
 
 .container .row1 .chuck-norris-quotes #cnInput:focus {
-  -webkit-transition: ease .2s;
-  transition: ease .2s;
   border-color: #19bbe0;
 }
 
@@ -370,8 +375,6 @@ nav ul a {
 }
 
 .container .row2 .dictionary #wordInput:focus {
-  -webkit-transition: ease .2s;
-  transition: ease .2s;
   border-color: #19bbe0;
 }
 
@@ -388,8 +391,6 @@ nav ul a {
 
 .container .row2 .dictionary #wordSubmit:hover {
   background-color: #06b0d6;
-  -webkit-transition: ease .3s;
-  transition: ease .3s;
 }
 
 .container .row2 .dictionary ol li {
@@ -421,8 +422,6 @@ nav ul a {
 }
 
 .container .row2 .to-doList #task-input:focus {
-  -webkit-transition: ease .2s;
-  transition: ease .2s;
   border-color: #19bbe0;
 }
 
@@ -439,8 +438,6 @@ nav ul a {
 
 .container .row2 .to-doList #add-task:hover {
   background-color: #06b0d6;
-  -webkit-transition: ease .3s;
-  transition: ease .3s;
 }
 
 .container .row2 .to-doList .list-items {
