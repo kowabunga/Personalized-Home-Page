@@ -57,9 +57,9 @@ button:focus {
   background-color: rgb(52, 58, 64);
   width: 20em;
   height: 25em;
-  top: 25%;
+  top: 20%;
   left: 50%;
-  transform: translate(-50%, -25%);
+  transform: translate(-50%, -20%);
 
   .weather-input {
     width: 100%;
@@ -178,7 +178,7 @@ nav {
     display: grid;
     // set to auto arrange positions in grid when resizing window
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-    background-image: linear-gradient(to bottom left, rgb(18, 241, 241), rgb(110, 127, 204));
+    background-color: rgb(52, 58, 64);
     box-shadow: 0px 2px 5px rgb(119, 118, 118);
 
     li {
@@ -214,8 +214,8 @@ nav {
       grid-area: news;
       box-shadow: 0px 0px 1px rgb(197, 196, 196);
       border-radius: 3px;
-      max-width: 100%;
-      max-height: 625px;
+      width: 100%;
+      height: 46.25em;
       overflow: auto;
 
       .link {
@@ -240,6 +240,8 @@ nav {
       grid-area: dailyQuotes;
       box-shadow: 0px 0px 1px rgb(197, 196, 196);
       border-radius: 3px;
+      height: 15em;
+      width: 100%;
     }
 
     ul {
@@ -253,7 +255,8 @@ nav {
       grid-area: chuckQuotes;
       box-shadow: 0px 0px 1px rgb(197, 196, 196);
       border-radius: 3px;
-      max-height: 500px;
+      width: 100%;
+      height: 30em;
       overflow: auto;
 
       #cnInput {
@@ -317,8 +320,8 @@ nav {
       grid-area: dictionary;
       box-shadow: 0px 0px 1px rgb(197, 196, 196);
       border-radius: 3px;
-      max-width: 100%;
-      max-height: 500px;
+      width: 100%;
+      height: 40em;
       overflow: auto;
 
       #wordInput {
@@ -364,8 +367,8 @@ nav {
       grid-area: toDoList;
       box-shadow: 0px 0px 1px rgb(197, 196, 196);
       border-radius: 3px;
-      max-width: 100%;
-      height: 400px;
+      width: 100%;
+      height: 40em;
       overflow: auto;
 
       #task-input {
@@ -707,13 +710,13 @@ nav {
   }
 
   to {
-    color: rgb(41, 45, 49);
+    color: rgb(25, 187, 224);
   }
 }
 
 @keyframes cvRemove {
   from {
-    color: rgb(41, 45, 49);
+    color: rgb(25, 187, 224);
   }
 
   to {
