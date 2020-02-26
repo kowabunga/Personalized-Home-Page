@@ -82,10 +82,10 @@ function navToggle(e) {
   e.preventDefault();
   nav.classList.toggle('responsive');
   if (nav.classList.contains('responsive')) {
-    toggleBtn.style.color = 'black';
+    toggleBtn.style.color = 'rgb(25, 187, 224)';
     toggleBtn.className = 'fa fa-remove fa-2x';
   } else {
-    toggleBtn.style.color = 'white';
+    toggleBtn.style.color = 'rgb(255,255,255)';
     toggleBtn.className = 'fa fa-bars fa-2x';
   }
 }
