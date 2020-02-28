@@ -290,6 +290,7 @@ nav ul a:hover {
   border-radius: 3px;
   height: 15em;
   width: 100%;
+  overflow: scroll;
 }
 
 .container .row1 ul {
