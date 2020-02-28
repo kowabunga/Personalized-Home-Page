@@ -53,27 +53,8 @@ taskAddBtn.addEventListener('click', ui.addItemToToDoList);
 taskRemoveBtn.addEventListener('click', ui.removeItemFromToDoList);
 document.addEventListener('DOMContentLoaded', ui.getFromLocalStorage);
 
-// On hover animations scripts for Change Weather button
-// button fades colors gray->lightgray->gray, .3s
-changeWeatherBtn.addEventListener('mouseover', addChangeWeatherEffect);
-changeWeatherBtn.addEventListener('mouseout', removeChangeWeatherEffect);
-
-// Nav items color change
-navLi.addEventListener('mouseover', navAddChangeColor);
-navLi.addEventListener('mouseout', navRemoveChangeColor);
-
 // Get Chuck Norris Quotes
 cnInputBtn.addEventListener('click', getChuckNorrisQuotes);
-
-// All other button fade effects
-submitChangeWeather.addEventListener('mouseover', btnAddEffects);
-submitChangeWeather.addEventListener('mouseout', btnRemoveEffects);
-cnInputBtn.addEventListener('mouseover', btnAddEffects);
-cnInputBtn.addEventListener('mouseout', btnRemoveEffects);
-wordSubmitBtn.addEventListener('mouseover', btnAddEffects);
-wordSubmitBtn.addEventListener('mouseout', btnRemoveEffects);
-taskAddBtn.addEventListener('mouseover', btnAddEffects);
-taskAddBtn.addEventListener('mouseout', btnRemoveEffects);
 
 /*------------------------------------------------------------------------*/
 
@@ -201,7 +182,9 @@ function changeWeatherPopup(e) {
     weatherBoxOverlay.classList.remove('hideOverlayBox');
   }
   weatherBoxOverlay.classList.add('showOverlayBox');
-  changeWeatherBox.classList.add('makeWeatherBoxVisible');
+  setTimeout(() => {
+    changeWeatherBox.classList.add('makeWeatherBoxVisible');
+  }, 200);
 }
 
 function changeWeather(e) {
@@ -210,18 +193,20 @@ function changeWeather(e) {
   // hide weather change box and hide overlay
   if (changeWeatherBox.classList.contains('makeWeatherBoxVisible') && weatherBoxOverlay.classList.contains('showOverlayBox')) {
     changeWeatherBox.classList.remove('makeWeatherBoxVisible');
-    weatherBoxOverlay.classList.remove('showOverlayBox');
   }
-  // hide weatherbox and overlay
-  weatherBoxOverlay.classList.add('hideOverlayBox');
+  // hide weatherbox and overlay. Weatherbox first, then 200ms later hide overlay
   changeWeatherBox.classList.add('makeWeatherBoxInvisible');
+  setTimeout(() => {
+    weatherBoxOverlay.classList.remove('showOverlayBox');
+    weatherBoxOverlay.classList.add('hideOverlayBox');
+  }, 200);
 
   // After boxes are hidden, z-index has to be set to 0 so that both the overlay and box are under the main content of the site. Otherwise, we can't click anything. Wait 300 ms to invoke - same time animation takes to execute
   // Hide weather/overlay box under ALL content
   setTimeout(() => {
     weatherBoxOverlay.classList.add('hideOverlayWeatherBox');
     changeWeatherBox.classList.add('hideOverlayWeatherBox');
-  }, 300);
+  }, 400);
 
   // update weather location information
   // may or may not contain a 'state' value, check
@@ -240,20 +225,6 @@ function changeWeather(e) {
   wCountry.value = '';
 }
 
-// add change weather btn effect
-function addChangeWeatherEffect() {
-  changeWeatherBtn.classList.add('change-weather-btn-Add');
-}
-
-// remove change weather btn effect
-function removeChangeWeatherEffect() {
-  changeWeatherBtn.classList.remove('change-weather-btn-Add');
-  changeWeatherBtn.classList.add('change-weather-btn-Remove');
-  setTimeout(() => {
-    changeWeatherBtn.classList.remove('change-weather-btn-Remove');
-  }, 500);
-}
-
 function showHideOverlay() {
   if (changeWeatherBox.classList.contains('makeWeatherBoxVisible') && weatherBoxOverlay.classList.contains('showOverlayBox')) {
     // add hide classes
@@ -265,37 +236,4 @@ function showHideOverlay() {
       changeWeatherBox.classList.add('hideOverlayWeatherBox');
     }, 300);
   }
-}
-
-/*------------------------------------------------------------------------*/
-// On hover animations for convenient links
-// link fades from white->black->white, .3s
-
-function navAddChangeColor(e) {
-  e.target.classList.add('convenient-links-Add');
-}
-function navRemoveChangeColor(e) {
-  e.target.classList.remove('convenient-links-Add');
-  e.target.classList.add('convenient-links-Remove');
-  setTimeout(() => {
-    e.target.classList.remove('convenient-links-Remove');
-  }, 500);
-}
-
-/*------------------------------------------------------------------------*/
-// All submit buttons for weather, quotes, dictionary, and task list
-// change color from rgb(25, 187, 224) to rgb(6, 204, 248) and back, .4s
-
-// add effect
-function btnAddEffects(e) {
-  e.target.classList.add('btn-add-effect');
-}
-
-// remove effect
-function btnRemoveEffects(e) {
-  e.target.classList.remove('btn-add-effect');
-  e.target.classList.add('btn-remove-effect');
-  setTimeout(() => {
-    e.target.classList.remove('btn-remove-effect');
-  }, 500);
 }
