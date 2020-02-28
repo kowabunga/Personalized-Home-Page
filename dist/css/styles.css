@@ -223,8 +223,8 @@ nav ul li {
 
 nav ul a {
   text-decoration: none;
-  -webkit-transition: .4s ease-in;
-  transition: .4s ease-in;
+  -webkit-transition: .2s ease-in;
+  transition: .2s ease-in;
 }
 
 nav ul a:hover {
