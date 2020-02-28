@@ -37,8 +37,16 @@ button:focus {
 
 /*------------------------------------------------------------------------*/
 button {
-  -webkit-transition: .3s ease !important;
-  transition: .3s ease !important;
+  -webkit-transition: -webkit-transform .1s ease;
+  transition: -webkit-transform .1s ease;
+  transition: transform .1s ease;
+  transition: transform .1s ease, -webkit-transform .1s ease;
+  -webkit-transition: .2s ease-in !important;
+  transition: .2s ease-in !important;
+}
+
+button:hover {
+  background-color: #0489a7 !important;
 }
 
 button:active {
@@ -101,10 +109,6 @@ button:active {
   cursor: pointer;
 }
 
-.change-weather-box #weather-submit:hover {
-  background-color: #06b0d6;
-}
-
 /*------------------------------------------------------------------------*/
 .head {
   display: -ms-grid;
@@ -132,6 +136,8 @@ button:active {
   background-color: #343a40;
   -webkit-box-shadow: 0px 0px 1px white;
           box-shadow: 0px 0px 1px white;
+  -webkit-transition: .2s ease-in !important;
+  transition: .2s ease-in !important;
   cursor: pointer;
 }
 
@@ -217,6 +223,12 @@ nav ul li {
 
 nav ul a {
   text-decoration: none;
+  -webkit-transition: .4s ease-in;
+  transition: .4s ease-in;
+}
+
+nav ul a:hover {
+  color: #19bbe0;
 }
 
 /*------------------------------------------------------------------------*/
@@ -317,6 +329,7 @@ nav ul a {
   border: none;
   background-color: #19bbe0;
   height: 3.5em;
+  margin-top: 5px;
   cursor: pointer;
 }
 
@@ -389,10 +402,6 @@ nav ul a {
   cursor: pointer;
 }
 
-.container .row2 .dictionary #wordSubmit:hover {
-  background-color: #06b0d6;
-}
-
 .container .row2 .dictionary ol li {
   line-height: 1.7;
 }
@@ -434,10 +443,6 @@ nav ul a {
   background-color: #19bbe0;
   height: 3.5em;
   cursor: pointer;
-}
-
-.container .row2 .to-doList #add-task:hover {
-  background-color: #06b0d6;
 }
 
 .container .row2 .to-doList .list-items {
@@ -599,61 +604,6 @@ nav ul a {
 }
 
 /*------------------------------------------------------------------------*/
-.change-weather-btn-Add {
-  -webkit-animation-name: changeWeatherBtnAdd;
-          animation-name: changeWeatherBtnAdd;
-  -webkit-animation-duration: .4s;
-          animation-duration: .4s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-
-.change-weather-btn-Remove {
-  -webkit-animation-name: changeWeatherBtnRemove;
-          animation-name: changeWeatherBtnRemove;
-  -webkit-animation-duration: .4s;
-          animation-duration: .4s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-
-@-webkit-keyframes changeWeatherBtnAdd {
-  from {
-    background-color: #343a40;
-  }
-  to {
-    background-color: #5f5f5f;
-  }
-}
-
-@keyframes changeWeatherBtnAdd {
-  from {
-    background-color: #343a40;
-  }
-  to {
-    background-color: #5f5f5f;
-  }
-}
-
-@-webkit-keyframes changeWeatherBtnRemove {
-  from {
-    background-color: #5f5f5f;
-  }
-  to {
-    background-color: #343a40;
-  }
-}
-
-@keyframes changeWeatherBtnRemove {
-  from {
-    background-color: #5f5f5f;
-  }
-  to {
-    background-color: #343a40;
-  }
-}
-
-/*------------------------------------------------------------------------*/
 .makeWeatherBoxVisible {
   -webkit-animation-name: showWeatherBox;
           animation-name: showWeatherBox;
@@ -767,114 +717,5 @@ nav ul a {
   }
   to {
     opacity: 0;
-  }
-}
-
-/*------------------------------------------------------------------------*/
-.convenient-links-Add {
-  -webkit-animation-name: cvAdd;
-          animation-name: cvAdd;
-  -webkit-animation-duration: .4s;
-          animation-duration: .4s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-
-.convenient-links-Remove {
-  -webkit-animation-name: cvRemove;
-          animation-name: cvRemove;
-  -webkit-animation-duration: .4s;
-          animation-duration: .4s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-
-@-webkit-keyframes cvAdd {
-  from {
-    color: white;
-  }
-  to {
-    color: #19bbe0;
-  }
-}
-
-@keyframes cvAdd {
-  from {
-    color: white;
-  }
-  to {
-    color: #19bbe0;
-  }
-}
-
-@-webkit-keyframes cvRemove {
-  from {
-    color: #19bbe0;
-  }
-  to {
-    color: white;
-  }
-}
-
-@keyframes cvRemove {
-  from {
-    color: #19bbe0;
-  }
-  to {
-    color: white;
-  }
-}
-
-.btn-add-effect {
-  -webkit-animation-name: btnAdd;
-          animation-name: btnAdd;
-  -webkit-animation-duration: .4s;
-          animation-duration: .4s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-
-.btn-remove-effect {
-  -webkit-animation-name: btnRemove;
-          animation-name: btnRemove;
-  -webkit-animation-duration: .4s;
-          animation-duration: .4s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-
-@-webkit-keyframes btnAdd {
-  from {
-    background-color: #19bbe0;
-  }
-  to {
-    background-color: #0899b9;
-  }
-}
-
-@keyframes btnAdd {
-  from {
-    background-color: #19bbe0;
-  }
-  to {
-    background-color: #0899b9;
-  }
-}
-
-@-webkit-keyframes btnRemove {
-  from {
-    background-color: #0899b9;
-  }
-  to {
-    background-color: #19bbe0;
-  }
-}
-
-@keyframes btnRemove {
-  from {
-    background-color: #0899b9;
-  }
-  to {
-    background-color: #19bbe0;
   }
 }
