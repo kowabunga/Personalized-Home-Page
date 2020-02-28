@@ -17,7 +17,7 @@ class Weather {
       response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.city},${this.country}&appid=${this.api_key}&units=imperial`);
     }
     const responseData = await response.json();
-    console.log(responseData);
+    // console.log(responseData);
     return responseData;
   }
   changeLocation(newCity, newState, newCountry) {
