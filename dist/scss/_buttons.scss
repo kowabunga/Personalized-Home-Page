@@ -1,0 +1,21 @@
+/*------------------------------------------------------------------------*/
+// Remove weird outlines
+input:focus,
+button:focus {
+    outline: none;
+}
+
+/*------------------------------------------------------------------------*/
+// global button style
+button {
+    transition: transform .1s ease;
+    transition: .2s ease-in !important;
+}
+
+button:hover {
+    background-color: rgb(4, 137, 167) !important
+}
+
+button:active {
+    transform: scale(0.95) !important
+}

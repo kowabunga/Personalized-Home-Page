@@ -1,0 +1,113 @@
+/*------------------------------------------------------------------------*/
+// media queries
+@media (max-width: 700px) {
+    .change-weather-box {
+        top: 5%;
+        left: 50%;
+        transform: translate(-50%, -5%);
+    }
+
+    .head {
+        .weather {
+            grid-template-columns: 1fr;
+            grid-template-areas: 'info';
+            font-size: 1.3em;
+
+            #weather-icon {
+                display: none;
+            }
+        }
+
+        .time {
+            align-self: center;
+            justify-self: center;
+        }
+    }
+
+    nav {
+
+        #toggler-a {
+
+            #toggler-icon {
+                position: absolute;
+                display: block;
+                top: -6px;
+                right: 10px;
+                cursor: pointer;
+            }
+        }
+
+        #toggler-icon:hover {
+            color: black;
+            transition: ease-in-out .3s;
+        }
+
+        ul {
+            min-height: 3.25em;
+
+            li {
+                display: none;
+            }
+
+            a {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .container {
+
+        .row1 {
+            grid-template-columns: 1fr;
+            grid-template-areas:
+                'news'
+                'dailyQuotes'
+                'chuckQuotes';
+
+            .chuck-norris-quotes {
+                text-align: center;
+            }
+
+            #chuck-norris-quotes-btn {
+                margin-top: 5px;
+            }
+        }
+
+        .row2 {
+            grid-template-columns: 1fr;
+            grid-template-areas:
+                'dictionary'
+                'toDoList';
+        }
+    }
+}
+
+
+// Deal with text weirdness at really, REALLY, small screens
+@media(max-width:590px) {
+    .head {
+        grid-template-columns: 1fr;
+        grid-template-areas: 'weather'
+'clock';
+
+.weather {
+    grid-template-columns: 1fr;
+    grid-template-areas: 'info';
+    align-self: start;
+    font-size: 1.7em;
+
+    #weather-info {
+        font-size: .64em;
+        margin-top: 3px;
+    }
+
+    #weather-icon {
+        display: none;
+    }
+}
+
+.time {
+    font-size: 1em;
+}
+}
+}

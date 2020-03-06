@@ -1,0 +1,58 @@
+/*------------------------------------------------------------------------*/
+// overlay section
+.overlay {
+    opacity: 0;
+    background-color: rgba(0, 0, 0, .7);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+
+/*------------------------------------------------------------------------*/
+// change weather modal
+.change-weather-box {
+    h3 {
+        margin-top: 10px;
+    }
+
+    // initial styles plus positioning
+    opacity: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    background-color: rgb(52, 58, 64);
+    width: 20em;
+    height: 25em;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+
+    .weather-input {
+        width: 100%;
+        border: 1px solid rgb(189, 187, 187);
+        border-radius: 3px;
+        height: 4.2em;
+        background-color: rgb(245, 244, 244);
+        color: black;
+    }
+
+    .weather-input:focus {
+        border-color: rgb(25, 187, 224);
+    }
+
+    #weather-submit {
+        font-size: 13px;
+        margin-bottom: 30px;
+        width: 50%;
+        border-radius: 3px;
+        border: none;
+        background-color: rgb(25, 187, 224);
+        height: 3.5em;
+        cursor: pointer;
+    }
+
+}

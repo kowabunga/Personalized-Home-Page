@@ -1,0 +1,105 @@
+/*------------------------------------------------------------------------*/
+// Keyframes and associated classes
+/*------------------------------------------------------------------------*/
+// for mobile dropdown animation
+.navbar.responsive {
+    animation: navULIn;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    z-index: 2;
+}
+
+.navbar.responsive li {
+    display: block;
+    animation: navULIn;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes navULIn {
+    from {
+        opacity: .8;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/*------------------------------------------------------------------------*/
+// classes and animations for show/hide weather change modal AND show/hide overlay
+.makeWeatherBoxVisible {
+    animation-name: showWeatherBox;
+    animation-duration: .3s;
+    animation-fill-mode: forwards;
+    z-index: 4;
+}
+
+.makeWeatherBoxInvisible {
+    animation-name: hideWeatherBox;
+    animation-duration: .3s;
+    animation-fill-mode: forwards;
+    // keep box above body items for animation purposes
+    z-index: 3;
+}
+
+.showOverlayBox {
+    animation-name: showOverlay;
+    animation-duration: .3s;
+    animation-fill-mode: forwards;
+    z-index: 3;
+}
+
+.hideOverlayBox {
+    animation-name: hideOverlay;
+    animation-duration: .3s;
+    animation-fill-mode: forwards;
+    // keep overlay above body items for animation purposes
+    z-index: 3;
+}
+
+.hideOverlayWeatherBox {
+    z-index: 0 !important;
+}
+
+@keyframes showOverlay {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes hideOverlay {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes showWeatherBox {
+    from {
+        opacity: 0;
+
+    }
+
+    to {
+    opacity: 1;
+
+}
+}
+
+@keyframes hideWeatherBox {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}

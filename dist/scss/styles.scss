@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap');
+@import 'weatherModal';
+@import 'buttons';
+@import 'header-nav';
+@import 'keyframes-classes';
+
+/*------------------------------------------------------------------------*/
+// Root
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0.5em;
+  font-family: 'Nunito Sans', sans-serif;
+  color: white;
+  -webkit-tap-highlight-color: transparent;
+  grid-gap: 20px;
+}
+
+/*------------------------------------------------------------------------*/
+//html,body
+html,
+body {
+  padding: 0 !important;
+  position: relative;
+  // background-image: linear-gradient(to bottom left, rgb(110, 127, 204), rgb(18, 241, 241));
+  background-color: rgb(211, 208, 208);
+  z-index: 1;
+}
+
+/*------------------------------------------------------------------------*/
+// main page container
+.container {
+  position: relative;
+  width: 100%;
+  display: grid;
+
+
+  /*------------------------------------------------------------------------*/
+  // first row with news and quotes
+  .row1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      'news dailyQuotes'
+      'news chuckQuotes';
+
+    /*------------------------------------------------------------------------*/
+    .news {
+      background-color: rgb(52, 58, 64);
+      grid-area: news;
+      box-shadow: 0px 0px 1px rgb(197, 196, 196);
+      border-radius: 3px;
+      width: 100%;
+      height: 46.25em;
+      overflow: auto;
+
+      .link {
+        text-decoration: none;
+        color: rgb(0, 218, 247);
+      }
+
+      .card {
+        background-color: rgb(146, 146, 146);
+        border: 1px solid rgb(189, 187, 187);
+        box-shadow: 0px 0px 2px rgb(119, 118, 118);
+        border-radius: 3px;
+        line-height: 1.7;
+
+      }
+    }
+
+    /*------------------------------------------------------------------------*/
+    // quote of the day
+    .quote-of-the-day {
+      background-color: rgb(52, 58, 64);
+      grid-area: dailyQuotes;
+      box-shadow: 0px 0px 1px rgb(197, 196, 196);
+      border-radius: 3px;
+      height: 15em;
+      width: 100%;
+      overflow: scroll;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    /*------------------------------------------------------------------------*/
+    // chuck norris quotes
+    .chuck-norris-quotes {
+      background-color: rgb(52, 58, 64);
+      grid-area: chuckQuotes;
+      box-shadow: 0px 0px 1px rgb(197, 196, 196);
+      border-radius: 3px;
+      width: 100%;
+      height: 30em;
+      overflow: auto;
+
+      #cnInput {
+        width: 70%;
+        border: 1px solid rgb(189, 187, 187);
+        border-radius: 3px;
+        height: 4.2em;
+        background-color: rgb(245, 244, 244);
+        color: black;
+        margin-right: .5em;
+      }
+
+      #cnInput:focus {
+        border-color: rgb(25, 187, 224);
+      }
+
+      #chuck-norris-quotes-btn {
+        font-size: 13px;
+        border-radius: 3px;
+        border: none;
+        background-color: rgb(25, 187, 224);
+        height: 3.5em;
+        margin-top: 5px;
+        cursor: pointer;
+      }
+
+      #cnQuotes-list li {
+        box-shadow: 0px 0px 1px rgb(197, 196, 196);
+        line-height: 1.7;
+        margin-bottom: 5px;
+        border-radius: 3px;
+        color: black;
+      }
+
+      // "zebra striped" list
+      #cnQuotes-list li:nth-child(odd) {
+        background-color: rgb(240, 240, 240);
+      }
+
+      #cnQuotes-list li:nth-child(even) {
+        background-color: rgb(219, 221, 221);
+      }
+    }
+  }
+
+  /*------------------------------------------------------------------------*/
+  // second row with dictionary and to do list
+  .row2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      'dictionary toDoList';
+
+    /*------------------------------------------------------------------------*/
+    // dictionary
+    .dictionary {
+      text-align: center;
+      background-color: rgb(52, 58, 64);
+      grid-area: dictionary;
+      box-shadow: 0px 0px 1px rgb(197, 196, 196);
+      border-radius: 3px;
+      width: 100%;
+      height: 40em;
+      overflow: auto;
+
+      #wordInput {
+        width: 70%;
+        border: 1px solid rgb(189, 187, 187);
+        color: black;
+        border-radius: 3px;
+        height: 4.2em;
+        background-color: rgb(245, 244, 244);
+        margin-right: .5em;
+      }
+
+      #wordInput:focus {
+        border-color: rgb(25, 187, 224);
+      }
+
+      #wordSubmit {
+        font-size: 13px;
+        margin-top: 5px;
+        width: 40%;
+        border-radius: 3px;
+        border: none;
+        background-color: rgb(25, 187, 224);
+        height: 3.5em;
+        cursor: pointer;
+      }
+
+
+      ol li {
+        line-height: 1.7;
+      }
+    }
+
+    /*------------------------------------------------------------------------*/
+    .to-doList {
+      text-align: center;
+      background-color: rgb(52, 58, 64);
+      grid-area: toDoList;
+      box-shadow: 0px 0px 1px rgb(197, 196, 196);
+      border-radius: 3px;
+      width: 100%;
+      height: 40em;
+      overflow: auto;
+
+      #task-input {
+        width: 50%;
+        border: 1px solid rgb(189, 187, 187);
+        color: black;
+        border-radius: 3px;
+        height: 4.2em;
+        background-color: rgb(245, 244, 244);
+        margin-right: .5em;
+      }
+
+      #task-input:focus {
+        border-color: rgb(25, 187, 224);
+      }
+
+      #add-task {
+        font-size: 13px;
+        margin-top: 5px;
+        width: 40%;
+        border-radius: 3px;
+        border: none;
+        background-color: rgb(25, 187, 224);
+        height: 3.5em;
+        cursor: pointer;
+      }
+
+      .list-items {
+        list-style-type: none;
+
+        .list-item {
+          position: relative;
+          background-color: rgb(219, 221, 221);
+          color: black;
+          height: 2.8em;
+          border-radius: 3px;
+          text-align: left;
+          line-height: 1.7;
+          margin-bottom: 5px;
+          box-shadow: 0px 0px 1px rgb(197, 196, 196);
+
+          .delete-item {
+            position: absolute;
+            top: 0px;
+            right: 5px;
+            cursor: pointer;
+
+            .fas.fa-times {
+              color: rgb(226, 67, 67);
+              ;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@import 'media';
