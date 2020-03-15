@@ -11,6 +11,7 @@
     <!-- div for adding overlay when modal pops  -->
     <div class="overlay"></div>
     <!-- head contains all weather and time information, including weather changing modal -->
+
     <!-- weather change modal -->
     <div class="change-weather-box">
       <h3>Change Weather Location</h3>
@@ -27,11 +28,22 @@
         <br />
         <input type="text" placeholder="Country - e.g. US" class="weather-input" id="weather-country" />
       </form>
-      <button id="weather-submit">Submit</button>
+      <div id="geo-location">
+        <p>
+          Some locations cannot be looked up via city, state, or country name. If yours cannot, you can use the <em>Find My Location</em> button to find your location and get the weather.
+          <br />
+          <br />
+          <small>Your browser will ask for permission to use your location for this service. Without it, this service will not work.</small>
+        </p>
+      </div>
+      <button id="weather-submit">Submit Location</button>
+      <button id="geoLocate-submit">Find My Location</button>
     </div>
+
     <header class="head">
       <!-- change weather button -->
       <button class="change-weather-btn">Change Weather</button>
+
       <!-- weather section -->
       <section class="weather">
         <div id="weather-info">
@@ -46,12 +58,14 @@
         </div>
         <img id="weather-icon" />
       </section>
+
       <!-- time section -->
       <section class="time">
         <div id="clock-time"></div>
         <div id="date"></div>
       </section>
     </header>
+
     <!-- Convenient links section -->
     <nav class="navbar ">
       <ul id="navUL">
@@ -79,13 +93,16 @@
         <a href="#" id="toggler-a"><i class="fa fa-bars fa-2x" id="toggler-icon"></i></a>
       </ul>
     </nav>
+
     <!-- rest of page -->
     <!-- first row containing news and quotes -->
     <div class="container">
       <div class="row1">
         <!-- news -->
+
         <section class="news" id="news"></section>
         <!-- quotes -->
+
         <section class="quote-of-the-day" id="quotes">
           <div class="attribution">
             Daily Quote provided by:
@@ -101,6 +118,7 @@
           </div>
           <div id="qotd"></div>
         </section>
+
         <!-- chuck norris quotes -->
         <section class="chuck-norris-quotes" id="cnquotes">
           <h3>Laughable Quotes About Who Else but Chuck Norris</h3>
@@ -111,6 +129,7 @@
           <div id="quotes-section"></div>
         </section>
       </div>
+
       <!-- row two contains dictionary and to do list -->
       <div class="row2">
         <section class="dictionary" id="dict">
@@ -134,6 +153,7 @@
         </section>
       </div>
     </div>
+
     <script src="dist/scripts/classes.js"></script>
     <script src="dist/scripts/ui.js"></script>
     <script src="dist/scripts/app.js"></script>

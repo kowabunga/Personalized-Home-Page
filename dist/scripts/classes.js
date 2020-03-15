@@ -1,33 +1,58 @@
 /*------------------------------------------------------------------------*/
+// We give the long/lat default values of null initially,
 class Weather {
-  constructor(city, state, country) {
+  constructor(city, state, country, long = null, lat = null) {
     this.city = city;
     this.state = state;
     this.country = country;
     this.api_key = '0201fcbae5964792406388efd3a6e7f8';
+    this.long = long;
+    this.lat = lat;
   }
-  async getWeather() {
+  async getInputLocationWeather() {
     let response;
+
     // If state is not empty (meaning a United States location for temperature), include state value in request (city,state,country)
     if (this.state != '' || this.state != null || this.state === undefined) {
       response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.city},${this.state},${this.country}&appid=${this.api_key}&units=imperial`);
+
       // otherwise, state will be empty.
       // Otherwise, send request with city and country value
     } else {
       response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.city},${this.country}&appid=${this.api_key}&units=imperial`);
     }
+
     const responseData = await response.json();
     // console.log(responseData);
     return responseData;
   }
+
+  // We have a separate function here for getting the weather information based on geo location
+  // In this way, we don't have to deal with figuring out what values are or aren't present.
+  async getGeoLocationWeather() {
+    // Check if longitude is given as values. Default will be null
+    let response;
+
+    response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${this.lat}&lon=${this.long}&appid=${this.api_key}&units=imperial`);
+
+    const responseData = await response.json();
+    return responseData;
+  }
+
+  // Function for updating city/state/country values
   changeLocation(newCity, newState, newCountry) {
     this.city = newCity;
     this.state = newState;
     this.country = newCountry;
   }
+
+  // function for updating longitude/latitude values
+  changeGeographicCoordinates(newLong, newLat) {
+    this.long = newLong;
+    this.lat = newLat;
+  }
 }
 
-/*------------------------------------------------------------------------*/
 class DailyQuotes {
   async getDailyQuote() {
     const response = await fetch(`https://quotes.rest/qod.json`);

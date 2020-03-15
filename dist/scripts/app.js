@@ -17,7 +17,8 @@ const navLi = document.getElementById('navUL'),
   wState = document.getElementById('weather-state'),
   wCountry = document.getElementById('weather-country'),
   changeWeatherBtn = document.querySelector('.change-weather-btn'),
-  submitChangeWeather = document.querySelector('#weather-submit'),
+  submitChangeWeather = document.getElementById('weather-submit'),
+  submitChangeWeatherGeoLocate = document.getElementById('geoLocate-submit'),
   changeWeatherBox = document.querySelector('.change-weather-box'),
   weatherBoxOverlay = document.querySelector('.overlay'),
   wordInputBox = document.getElementById('wordInput'),
@@ -40,10 +41,13 @@ toggleBtn.addEventListener('click', navToggle);
 wordSubmitBtn.addEventListener('click', getDefinitions);
 
 // wait for user to select change weather
-changeWeatherBtn.addEventListener('click', changeWeatherPopup);
+changeWeatherBtn.addEventListener('click', showWeatherPopup);
 
-// submit change weather modal event listener
+// submit change weather modal, manual entry, event listener
 submitChangeWeather.addEventListener('click', changeWeather);
+
+// submit change weather modal, geo locate, event listener
+submitChangeWeatherGeoLocate.addEventListener('click', getLocationAndWeather);
 
 // Check for click on overlay box (darkened area). If clicked, simply remove overlay and check weather box section just as before when clicking submit
 weatherBoxOverlay.addEventListener('click', showHideOverlay);
@@ -112,7 +116,6 @@ function getChuckNorrisQuotes(e) {
   cnInputNumber.value = '';
 }
 
-console.log('test');
 /*------------------------------------------------------------------------*/
 
 // Clock
@@ -163,14 +166,23 @@ function getDefinitions(e) {
 // weather section
 // Get Weather
 function fetchWeather() {
+  // Get weather from the manually input locations submitted by user and display
   weather
-    .getWeather()
+    .getInputLocationWeather()
     .then(results => ui.populateWeather(results))
     .catch(err => console.log(err));
 }
 fetchWeather();
 
-function changeWeatherPopup(e) {
+function fetchGeoLocatedWeather() {
+  // weather from the geo-located data requested by user and display
+  weather
+    .getGeoLocationWeather()
+    .then(results => ui.populateWeather(results))
+    .catch(err => console.log(err));
+}
+
+function showWeatherPopup(e) {
   e.preventDefault();
   // change weather button color fade animation
   if (changeWeatherBox.classList.contains('makeWeatherBoxInvisible') && weatherBoxOverlay.classList.contains('hideOverlayBox')) {
@@ -188,9 +200,35 @@ function changeWeatherPopup(e) {
   }, 200);
 }
 
+function hideWeatherPopup() {
+  /* ---- Hide Weather ----  */
+
+  // hide weather change box and hide overlay
+  if (changeWeatherBox.classList.contains('makeWeatherBoxVisible') && weatherBoxOverlay.classList.contains('showOverlayBox')) {
+    changeWeatherBox.classList.remove('makeWeatherBoxVisible');
+  }
+  // hide weatherbox and overlay. Weatherbox first, then 200ms later hide overlay
+  changeWeatherBox.classList.add('makeWeatherBoxInvisible');
+  setTimeout(() => {
+    weatherBoxOverlay.classList.remove('showOverlayBox');
+    weatherBoxOverlay.classList.add('hideOverlayBox');
+  }, 200);
+
+  // After boxes are hidden, z-index has to be set to 0 so that both the overlay and box are under the main content of the site. Otherwise, we can't click anything. Wait 300 ms to invoke - same time animation takes to execute
+  // Hide weather/overlay box under ALL content
+  setTimeout(() => {
+    weatherBoxOverlay.classList.add('hideOverlayWeatherBox');
+    changeWeatherBox.classList.add('hideOverlayWeatherBox');
+  }, 400);
+}
+
 function changeWeather(e) {
   // gets new info from user and updates weather information on page
   e.preventDefault();
+
+  /* ---- Hide Weather ----  */
+  hideWeatherPopup();
+
   // hide weather change box and hide overlay
   if (changeWeatherBox.classList.contains('makeWeatherBoxVisible') && weatherBoxOverlay.classList.contains('showOverlayBox')) {
     changeWeatherBox.classList.remove('makeWeatherBoxVisible');
@@ -209,6 +247,8 @@ function changeWeather(e) {
     changeWeatherBox.classList.add('hideOverlayWeatherBox');
   }, 400);
 
+  /* ---- Handle Actual Weather Updating ----  */
+
   // update weather location information
   // may or may not contain a 'state' value, check
   // if state field is empty (location NOT in United States)
@@ -224,6 +264,25 @@ function changeWeather(e) {
   wCity.value = '';
   wState.value = '';
   wCountry.value = '';
+}
+
+function getLocationAndWeather() {
+  hideWeatherPopup();
+
+  // Get long and lat from HTML Geolocation API
+  // Check to see if browser supports the api
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(getLocationChangeWeather);
+  } else {
+    console.log('Geolocation not supported.');
+  }
+  // console.log('Long ' + long, 'Lat ' + lat);
+}
+function getLocationChangeWeather(location) {
+  let long = location.coords.longitude;
+  let lat = location.coords.latitude;
+  weather.changeGeographicCoordinates(long, lat);
+  fetchGeoLocatedWeather();
 }
 
 function showHideOverlay() {

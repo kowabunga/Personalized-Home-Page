@@ -12,47 +12,71 @@
 /*------------------------------------------------------------------------*/
 // change weather modal
 .change-weather-box {
+
     h3 {
         margin-top: 10px;
+        grid-area: title;
+        justify-self: center;
     }
 
     // initial styles plus positioning
     opacity: 0;
     position: absolute;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 'title title'
+    'namedInput geoLocationInput'
+    'namedInputSubmit geoLocationInputSubmit';
     align-items: center;
     justify-content: center;
     border-radius: 5px;
     background-color: rgb(52, 58, 64);
-    width: 20em;
-    height: 25em;
+    width: 90vw;
+    min-height: 25em;
     top: 20%;
     left: 50%;
     transform: translate(-50%, -20%);
 
-    .weather-input {
-        width: 100%;
-        border: 1px solid rgb(189, 187, 187);
-        border-radius: 3px;
-        height: 4.2em;
-        background-color: rgb(245, 244, 244);
-        color: black;
+    .weather-form {
+        grid-area: namedInput;
+
+        .weather-input {
+            width: 100%;
+            border: 1px solid rgb(189, 187, 187);
+            border-radius: 3px;
+            height: 4.2em;
+            background-color: rgb(245, 244, 244);
+            color: black;
+        }
+
+        .weather-input:focus {
+            border-color: rgb(25, 187, 224);
+        }
     }
 
-    .weather-input:focus {
-        border-color: rgb(25, 187, 224);
+    #geo-location {
+        grid-area: geoLocationInput
     }
 
-    #weather-submit {
+    #weather-submit,
+    #geoLocate-submit {
         font-size: 13px;
         margin-bottom: 30px;
-        width: 50%;
+        width: 80%;
         border-radius: 3px;
         border: none;
         background-color: rgb(25, 187, 224);
         height: 3.5em;
         cursor: pointer;
+        justify-self: center;
     }
 
+    #weather-submit {
+        grid-area: namedInputSubmit;
+
+    }
+
+    #geoLocate-submit {
+        grid-area: geoLocationInputSubmit;
+    }
 }
