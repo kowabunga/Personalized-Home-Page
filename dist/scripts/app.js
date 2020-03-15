@@ -112,6 +112,7 @@ function getChuckNorrisQuotes(e) {
   cnInputNumber.value = '';
 }
 
+console.log('test');
 /*------------------------------------------------------------------------*/
 
 // Clock
