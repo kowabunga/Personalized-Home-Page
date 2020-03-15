@@ -68,7 +68,6 @@ function navToggle(e) {
   nav.classList.toggle('responsive');
   if (nav.classList.contains('responsive')) {
     toggleBtn.style.color = 'rgb(25, 187, 224)';
-    toggleBtn.className = 'fa fa-remove fa-2x';
   } else {
     toggleBtn.style.color = 'rgb(255,255,255)';
     toggleBtn.className = 'fa fa-bars fa-2x';
@@ -155,6 +154,8 @@ function getDefinitions(e) {
     // insert para after button
     wordSubmitBtn.parentNode.insertBefore(para, wordSubmitBtn.nextSibling);
     wordSubmitBtn.setAttribute('disabled', true);
+
+    // Remove after 1.5s
     setTimeout(() => {
       para.remove();
       wordSubmitBtn.removeAttribute('disabled');

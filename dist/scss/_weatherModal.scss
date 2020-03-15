@@ -31,7 +31,7 @@
     justify-content: center;
     border-radius: 5px;
     background-color: rgb(52, 58, 64);
-    width: 90vw;
+    width: 50vw;
     min-height: 25em;
     top: 20%;
     left: 50%;
@@ -56,6 +56,10 @@
 
     #geo-location {
         grid-area: geoLocationInput
+    }
+
+    #geo-location p {
+        font-size: .8em;
     }
 
     #weather-submit,

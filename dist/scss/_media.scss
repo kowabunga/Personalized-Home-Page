@@ -1,10 +1,10 @@
 /*------------------------------------------------------------------------*/
 // media queries
-@media (max-width: 700px) {
+@media (max-width: 800px) {
     .change-weather-box {
-        top: 5%;
+        top: 1%;
         left: 50%;
-        transform: translate(-50%, -5%);
+        transform: translate(-50%, -1%);
     }
 
     .head {
@@ -38,7 +38,6 @@
         }
 
         #toggler-icon:hover {
-            color: black;
             transition: ease-in-out .3s;
         }
 
@@ -85,29 +84,38 @@
 
 // Deal with text weirdness at really, REALLY, small screens
 @media(max-width:590px) {
+
+    .change-weather-box {
+        top: 1%;
+        left: 50%;
+        transform: translate(-50%, -1%);
+        width: 90vw;
+        grid-gap: 0px;
+    }
+
     .head {
         grid-template-columns: 1fr;
         grid-template-areas: 'weather'
-'clock';
+            'clock';
 
-.weather {
-    grid-template-columns: 1fr;
-    grid-template-areas: 'info';
-    align-self: start;
-    font-size: 1.7em;
+        .weather {
+            grid-template-columns: 1fr;
+            grid-template-areas: 'info';
+            align-self: start;
+            font-size: 1.7em;
 
-    #weather-info {
-        font-size: .64em;
-        margin-top: 3px;
+            #weather-info {
+                font-size: .64em;
+                margin-top: 3px;
+            }
+
+            #weather-icon {
+                display: none;
+            }
+        }
+
+        .time {
+            font-size: 1em;
+        }
     }
-
-    #weather-icon {
-        display: none;
-    }
-}
-
-.time {
-    font-size: 1em;
-}
-}
 }
