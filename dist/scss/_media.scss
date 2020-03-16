@@ -5,6 +5,12 @@
         top: 1%;
         left: 50%;
         transform: translate(-50%, -1%);
+        width: 500px;
+        min-height: 25em;
+    }
+
+    #geo-location p {
+        font-size: .8em;
     }
 
     .head {
